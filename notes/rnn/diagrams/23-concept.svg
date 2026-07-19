@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">训练 RNN：外层 epoch、内层 batch 与五步反向传播</title>
+  <desc id="desc">取一批 x/y，然后forward，然后计算 NLLLoss，然后zero_grad/backward/step，然后累计指标并保存</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60788E"/></marker>
+  </defs>
+  <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
+  <text x="70" y="62" font-family="sans-serif" font-size="18" font-weight="700" fill="#3B6A91">第 23 节 · 概念图</text>
+  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">训练 RNN：外层 epoch、内层 batch 与五步反</text>
+<text x="70" y="154" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">向传播</text>
+  <line x1="260.2" y1="340" x2="280.2" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="479.4" y1="340" x2="499.4" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="698.5999999999999" y1="340" x2="718.5999999999999" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="917.8" y1="340" x2="937.8" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+      <rect x="70" y="245" width="183.2" height="190" rx="24" fill="#E7F3FF" stroke="#3B82C4" stroke-width="3"/>
+      <circle cx="161.6" cy="285" r="19" fill="#3B82C4"/>
+      <text x="161.6" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">1</text>
+      <text x="161.6" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">取一批 x/y</text>
+    </g>
+<g>
+      <rect x="289.2" y="245" width="183.2" height="190" rx="24" fill="#EAF8F0" stroke="#31966F" stroke-width="3"/>
+      <circle cx="380.79999999999995" cy="285" r="19" fill="#31966F"/>
+      <text x="380.79999999999995" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">2</text>
+      <text x="380.79999999999995" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">forward</text>
+    </g>
+<g>
+      <rect x="508.4" y="245" width="183.2" height="190" rx="24" fill="#FFF4D9" stroke="#D69424" stroke-width="3"/>
+      <circle cx="600" cy="285" r="19" fill="#D69424"/>
+      <text x="600" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">3</text>
+      <text x="600" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">计算 NLLLoss</text>
+    </g>
+<g>
+      <rect x="727.5999999999999" y="245" width="183.2" height="190" rx="24" fill="#F6EAFF" stroke="#8C62C7" stroke-width="3"/>
+      <circle cx="819.1999999999999" cy="285" r="19" fill="#8C62C7"/>
+      <text x="819.1999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">4</text>
+      <text x="819.1999999999999" y="338" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">zero_grad/</text>
+<text x="819.1999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">backward/s</text>
+<text x="819.1999999999999" y="406" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">tep</text>
+    </g>
+<g>
+      <rect x="946.8" y="245" width="183.2" height="190" rx="24" fill="#FFECE7" stroke="#D6674F" stroke-width="3"/>
+      <circle cx="1038.3999999999999" cy="285" r="19" fill="#D6674F"/>
+      <text x="1038.3999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">5</text>
+      <text x="1038.3999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">累计指标并保存</text>
+    </g>
+  <rect x="70" y="512" width="1060" height="105" rx="20" fill="#102A43"/>
+  <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">一轮训练中数据、损失、梯度和参数到底按什么顺序流动？</text>
+  <text x="1130" y="650" text-anchor="end" font-family="sans-serif" font-size="16" fill="#6C8194">原创示意图</text>
+</svg>

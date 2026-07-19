@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Generator</title>
+  <desc id="desc">Generator 把隐藏特征映射到目标词表；V 应等于目标词表大小。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0b1730"/>
+      <stop offset="1" stop-color="#15102b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
+  <circle cx="1120" cy="70" r="150" fill="#7c3aed" opacity=".09"/>
+  <circle cx="70" cy="650" r="190" fill="#0284c7" opacity=".08"/>
+  <g filter="url(#shadow)">
+    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#081426" fill-opacity=".6" stroke="#26334d"/>
+  </g>
+  <text x="90" y="100" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#38bdf8">第 32 节 · 概念图</text>
+  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#f8fafc">Generator</text>
+  <g font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
+    
+    <rect x="101" y="270" width="230" height="150" rx="22" fill="#111c33" stroke="#38bdf8" stroke-width="2"/>
+    <rect x="101" y="270" width="8" height="150" rx="4" fill="#38bdf8"/>
+    <text x="220" y="338.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">Decoder 输出</text>
+<text x="220" y="367.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">[B,L,D]</text>
+  <path d="M 335 345 L 351 345" stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <rect x="357" y="270" width="230" height="150" rx="22" fill="#111c33" stroke="#818cf8" stroke-width="2"/>
+    <rect x="357" y="270" width="8" height="150" rx="4" fill="#818cf8"/>
+    <text x="476" y="338.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">Linear</text>
+<text x="476" y="367.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">D→V</text>
+  <path d="M 591 345 L 607 345" stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <rect x="613" y="270" width="230" height="150" rx="22" fill="#111c33" stroke="#c084fc" stroke-width="2"/>
+    <rect x="613" y="270" width="8" height="150" rx="4" fill="#c084fc"/>
+    <text x="732" y="353" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">log_softmax</text>
+  <path d="M 847 345 L 863 345" stroke="#64748b" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+    <rect x="869" y="270" width="230" height="150" rx="22" fill="#111c33" stroke="#fb7185" stroke-width="2"/>
+    <rect x="869" y="270" width="8" height="150" rx="4" fill="#fb7185"/>
+    <text x="988" y="338.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">词表对数概率</text>
+<text x="988" y="367.5" text-anchor="middle" font-size="21" font-weight="600" fill="#dbeafe">[B,L,V]</text>
+  
+  </g>
+  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#0f2741" stroke="#1e3a5f"/>
+  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#bae6fd">Generator 把隐藏特征映射到目标词表；V 应等于目标词表大小。</text>
+</svg>
