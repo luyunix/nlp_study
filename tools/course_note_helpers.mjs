@@ -136,6 +136,9 @@ function makeNote(topic, lessons, lesson, index, codePackage) {
         `### ${title}\n\n\`\`\`mermaid\n${diagram.trim()}\n\`\`\``
       ).join("\n\n")}`
     : "";
+  const beginnerLesson = lesson.beginner
+    ? `\n\n## 零基础精讲：先把这一节真正弄懂\n\n${lesson.beginner.trim()}`
+    : "";
 
   return `# 第 ${index} 节：${lesson.title}
 
@@ -154,6 +157,8 @@ ${lesson.problem}
 ## 辅助流程图
 
 ${makeMermaidFlow(lesson.chain)}${extraVisuals}
+
+${beginnerLesson}
 
 ## 老师原声整理稿（按讲解顺序）
 

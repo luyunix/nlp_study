@@ -55,7 +55,7 @@ function esc(value) {
 }
 
 function lines(text, x, y, options = {}) {
-  const { size = 24, color = "#dbeafe", weight = 600, anchor = "middle", gap = 32 } = options;
+  const { size = 24, color = "#16324f", weight = 600, anchor = "middle", gap = 32 } = options;
   return String(text)
     .split("\n")
     .map((line, index) => `<text x="${x}" y="${y + index * gap}" text-anchor="${anchor}" font-size="${size}" font-weight="${weight}" fill="${color}">${esc(line)}</text>`)
@@ -94,7 +94,7 @@ function card(x, y, w, h, text, accent = "#38bdf8") {
   const gap = 29;
   const textY = y + h / 2 - ((wrapped.length - 1) * gap) / 2 + 8;
   return `
-    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="#111c33" stroke="${accent}" stroke-width="2"/>
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="22" fill="#ffffff" stroke="${accent}" stroke-width="2"/>
     <rect x="${x}" y="${y}" width="8" height="${h}" rx="4" fill="${accent}"/>
     ${lines(wrapped.join("\n"), x + w / 2 + 4, textY, { size: 21, gap })}
   `;
@@ -126,7 +126,7 @@ function stack(items) {
     const y = 170 + i * 63;
     const x = 260 + i * 34;
     const w = 680 - i * 68;
-    out += `<rect x="${x}" y="${y}" width="${w}" height="54" rx="16" fill="${i % 2 ? "#172554" : "#102a43"}" stroke="${["#38bdf8", "#818cf8", "#c084fc", "#fb7185", "#fbbf24", "#34d399"][i]}" stroke-width="2"/>`;
+    out += `<rect x="${x}" y="${y}" width="${w}" height="54" rx="16" fill="${i % 2 ? "#eef4ff" : "#eef8f5"}" stroke="${["#38bdf8", "#818cf8", "#c084fc", "#fb7185", "#d49a19", "#34a978"][i]}" stroke-width="2"/>`;
     out += lines(item, 600, y + 35, { size: 21 });
     if (i < visible.length - 1) out += arrow(600, y + 56, 600, y + 66);
   });
@@ -137,9 +137,9 @@ function compare(items) {
   const left = items.slice(0, 3);
   const right = items.slice(3, 6);
   const panel = (x, values, accent) => `
-    <rect x="${x}" y="180" width="480" height="330" rx="28" fill="#101a30" stroke="${accent}" stroke-width="3"/>
+    <rect x="${x}" y="180" width="480" height="330" rx="28" fill="#ffffff" stroke="${accent}" stroke-width="3"/>
     ${lines(values[0] ?? "", x + 240, 235, { size: 30, color: accent, weight: 800 })}
-    <line x1="${x + 44}" y1="260" x2="${x + 436}" y2="260" stroke="#334155" stroke-width="2"/>
+    <line x1="${x + 44}" y1="260" x2="${x + 436}" y2="260" stroke="#d7e2ea" stroke-width="2"/>
     ${values.slice(1).map((v, i) => `
       <circle cx="${x + 65}" cy="${320 + i * 92}" r="8" fill="${accent}"/>
       ${lines(wrapText(v, 30).join("\n"), x + 92, 320 + i * 92, { size: 20, anchor: "start", weight: 500, gap: 25 })}
@@ -155,8 +155,8 @@ function matrix(kind) {
   for (let r = 0; r < 6; r += 1) {
     for (let c = 0; c < 6; c += 1) {
       const active = lower ? c <= r : c > r;
-      out += `<rect x="${c * size}" y="${r * size}" width="${size - 4}" height="${size - 4}" rx="7" fill="${active ? "#38bdf8" : "#172033"}" stroke="${active ? "#7dd3fc" : "#334155"}"/>`;
-      out += lines(active ? "1" : "0", c * size + 27, r * size + 36, { size: 19, color: active ? "#082f49" : "#64748b" });
+      out += `<rect x="${c * size}" y="${r * size}" width="${size - 4}" height="${size - 4}" rx="7" fill="${active ? "#bae6fd" : "#f1f5f9"}" stroke="${active ? "#38bdf8" : "#cbd5e1"}"/>`;
+      out += lines(active ? "1" : "0", c * size + 27, r * size + 36, { size: 19, color: active ? "#075985" : "#64748b" });
     }
   }
   out += `</g>`;
@@ -202,8 +202,8 @@ function heads() {
 
 function maskFlow() {
   let out = flow(["scores", "masked_fill", "Softmax", "概率权重"]);
-  out += `<rect x="390" y="475" width="420" height="64" rx="16" fill="#2a1320" stroke="#fb7185" stroke-width="2"/>`;
-  out += lines("mask = 0  →  score = −∞  →  probability = 0", 600, 515, { size: 21, color: "#fecdd3" });
+  out += `<rect x="390" y="475" width="420" height="64" rx="16" fill="#fff1f2" stroke="#fb7185" stroke-width="2"/>`;
+  out += lines("mask = 0  →  score = −∞  →  probability = 0", 600, 515, { size: 21, color: "#9f1239" });
   return out;
 }
 
@@ -239,8 +239,8 @@ function hierarchy(items) {
 function architecture(items) {
   const left = items.slice(0, 3);
   const right = items.slice(3, 6);
-  let out = `<rect x="120" y="150" width="350" height="380" rx="30" fill="#0d2238" stroke="#38bdf8" stroke-width="3"/>`;
-  out += `<rect x="730" y="150" width="350" height="380" rx="30" fill="#21143a" stroke="#c084fc" stroke-width="3"/>`;
+  let out = `<rect x="120" y="150" width="350" height="380" rx="30" fill="#e8f4ff" stroke="#38bdf8" stroke-width="3"/>`;
+  out += `<rect x="730" y="150" width="350" height="380" rx="30" fill="#f5edff" stroke="#a879d1" stroke-width="3"/>`;
   out += lines("ENCODER", 295, 205, { size: 27, color: "#38bdf8", weight: 800 });
   out += lines("DECODER", 905, 205, { size: 27, color: "#c084fc", weight: 800 });
   left.forEach((item, i) => { out += card(165, 245 + i * 88, 260, 62, item, "#38bdf8"); });
@@ -251,20 +251,20 @@ function architecture(items) {
 }
 
 function testLayout(items) {
-  let out = `<rect x="95" y="165" width="1010" height="350" rx="28" fill="#0c1c2c" stroke="#34d399" stroke-width="3"/>`;
-  out += lines("✓  可验证条件", 170, 220, { size: 28, color: "#34d399", anchor: "start", weight: 800 });
+  let out = `<rect x="95" y="165" width="1010" height="350" rx="28" fill="#f0fdf9" stroke="#34a978" stroke-width="3"/>`;
+  out += lines("✓  可验证条件", 170, 220, { size: 28, color: "#16835e", anchor: "start", weight: 800 });
   items.slice(0, 5).forEach((item, i) => {
     const x = i % 2 === 0 ? 150 : 625;
     const y = 275 + Math.floor(i / 2) * 82;
-    out += `<circle cx="${x}" cy="${y - 7}" r="13" fill="#064e3b" stroke="#34d399" stroke-width="2"/>`;
-    out += lines("✓", x, y, { size: 18, color: "#6ee7b7" });
+    out += `<circle cx="${x}" cy="${y - 7}" r="13" fill="#d1fae5" stroke="#34a978" stroke-width="2"/>`;
+    out += lines("✓", x, y, { size: 18, color: "#047857" });
     out += lines(item, x + 30, y, { size: 21, anchor: "start", weight: 500 });
   });
   return out;
 }
 
 function codeLayout(items) {
-  let out = `<rect x="80" y="155" width="1040" height="385" rx="26" fill="#081426" stroke="#334155" stroke-width="2"/>`;
+  let out = `<rect x="80" y="155" width="1040" height="385" rx="26" fill="#f8fafc" stroke="#d7e2ea" stroke-width="2"/>`;
   items.slice(0, 6).forEach((item, i) => {
     const x = 125 + (i % 3) * 350;
     const y = 220 + Math.floor(i / 3) * 150;
@@ -300,30 +300,30 @@ function svgFor(lesson) {
   <desc id="desc">${esc(lesson.note)}</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#07111f"/>
-      <stop offset="0.55" stop-color="#0b1730"/>
-      <stop offset="1" stop-color="#15102b"/>
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.55" stop-color="#f4fbf9"/>
+      <stop offset="1" stop-color="#faf7ff"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000" flood-opacity=".3"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#47716d" flood-opacity=".12"/>
     </filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
     </marker>
   </defs>
   <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
-  <circle cx="1120" cy="70" r="150" fill="#7c3aed" opacity=".09"/>
-  <circle cx="70" cy="650" r="190" fill="#0284c7" opacity=".08"/>
+  <circle cx="1120" cy="70" r="150" fill="#c4b5fd" opacity=".22"/>
+  <circle cx="70" cy="650" r="190" fill="#bae6fd" opacity=".28"/>
   <g filter="url(#shadow)">
-    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#081426" fill-opacity=".6" stroke="#26334d"/>
+    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#ffffff" fill-opacity=".88" stroke="#d9e5e3"/>
   </g>
   <text x="90" y="100" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#38bdf8">第 ${sequenceId} 节 · 概念图</text>
-  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#f8fafc">${esc(lesson.title)}</text>
+  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17343a">${esc(lesson.title)}</text>
   <g font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
     ${bodyFor(lesson)}
   </g>
-  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#0f2741" stroke="#1e3a5f"/>
-  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#bae6fd">${esc(lesson.note)}</text>
+  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#e8f5f2" stroke="#b9d8d3"/>
+  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#285b5d">${esc(lesson.note)}</text>
 </svg>
 `;
 }

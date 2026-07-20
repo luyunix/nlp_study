@@ -3,50 +3,50 @@
   <desc id="desc">内容向量负责“是什么”，位置向量负责“在哪里”。</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#07111f"/>
-      <stop offset="0.55" stop-color="#0b1730"/>
-      <stop offset="1" stop-color="#15102b"/>
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.55" stop-color="#f4fbf9"/>
+      <stop offset="1" stop-color="#faf7ff"/>
     </linearGradient>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000" flood-opacity=".3"/>
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#47716d" flood-opacity=".12"/>
     </filter>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
     </marker>
   </defs>
   <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
-  <circle cx="1120" cy="70" r="150" fill="#7c3aed" opacity=".09"/>
-  <circle cx="70" cy="650" r="190" fill="#0284c7" opacity=".08"/>
+  <circle cx="1120" cy="70" r="150" fill="#c4b5fd" opacity=".22"/>
+  <circle cx="70" cy="650" r="190" fill="#bae6fd" opacity=".28"/>
   <g filter="url(#shadow)">
-    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#081426" fill-opacity=".6" stroke="#26334d"/>
+    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#ffffff" fill-opacity=".88" stroke="#d9e5e3"/>
   </g>
   <text x="90" y="100" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#38bdf8">第 08 节 · 概念图</text>
-  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#f8fafc">位置编码的价值</text>
+  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17343a">位置编码的价值</text>
   <g font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
     
-    <rect x="90" y="180" width="480" height="330" rx="28" fill="#101a30" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="90" y="180" width="480" height="330" rx="28" fill="#ffffff" stroke="#38bdf8" stroke-width="3"/>
     <text x="330" y="235" text-anchor="middle" font-size="30" font-weight="800" fill="#38bdf8">没有位置编码</text>
-    <line x1="134" y1="260" x2="526" y2="260" stroke="#334155" stroke-width="2"/>
+    <line x1="134" y1="260" x2="526" y2="260" stroke="#d7e2ea" stroke-width="2"/>
     
       <circle cx="155" cy="320" r="8" fill="#38bdf8"/>
-      <text x="182" y="320" text-anchor="start" font-size="20" font-weight="500" fill="#dbeafe">词序被打乱仍近似相同</text>
+      <text x="182" y="320" text-anchor="start" font-size="20" font-weight="500" fill="#16324f">词序被打乱仍近似相同</text>
     
       <circle cx="155" cy="412" r="8" fill="#38bdf8"/>
-      <text x="182" y="412" text-anchor="start" font-size="20" font-weight="500" fill="#dbeafe">注意力本身不含先后顺序</text>
+      <text x="182" y="412" text-anchor="start" font-size="20" font-weight="500" fill="#16324f">注意力本身不含先后顺序</text>
     
   
-    <rect x="630" y="180" width="480" height="330" rx="28" fill="#101a30" stroke="#c084fc" stroke-width="3"/>
+    <rect x="630" y="180" width="480" height="330" rx="28" fill="#ffffff" stroke="#c084fc" stroke-width="3"/>
     <text x="870" y="235" text-anchor="middle" font-size="30" font-weight="800" fill="#c084fc">加入位置编码</text>
-    <line x1="674" y1="260" x2="1066" y2="260" stroke="#334155" stroke-width="2"/>
+    <line x1="674" y1="260" x2="1066" y2="260" stroke="#d7e2ea" stroke-width="2"/>
     
       <circle cx="695" cy="320" r="8" fill="#c084fc"/>
-      <text x="722" y="320" text-anchor="start" font-size="20" font-weight="500" fill="#dbeafe">每个位置拥有独特信号</text>
+      <text x="722" y="320" text-anchor="start" font-size="20" font-weight="500" fill="#16324f">每个位置拥有独特信号</text>
     
       <circle cx="695" cy="412" r="8" fill="#c084fc"/>
-      <text x="722" y="412" text-anchor="start" font-size="20" font-weight="500" fill="#dbeafe">保留并行计算能力</text>
+      <text x="722" y="412" text-anchor="start" font-size="20" font-weight="500" fill="#16324f">保留并行计算能力</text>
     
   
   </g>
-  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#0f2741" stroke="#1e3a5f"/>
-  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#bae6fd">内容向量负责“是什么”，位置向量负责“在哪里”。</text>
+  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#e8f5f2" stroke="#b9d8d3"/>
+  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#285b5d">内容向量负责“是什么”，位置向量负责“在哪里”。</text>
 </svg>
