@@ -38,6 +38,36 @@ flowchart TB
     D --> E
 ```
 
+
+
+## 零基础精讲：先把这一节真正弄懂
+
+### 先用一个场景理解
+
+模型输出 18 个分数。CrossEntropyLoss 可以直接接 logits；旧写法是先 LogSoftmax 得 log 概率，再交给 NLLLoss。
+
+### 沿数据流一步一步走
+
+1. 分类 logits
+2. LogSoftmax
+3. log-probabilities
+4. NLLLoss
+5. 标量损失
+
+上面每一步都对应流程图的一段。读图时不断问自己：“此刻张量里装的是什么，形状是什么，下一步为什么需要它？”
+
+### 第一次看代码只盯住这里
+
+把两条配对记住：logits+CrossEntropyLoss，或 log_probs+NLLLoss；不要重复做两次 LogSoftmax。
+
+运行代码前先写出预期形状，运行后逐维核对。数值可以暂时算不出，但 B（批量）、L（长度）、D/H（特征或隐藏宽度）为什么出现，必须能说清。
+
+### 本节边界
+
+负的 log-probability 不是负概率。
+
+本节过关不是背公式，而是能从第 1 步讲到最后一步，并指出哪一个状态把前文带到了后面。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:44　Softmax 与 LogSoftmax
