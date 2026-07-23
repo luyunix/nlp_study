@@ -2,7 +2,7 @@
 
 > 笔记编号 19/29 · 对应原视频 P173 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=173)
 
-[← 上一节：18 中文分类案例（二）：批量分词、padding、truncation 与 attention_mask](./18-classification-preprocessing.md) · [返回总目录](./README.md) · [下一节：20 中文分类案例（四）：训练循环、梯度更新和学习率调度 →](./20-classification-training.md)
+[← 上一节：18 中文分类案例（二）：批量分词、padding、truncation 与 attention_mask](./18-classification-preprocessing.md) · [返回总目录](./README.md) · [下一节：20 中文分类案例（四）：训练循环、梯度更新和逐轮保存 →](./20-classification-training.md)
 
 ## 这节解决什么问题
 
@@ -19,8 +19,8 @@ flowchart LR
     N0["定义 nn.Module"]
     N1["保存预训练 BertModel"]
     N2["取 pooled/CLS 表示 [B,768]"]
-    N3["Linear 映射 [B,2]"]
-    N4["softmax 得两类概率"]
+    N3["Linear 输出 [B,2] logits"]
+    N4["交给 CrossEntropyLoss"]
     N0 --> N1
     N1 --> N2
     N2 --> N3
@@ -125,7 +125,7 @@ class HotelClassifier(nn.Module):
 
 ## 本节知识链
 
-`定义 nn.Module → 保存预训练 BertModel → 取 pooled/CLS 表示 [B,768] → Linear 映射 [B,2] → softmax 得两类概率`
+`定义 nn.Module → 保存预训练 BertModel → 取 pooled/CLS 表示 [B,768] → Linear 输出 [B,2] logits → 交给 CrossEntropyLoss`
 
 ## 自测
 
@@ -145,4 +145,4 @@ class HotelClassifier(nn.Module):
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：18 中文分类案例（二）：批量分词、padding、truncation 与 attention_mask](./18-classification-preprocessing.md) · [返回总目录](./README.md) · [下一节：20 中文分类案例（四）：训练循环、梯度更新和学习率调度 →](./20-classification-training.md)
+[← 上一节：18 中文分类案例（二）：批量分词、padding、truncation 与 attention_mask](./18-classification-preprocessing.md) · [返回总目录](./README.md) · [下一节：20 中文分类案例（四）：训练循环、梯度更新和逐轮保存 →](./20-classification-training.md)

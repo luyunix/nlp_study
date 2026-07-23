@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">获取 DataLoader：补齐、长度和 mask 一起产出</title>
-  <desc id="desc">抽取多条样本，然后分别 pad source/target，然后记录真实长度，然后建立 source mask，然后返回 batch</desc>
+  <title id="title">构建 DataLoader：用 batch_size=1 检查英法 ID 序列</title>
+  <desc id="desc">实例化 Dataset，然后DataLoader 设 batch_size=1，然后开启 shuffle，然后遍历 X/Y，然后打印形状和 ID 后 break</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60788E"/></marker>
   </defs>
   <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
   <text x="70" y="62" font-family="sans-serif" font-size="18" font-weight="700" fill="#3B6A91">第 08 节 · 概念图</text>
-  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">获取 DataLoader：补齐、长度和 mask 一起产</text>
-<text x="70" y="154" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">出</text>
+  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">构建 DataLoader：用 batch_size=1</text>
+<text x="70" y="154" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">检查英法 ID 序列</text>
   <line x1="260.2" y1="340" x2="280.2" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
 <line x1="479.4" y1="340" x2="499.4" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
 <line x1="698.5999999999999" y1="340" x2="718.5999999999999" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
@@ -17,36 +17,39 @@
       <rect x="70" y="245" width="183.2" height="190" rx="24" fill="#E7F3FF" stroke="#3B82C4" stroke-width="3"/>
       <circle cx="161.6" cy="285" r="19" fill="#3B82C4"/>
       <text x="161.6" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">1</text>
-      <text x="161.6" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">抽取多条样本</text>
+      <text x="161.6" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">实例化</text>
+<text x="161.6" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Dataset</text>
     </g>
 <g>
       <rect x="289.2" y="245" width="183.2" height="190" rx="24" fill="#EAF8F0" stroke="#31966F" stroke-width="3"/>
       <circle cx="380.79999999999995" cy="285" r="19" fill="#31966F"/>
       <text x="380.79999999999995" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">2</text>
-      <text x="380.79999999999995" y="338" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">分别 pad</text>
-<text x="380.79999999999995" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">source/tar</text>
-<text x="380.79999999999995" y="406" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">get</text>
+      <text x="380.79999999999995" y="321" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">DataLoader</text>
+<text x="380.79999999999995" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">设</text>
+<text x="380.79999999999995" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">batch_size</text>
+<text x="380.79999999999995" y="423" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">=1</text>
     </g>
 <g>
       <rect x="508.4" y="245" width="183.2" height="190" rx="24" fill="#FFF4D9" stroke="#D69424" stroke-width="3"/>
       <circle cx="600" cy="285" r="19" fill="#D69424"/>
       <text x="600" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">3</text>
-      <text x="600" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">记录真实长度</text>
+      <text x="600" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">开启 shuffle</text>
     </g>
 <g>
       <rect x="727.5999999999999" y="245" width="183.2" height="190" rx="24" fill="#F6EAFF" stroke="#8C62C7" stroke-width="3"/>
       <circle cx="819.1999999999999" cy="285" r="19" fill="#8C62C7"/>
       <text x="819.1999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">4</text>
-      <text x="819.1999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">建立 source</text>
-<text x="819.1999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">mask</text>
+      <text x="819.1999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">遍历 X/Y</text>
     </g>
 <g>
       <rect x="946.8" y="245" width="183.2" height="190" rx="24" fill="#FFECE7" stroke="#D6674F" stroke-width="3"/>
       <circle cx="1038.3999999999999" cy="285" r="19" fill="#D6674F"/>
       <text x="1038.3999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">5</text>
-      <text x="1038.3999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">返回 batch</text>
+      <text x="1038.3999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">打印形状和 ID 后</text>
+<text x="1038.3999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">break</text>
     </g>
   <rect x="70" y="512" width="1060" height="105" rx="20" fill="#102A43"/>
-  <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">不同长度句子怎样组成一个 batch，又不让 PAD 干扰注意力？</text>
+  <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">Dataset 写好后，课堂怎样用最小配置随机取一条句对，并确认英文、法文张量的形状</text>
+<text x="600" y="583" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">与内容？</text>
   <text x="1130" y="650" text-anchor="end" font-family="sans-serif" font-size="16" fill="#6C8194">原创示意图</text>
 </svg>

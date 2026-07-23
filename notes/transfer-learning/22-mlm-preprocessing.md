@@ -1,12 +1,12 @@
-# 第 22 节：中文填空案例（一）：固定遮罩第 16 个位置的数据整理
+# 第 22 节：中文填空案例（一）：固定遮罩下标 16 的数据整理
 
 > 笔记编号 22/29 · 对应原视频 P176 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=176)
 
-[← 上一节：21 中文分类案例（五）：eval/no_grad、准确率与保存最佳模型](./21-classification-evaluation.md) · [返回总目录](./README.md) · [下一节：23 中文填空案例（二）：自定义 BERT + Linear(768→词表大小) →](./23-mlm-model.md)
+[← 上一节：21 中文分类案例（五）：加载 checkpoint、全量准确率与评估边界](./21-classification-evaluation.md) · [返回总目录](./README.md) · [下一节：23 中文填空案例（二）：自定义 BERT + Linear(768→词表大小) →](./23-mlm-model.md)
 
 ## 这节解决什么问题
 
-老师怎样把完整酒店评论改成“第 16 个 token 被遮住、标签是原 token ID”的分类样本？
+课堂代码怎样把完整酒店评论改成“下标 16 被遮住、标签是原 token ID”的分类样本？
 
 ![第 22 节原创概念图](./diagrams/22-concept.svg)
 
@@ -18,8 +18,8 @@
 flowchart LR
     N0["取一批完整评论"]
     N1["编码到长度 32"]
-    N2["保存位置 15 原 token ID"]
-    N3["把位置 15 改成 MASK ID"]
+    N2["保存下标 16 原 token ID"]
+    N3["把下标 16 改成 MASK ID"]
     N4["返回四个输入与标签"]
     N0 --> N1
     N1 --> N2
@@ -32,10 +32,10 @@ flowchart LR
 ```mermaid
 flowchart LR
     A["完整评论"] --> B["编码/截断到 32 token"]
-    B --> C["保存下标 15 的原 token ID 为 label"]
-    C --> D["把下标 15 改成 MASK"]
+    B --> C["保存代码下标 16 的原 token ID 为 label"]
+    C --> D["把代码下标 16 改成 MASK"]
     D --> E["BERT 输出 [B,32,768]"]
-    E --> F["取位置 15 → [B,768]"]
+    E --> F["取下标 16 → [B,768]"]
     F --> G["Linear → [B,V]"]
 ```
 
@@ -56,11 +56,11 @@ flowchart LR
 
 ### 0:00–4:55　把填空看成 21128 类分类
 
-老师用中文 BERT 词表举例：若词表大小是 21128，那么空位就有 21128 个候选，本质是一个大规模多分类。课堂继续复用酒店评论 train/test/validation，而不是另找语料。老师先口头说可随机遮罩若干词，但为了代码简单，实际案例固定处理第 16 个 token 位置。
+老师用中文 BERT 词表举例：若词表大小是 21128，那么空位就有 21128 个候选，本质是一个大规模多分类。课堂继续复用酒店评论 train/test/validation，而不是另找语料。老师先口头说可随机遮罩若干词，但为了代码简单，实际案例固定处理一个位置。
 
 ### 4:55–11:50　复制分类案例并改 collate_fn
 
-数据加载与上一案例相同，主要改批整理函数：每批 8 条评论，用 tokenizer 截断/补齐到长度 32，得到 `input_ids/token_type_ids/attention_mask`。注意 Python 下标从 0 开始，口头“第 16 个位置”对应下标 15（代码若采用 16，正文应按实际代码核对）。
+数据加载与上一案例相同，主要改批整理函数：每批 8 条评论，用 tokenizer 截断/补齐到长度 32，得到 `input_ids/token_type_ids/attention_mask`。这里必须以视频里的实际代码为准：代码使用 `input_ids[:, 16]`，Python 从 0 开始，因此处理的是代码下标 16、自然计数第 17 个 token。老师口头仍把它叫“第 16 个位置”，这是口述与代码下标混用，不能擅自改成下标 15。
 
 ### 11:50–18:50　先存答案，再写入 MASK
 
@@ -68,7 +68,7 @@ flowchart LR
 
 ### 18:50–27:59　DataLoader 测试与教学简化的边界
 
-老师把新整理函数接进 DataLoader，打印一批确认固定位置确实变成 MASK、labels 保存原 ID。这个固定位置方案便于复用分类训练循环，但不是经典 15% 动态遮罩/80-10-10；短文本若第 16 位是 PAD，预测没有意义，因此训练和评估阶段会先过滤真实长度大于 32 的文本。
+老师把新整理函数接进 DataLoader，打印一批确认下标 16 确实变成 MASK、labels 保存原 ID。这个固定位置方案便于复用分类训练循环，但不是经典 15% 动态遮罩/80-10-10；短文本若该位置是 PAD，预测没有意义，因此训练和评估阶段会先过滤真实长度大于 32 的文本。
 
 ## 完整原声逐段记录
 
@@ -93,7 +93,7 @@ def fill_mask_collate(rows):
         padding="max_length",truncation=True,max_length=32,
         return_tensors="pt",
     )
-    pos=15  # 第 16 个 token，Python 从 0 开始
+    pos=16  # 复现课堂代码：下标 16，即自然计数第 17 个 token
     labels=enc["input_ids"][:,pos].clone()
     enc["input_ids"][:,pos]=tokenizer.mask_token_id
     return enc["input_ids"],enc.get("token_type_ids"),enc["attention_mask"],labels
@@ -109,7 +109,7 @@ def fill_mask_collate(rows):
 
 ## 本节知识链
 
-`取一批完整评论 → 编码到长度 32 → 保存位置 15 原 token ID → 把位置 15 改成 MASK ID → 返回四个输入与标签`
+`取一批完整评论 → 编码到长度 32 → 保存下标 16 原 token ID → 把下标 16 改成 MASK ID → 返回四个输入与标签`
 
 ## 自测
 
@@ -129,4 +129,4 @@ def fill_mask_collate(rows):
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：21 中文分类案例（五）：eval/no_grad、准确率与保存最佳模型](./21-classification-evaluation.md) · [返回总目录](./README.md) · [下一节：23 中文填空案例（二）：自定义 BERT + Linear(768→词表大小) →](./23-mlm-model.md)
+[← 上一节：21 中文分类案例（五）：加载 checkpoint、全量准确率与评估边界](./21-classification-evaluation.md) · [返回总目录](./README.md) · [下一节：23 中文填空案例（二）：自定义 BERT + Linear(768→词表大小) →](./23-mlm-model.md)

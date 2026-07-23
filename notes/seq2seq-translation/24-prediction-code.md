@@ -1,12 +1,12 @@
-# 第 24 节：模型预测代码：无真值时逐词生成
+# 第 24 节：模型评估函数：关闭梯度后自回归生成并截取有效注意力矩阵
 
 > 笔记编号 24/26 · 对应原视频 P103 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=103)
 
-[← 上一节：23 训练总结：把 800 行压缩成一条可复述主线](./23-training-summary.md) · [返回总目录](./README.md) · [下一节：25 预测代码测试：从样例翻译发现数据与模型问题 →](./25-prediction-test.md)
+[← 上一节：23 训练结果与总结：五轮曲线下降，但 3000 条演示不代表充分训练](./23-training-summary.md) · [返回总目录](./README.md) · [下一节：25 模型评估测试：加载两份权重并对照英文、真值法语和预测法语 →](./25-prediction-test.md)
 
 ## 这节解决什么问题
 
-推理阶段没有法语答案，怎样从一条英文句子生成 ID 序列和注意力矩阵？
+训练完成后，怎样只给英文张量，在最多 10 步内生成法语词并保存每一步的十维注意力？
 
 ![第 24 节原创概念图](./diagrams/24-concept.svg)
 
@@ -16,11 +16,11 @@
 
 ```mermaid
 flowchart LR
-    N0["清洗/编码英文"]
-    N1["加载词表与权重"]
-    N2["Encoder"]
-    N3["SOS 循环 Decoder"]
-    N4["EOS 停止并 decode"]
+    N0["no_grad 关闭梯度"]
+    N1["Encoder+固定 10 步缓冲区"]
+    N2["SOS 初始化"]
+    N3["topk 自回归直到 EOS"]
+    N4["返回词列表和有效 weights"]
     N0 --> N1
     N1 --> N2
     N2 --> N3
@@ -31,9 +31,9 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    A["编码源句"] --> B["输入 SOS"]
+    A["编码源句并补成固定 10 步"] --> B["输入 SOS"]
     B --> C["Decoder 单步"]
-    C --> D["argmax / beam 选 token"]
+    C --> D["topk(1) 选概率最大 token"]
     D --> E{"是 EOS 或到最大长度？"}
     E -->|"否"| F["把预测 token 作为下一输入"]
     F --> C
@@ -42,21 +42,35 @@ flowchart TB
 
 ## 老师原声整理稿（按讲解顺序）
 
-### 0:00–6:51　准备输入与模型
+### 0:00–5:14　评估开始先关闭梯度；含 Dropout 的 Decoder 还必须切到 eval
 
-对英文使用训练时完全相同的清洗和 src 词表；创建同结构模型，加载 state_dict，eval/no_grad。
+老师把评估函数放在 `torch.no_grad()` 环境中。训练结束后权重已经固定，预测不需要保存反向传播图；关闭梯度能减少内存和计算。这个操作只用于评估/预测，训练阶段不能照搬。
 
-### 6:51–13:48　编码与启动
+原课堂演示重点讲 no_grad，没有单独展示 `model.eval()`；但 Attention Decoder 含 Dropout，正确评估还应对 Encoder 和 Decoder 调用 `.eval()`，否则 Dropout 仍随机丢弃特征，同一句话可能得到不稳定结果。函数接收已经数值化的英文 X、Encoder 和 Attention Decoder，加载权重和准备测试句放在下一节。
 
-source_ids 加 EOS、增加 batch 维、迁移 device；Encoder 得状态；decoder_input 初始化为 SOS。
+### 5:14–10:37　编码后仍要构造固定 [1,10,256] 的 Encoder outputs
 
-### 13:48–20:47　逐步生成
+英文 X 进入 Encoder 得到真实长度 outputs 与 hidden。课程版 Attention Decoder 固定对十个源位置打分，所以评估函数也创建 `[1,10,256]` 零张量，把真实 outputs 复制到前面。
 
-每步 logits.argmax 得 token ID，保存 ID 与 weights；若为 EOS 结束，否则作为下一输入。最大长度防止不结束。
+Decoder hidden 初始化为 Encoder hidden，当前输入初始化为 SOS_token。这里与训练一致，区别是后面没有真实法语 Y 可用。
 
-### 20:47–26:22　还原文本
+### 10:37–16:49　准备法语词列表和 [10,10] 注意力矩阵
 
-用目标 id_to_token 解码，移除 SOS/EOS/PAD。未知输入映射 UNK。返回翻译与 [T,S] 注意力矩阵。
+老师创建列表保存生成的法语单词，并初始化 `[10,10]` 注意力矩阵。第一维预留最多十个目标生成步，第二维对应固定十个英文位置。
+
+每次 Decoder 返回一行 `[1,1,10]` 权重，将它写入当前目标步所在的矩阵行。这样后面可以画出“目标词 × 源位置”的热力图。
+
+### 16:49–22:48　每步用 topk 取概率最大词，EOS 时停止，否则回馈预测
+
+循环最多运行 max_length 次。每步调用 Decoder 得到对数概率、新 hidden 和注意力权重；用 `topk(1)` 取最大候选索引。若索引是 EOS，立即 break；否则通过法语 index2word 查回单词并加入列表。
+
+当前预测索引随后 detach，并作为下一时间步输入。这正是自回归：预测阶段没有真实 Y，也绝不能使用 Teacher Forcing。
+
+### 22:48–26:22　只返回实际生成步对应的注意力行
+
+如果第五步已经生成 EOS，预分配矩阵后面的行仍全是零，没有可视化意义。老师用当前 index 截取前 `index+1` 行，只返回实际执行过的注意力权重。
+
+函数最终返回法语词列表和形如 `[生成步数,10]` 的注意力矩阵。课程词表没有 UNK/PAD 设计；下一节自定义英文句必须由现有英文词表中的词组成。
 
 ## 完整原声逐段记录
 
@@ -66,42 +80,53 @@ source_ids 加 EOS、增加 batch 维、迁移 device；Encoder 得状态；deco
 
 ## 零基础先记住
 
-- 预测绝不使用目标真值
-- eval+no_grad
-- 保存每步 attention
+- 预测用 no_grad
+- 含 Dropout 的模型还要 eval
+- 源和目标最多都按 10 步处理
+- 从 SOS 开始
+- topk 预测回馈
+- EOS 终止
+- 注意力矩阵只截取有效生成行
 
-## 最小可运行代码
+## 课堂评估伪代码（需配合完整模型与词表）
 
 下面代码默认从项目根目录运行；专题配套实现见 [seq2seq_from_scratch 配套实现](../../seq2seq_from_scratch/README.md)。
 
 ```python
-import torch
-from seq2seq_from_scratch.model import EncoderGRU,AttentionDecoderGRU,Seq2Seq
-m=Seq2Seq(EncoderGRU(20,6,8),AttentionDecoderGRU(25,7,8),start_id=1,end_id=2)
-ids,w=m.greedy_decode(torch.randint(3,20,(1,5)),maximum_length=6)
-print(ids.shape,w.shape)
+# 课堂评估循环骨架
+decoded_words=[]
+attention_matrix=torch.zeros(max_length,max_length)
+decoder_input=torch.tensor([[SOS_token]],device=device)
+for index in range(max_length):
+    log_probs,hidden,weights=decoder(decoder_input,hidden,fixed_encoder_outputs)
+    attention_matrix[index]=weights.squeeze(0).squeeze(0)
+    topi=log_probs.topk(1).indices
+    if topi.item()==EOS_token: break
+    decoded_words.append(fr_index2word[topi.item()])
+    decoder_input=topi.detach()
+return decoded_words,attention_matrix[:index+1]
 ```
 
 ### 输入和输出怎么看
 
-预测 ID 为 [1,T]，注意力为 [1,T,5]。
+得到预测法语词列表，以及 [实际生成步数,10] 的注意力矩阵。
 
 ## 最容易踩的坑
 
-加载权重前模型结构/词表大小不一致会报错或语义错位。
+预测阶段不能使用真实法语词；课程词表也没有 UNK，直接输入词表外英文会查表失败。
 
 ## 本节知识链
 
-`清洗/编码英文 → 加载词表与权重 → Encoder → SOS 循环 Decoder → EOS 停止并 decode`
+`no_grad 关闭梯度 → Encoder+固定 10 步缓冲区 → SOS 初始化 → topk 自回归直到 EOS → 返回词列表和有效 weights`
 
 ## 自测
 
-**问题：为什么要返回注意力矩阵？**
+**问题：为什么返回 attention_matrix[:index+1] 而不是完整 [10,10]？**
 
 <details>
 <summary>点开核对答案</summary>
 
-可检查每个目标词主要查看哪些源位置，并画热力图调试。
+EOS 可能提前结束，后面的预留行全是零，不属于实际生成步骤。
 
 </details>
 
@@ -112,4 +137,4 @@ print(ids.shape,w.shape)
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：23 训练总结：把 800 行压缩成一条可复述主线](./23-training-summary.md) · [返回总目录](./README.md) · [下一节：25 预测代码测试：从样例翻译发现数据与模型问题 →](./25-prediction-test.md)
+[← 上一节：23 训练结果与总结：五轮曲线下降，但 3000 条演示不代表充分训练](./23-training-summary.md) · [返回总目录](./README.md) · [下一节：25 模型评估测试：加载两份权重并对照英文、真值法语和预测法语 →](./25-prediction-test.md)

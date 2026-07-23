@@ -41,12 +41,12 @@
 17. [中文分类案例（一）：先把原始数据加载成 text/label 样本](./17-classification-data-loading.md)（原视频 P171）
 18. [中文分类案例（二）：批量分词、padding、truncation 与 attention_mask](./18-classification-preprocessing.md)（原视频 P172）
 19. [中文分类案例（三）：自定义 BERT + Linear(768→2) 网络](./19-classification-model.md)（原视频 P173）
-20. [中文分类案例（四）：训练循环、梯度更新和学习率调度](./20-classification-training.md)（原视频 P174）
-21. [中文分类案例（五）：eval/no_grad、准确率与保存最佳模型](./21-classification-evaluation.md)（原视频 P175）
+20. [中文分类案例（四）：训练循环、梯度更新和逐轮保存](./20-classification-training.md)（原视频 P174）
+21. [中文分类案例（五）：加载 checkpoint、全量准确率与评估边界](./21-classification-evaluation.md)（原视频 P175）
 
 ## 五、中文 MLM 完形填空
 
-22. [中文填空案例（一）：固定遮罩第 16 个位置的数据整理](./22-mlm-preprocessing.md)（原视频 P176）
+22. [中文填空案例（一）：固定遮罩下标 16 的数据整理](./22-mlm-preprocessing.md)（原视频 P176）
 23. [中文填空案例（二）：自定义 BERT + Linear(768→词表大小)](./23-mlm-model.md)（原视频 P177）
 24. [中文填空案例（三）：过滤长文本并复用分类训练循环](./24-mlm-training.md)（原视频 P178）
 25. [中文填空案例（四）：加载 FillMask 模型并计算固定位置准确率](./25-mlm-evaluation.md)（原视频 P179）

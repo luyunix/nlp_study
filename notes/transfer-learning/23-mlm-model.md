@@ -2,11 +2,11 @@
 
 > 笔记编号 23/29 · 对应原视频 P177 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=177)
 
-[← 上一节：22 中文填空案例（一）：固定遮罩第 16 个位置的数据整理](./22-mlm-preprocessing.md) · [返回总目录](./README.md) · [下一节：24 中文填空案例（三）：过滤长文本并复用分类训练循环 →](./24-mlm-training.md)
+[← 上一节：22 中文填空案例（一）：固定遮罩下标 16 的数据整理](./22-mlm-preprocessing.md) · [返回总目录](./README.md) · [下一节：24 中文填空案例（三）：过滤长文本并复用分类训练循环 →](./24-mlm-training.md)
 
 ## 这节解决什么问题
 
-怎样只取每条文本第 16 个位置的 768 维表示，并预测整个中文词表？
+怎样只取每条文本代码下标 16 的 768 维表示，并预测整个中文词表？
 
 ![第 23 节原创概念图](./diagrams/23-concept.svg)
 
@@ -32,10 +32,10 @@ flowchart LR
 ```mermaid
 flowchart LR
     A["完整评论"] --> B["编码/截断到 32 token"]
-    B --> C["保存下标 15 的原 token ID 为 label"]
-    C --> D["把下标 15 改成 MASK"]
+    B --> C["保存代码下标 16 的原 token ID 为 label"]
+    C --> D["把代码下标 16 改成 MASK"]
     D --> E["BERT 输出 [B,32,768]"]
-    E --> F["取位置 15 → [B,768]"]
+    E --> F["取下标 16 → [B,768]"]
     F --> G["Linear → [B,V]"]
 ```
 
@@ -69,7 +69,7 @@ classDiagram
 
 ### 1:58–4:53　只取被遮罩位置
 
-BERT 的 `last_hidden_state [B,32,768]` 含所有位置。课堂只要第 16 个位置，所以用类似 `hidden[:,15,:]` 取 `[B,768]`，再过线性层得到 `[B,21128] = B 条评论 × 每条在整个词表上的 logits`。音轨口头出现“索引 16”，要牢记代码下标和自然数位置差 1。
+BERT 的 `last_hidden_state [B,32,768]` 含所有位置。课堂实际代码用 `hidden[:,16,:]` 取 `[B,768]`，再过线性层得到 `[B,21128] = B 条评论 × 每条在整个词表上的 logits`。这里必须与数据整理阶段的 `input_ids[:,16]` 完全一致；它是下标 16，也就是自然计数第 17 个 token。
 
 ### 4:53–8:57　测试模型结构
 
@@ -99,7 +99,7 @@ class FixedPositionFillMask(torch.nn.Module):
         self.linear=torch.nn.Linear(bert.config.hidden_size,tokenizer.vocab_size,bias=False)
     def forward(self,ids,types,mask):
         h=self.pre_model(input_ids=ids,token_type_ids=types,attention_mask=mask).last_hidden_state
-        return self.linear(h[:,15,:])
+        return self.linear(h[:,16,:])
 ```
 
 ### 输入和输出怎么看
@@ -132,4 +132,4 @@ class FixedPositionFillMask(torch.nn.Module):
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：22 中文填空案例（一）：固定遮罩第 16 个位置的数据整理](./22-mlm-preprocessing.md) · [返回总目录](./README.md) · [下一节：24 中文填空案例（三）：过滤长文本并复用分类训练循环 →](./24-mlm-training.md)
+[← 上一节：22 中文填空案例（一）：固定遮罩下标 16 的数据整理](./22-mlm-preprocessing.md) · [返回总目录](./README.md) · [下一节：24 中文填空案例（三）：过滤长文本并复用分类训练循环 →](./24-mlm-training.md)

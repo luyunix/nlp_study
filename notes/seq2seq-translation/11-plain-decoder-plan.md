@@ -2,7 +2,7 @@
 
 > 笔记编号 11/26 · 对应原视频 P90 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=90)
 
-[← 上一节：10 测试 Encoder：先验形状再运行](./10-test-encoder.md) · [返回总目录](./README.md) · [下一节：12 构建无 Attention GRU Decoder →](./12-plain-decoder-code.md)
+[← 上一节：10 测试 Encoder：先验形状再运行](./10-test-encoder.md) · [返回总目录](./README.md) · [下一节：12 构建无 Attention GRU Decoder：LogSoftmax 必须配 NLLLoss →](./12-plain-decoder-code.md)
 
 ## 这节解决什么问题
 
@@ -32,35 +32,38 @@ flowchart LR
 ```mermaid
 classDiagram
     class EncoderGRU {
-      source_embedding
+      embedding
       gru
-      forward(source_ids)
+      forward(input, hidden)
     }
-    class AttentionDecoderGRU {
-      target_embedding
-      attention
+    class AttnDecoderGRU {
+      embedding
+      dropout
+      attn: Linear(2H,max_length)
+      attn_combine: Linear(2H,H)
       gru
-      classifier
-      forward_step(token, hidden, encoder_outputs)
+      out: Linear(H,target_vocab)
+      log_softmax
+      forward(input,hidden,encoder_outputs)
     }
-    class Seq2Seq {
-      teacher_forcing_ratio
-      forward(source, target)
-      greedy_decode(source)
-    }
-    Seq2Seq *-- EncoderGRU
-    Seq2Seq *-- AttentionDecoderGRU
+    EncoderGRU --> AttnDecoderGRU : outputs + final hidden
 ```
 
 ## 老师原声整理稿（按讲解顺序）
 
-### 0:00–2:58　单步 Decoder
+### 0:00–1:40　先沿结构图区分张量和网络层
 
-每步输入一个目标 token ID 和上一 hidden；Embedding 后经 GRU，Linear 输出目标词表 logits。
+老师先标出当前输入 token、上一 hidden、本次 GRU output 与新 hidden。当前输入是一个法语词 ID，先经 Embedding 变成 `[1,1,256]`；ReLU 只改变数值，不改变形状。
 
-### 2:58–5:19　信息来源的限制
+### 1:40–3:38　GRU 用当前词表示和上一 hidden 得到本步状态
 
-源句只通过 Encoder final hidden 进入 Decoder。长句所有细节都压在一个状态里，这是固定 C 瓶颈。
+上一 hidden 形状同样是 `[1,1,256]`，最初可直接来自 Encoder final hidden。二者送入 GRU 后，本步 output 和新 hidden 仍保持 256 维。这里就是无 Attention 版本接收源句信息的唯一通道。
+
+### 3:38–5:19　输出层把 256 维映射到 4345 个法语候选
+
+GRU output 经过 Linear 映射成约 4345 个法语词的分数，再经 LogSoftmax 成为对数概率。概率最高的候选就是当前预测词。
+
+老师本节主要讲形状流，下一节才写代码。固定一个 final hidden 承担全部源句信息，是无 Attention 版本与后续逐步重算权重版本的主要差别。
 
 ## 完整原声逐段记录
 
@@ -70,9 +73,10 @@ classDiagram
 
 ## 零基础先记住
 
-- Decoder 每步只预测一个词
-- 输出维等于目标词表大小
-- 无注意力只接 final hidden
+- 当前输入与 hidden 都整理为 [1,1,256]
+- GRU output/hidden 仍是 256 维
+- 输出维等于法语词表 4345
+- 无 Attention 只通过 final hidden 接收源句信息
 
 ## 最小可运行代码
 
@@ -112,4 +116,4 @@ Encoder 的最终 hidden。
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：10 测试 Encoder：先验形状再运行](./10-test-encoder.md) · [返回总目录](./README.md) · [下一节：12 构建无 Attention GRU Decoder →](./12-plain-decoder-code.md)
+[← 上一节：10 测试 Encoder：先验形状再运行](./10-test-encoder.md) · [返回总目录](./README.md) · [下一节：12 构建无 Attention GRU Decoder：LogSoftmax 必须配 NLLLoss →](./12-plain-decoder-code.md)

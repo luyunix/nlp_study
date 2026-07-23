@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">中文分类案例（四）：训练循环、梯度更新和学习率调度</title>
+  <title id="title">中文分类案例（四）：训练循环、梯度更新和逐轮保存</title>
   <desc id="desc">加载训练集与模型，然后冻结预训练 BERT，然后CrossEntropy + Adam，然后每批 forward/backward/step，然后每轮保存 state_dict</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
@@ -7,7 +7,7 @@
   </defs>
   <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
   <text x="70" y="62" font-family="sans-serif" font-size="18" font-weight="700" fill="#3B6A91">第 20 节 · 概念图</text>
-  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">中文分类案例（四）：训练循环、梯度更新和学习率调度</text>
+  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">中文分类案例（四）：训练循环、梯度更新和逐轮保存</text>
   <line x1="260.2" y1="340" x2="280.2" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
 <line x1="479.4" y1="340" x2="499.4" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
 <line x1="698.5999999999999" y1="340" x2="718.5999999999999" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>

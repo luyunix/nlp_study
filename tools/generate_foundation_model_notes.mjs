@@ -258,11 +258,11 @@ print(elmo.shape)`,
   {
     p: 189, slug: "gpt-introduction", title: "GPT：因果注意力怎样把“预测下一个 token”扩展成文本生成",
     problem: "只训练一个下一个 token 预测任务，为什么模型能逐步生成段落并迁移到多种任务？",
-    chain: ["Prompt token 序列", "因果 Mask 只看左侧", "预测下一个 token 分布", "选择并追加 token", "循环直到结束"],
+    chain: ["Prompt token 序列", "因果 Mask 看当前位置与左侧", "用位置 t 预测 t+1", "选择并追加 token", "循环直到结束"],
     extraVisuals: [gptFlow, modelFamilies],
     article: article([
       ["0:00–3:53", "GPT 只保留 Decoder 的哪些部分", "GPT 是 Generative Pre-trained Transformer，经典 GPT-1 在 2018 年提出，使用 Decoder-only Transformer。因为没有 Encoder，所以原始 Decoder 中读取 Encoder 输出的交叉注意力被移除，只保留 masked self-attention、前馈网络等。老师用图比较 BERT 主理解/NLU、GPT 主生成/NLG。"],
-      ["3:53–7:51", "因果遮罩不许偷看未来", "BERT Encoder 自注意力可双向看上下文；GPT 在位置 t 只能看 `<t` 的 token。标准实现通常把未来位置的 attention score 加上负无穷，使 softmax 后概率为 0。课堂口头用 0/1 矩阵相乘帮助直觉，但若直接把 score 乘 0，softmax 后并不会严格为 0，这是必须纠正的技术点。"],
+      ["3:53–7:51", "因果遮罩不许偷看未来", "BERT Encoder 自注意力可双向看上下文；GPT 的位置 t 可以读取位置 `≤t` 的输入 token，也就是当前位置和左侧前缀，但不能读取 `>t` 的未来。训练标签右移后，位置 t 的隐藏状态用来预测 t+1。标准实现通常把未来位置的 attention score 加上负无穷，使 softmax 后概率为 0。课堂口头用 0/1 矩阵相乘帮助直觉，但若直接把 score 乘 0，softmax 后并不会严格为 0，这是必须纠正的技术点。"],
       ["7:51–12:49", "从向量化到 12 层 Decoder", "文本先转 token ID 与 embedding，加位置表示后进入多层 Decoder。GPT-1 常见是 12 层，每层含 masked self-attention 与前馈网络；输出经线性层投到词表，再 softmax/采样选下一个 token，循环到 EOS 或长度上限。课堂把这条流程等价改写为“复述 Transformer Decoder 工作过程”。"],
       ["12:49–15:22", "三模型最终对比", "ELMo 的历史贡献是动态上下文化词向量，但主体是双向 LSTM；BERT 使用 Encoder 深度双向，主理解；GPT 使用 Decoder 因果单向，主生成。老师要求最终掌握三点：看懂三类结构图、会解释 BERT 的 MLM/NSP、能说出 ELMo/BERT/GPT 的优缺点。进一步补充：主理解/主生成只是架构倾向，不表示 BERT 绝不能参与生成或 GPT 不能做理解任务。"],
     ]),

@@ -32,10 +32,10 @@ flowchart LR
 ```mermaid
 flowchart LR
     A["完整评论"] --> B["编码/截断到 32 token"]
-    B --> C["保存下标 15 的原 token ID 为 label"]
-    C --> D["把下标 15 改成 MASK"]
+    B --> C["保存代码下标 16 的原 token ID 为 label"]
+    C --> D["把代码下标 16 改成 MASK"]
     D --> E["BERT 输出 [B,32,768]"]
-    E --> F["取位置 15 → [B,768]"]
+    E --> F["取下标 16 → [B,768]"]
     F --> G["Linear → [B,V]"]
 ```
 
@@ -43,7 +43,7 @@ flowchart LR
 
 ### 0:00–3:55　为什么先过滤长度大于 32
 
-课堂把分类训练函数复制过来，第一处修改是 `dataset.filter(lambda x: len(x['sentence']) > 32)`。如果原文很短，补到 32 后第 16 个位置可能是 PAD，拿 PAD 当真实填空标签没有意义。老师选择长文本，确保固定遮罩位置来自原文。严格说字符长度不等于 tokenizer 后 token 长度，稳妥做法应按编码后的有效 token 数过滤。
+课堂把分类训练函数复制过来，第一处修改是 `dataset.filter(lambda x: len(x['sentence']) > 32)`。如果原文很短，补到 32 后代码下标 16 可能是 PAD，拿 PAD 当真实填空标签没有意义。老师选择长文本，确保固定遮罩位置来自原文。严格说字符长度不等于 tokenizer 后 token 长度，稳妥做法应按编码后的有效 token 数过滤。
 
 ### 3:55–7:30　三处关键修改
 
@@ -93,7 +93,7 @@ for ids,types,mask,labels in loader:
 
 ## 自测
 
-**问题：为什么第 16 个位置若是 PAD 会破坏训练？**
+**问题：为什么代码下标 16 若是 PAD 会破坏训练？**
 
 <details>
 <summary>点开核对答案</summary>

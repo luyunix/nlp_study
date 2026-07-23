@@ -2,7 +2,7 @@
 
 > 笔记编号 5/26 · 对应原视频 P84 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=84)
 
-[← 上一节：4 CUDA 配置总结：把可复现信息写进项目](./04-cuda-summary.md) · [返回总目录](./README.md) · [下一节：6 数据预处理：建两套词表并加入 SOS/EOS →](./06-preprocessing.md)
+[← 上一节：4 CUDA 配置总结：把可复现信息写进项目](./04-cuda-summary.md) · [返回总目录](./README.md) · [下一节：6 数据预处理：读取双语句对并建立两套词表 →](./06-preprocessing.md)
 
 ## 这节解决什么问题
 
@@ -38,22 +38,17 @@ classDiagram
       decode(ids)
     }
     class TranslationDataset {
-      source_sentences
-      target_sentences
+      pairs
+      en_word2index
+      fr_word2index
       __getitem__()
     }
-    class CollateFunction {
-      padding
-      lengths
-      masks
-    }
     class DataLoader {
-      batch_size
-      shuffle
+      batch_size = 1
+      shuffle = true
     }
     TranslationDataset --> Vocabulary
-    TranslationDataset --> CollateFunction
-    CollateFunction --> DataLoader
+    TranslationDataset --> DataLoader
 ```
 
 ## 老师原声整理稿（按讲解顺序）
@@ -124,4 +119,4 @@ print(clean("  Hello   world! "))
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：4 CUDA 配置总结：把可复现信息写进项目](./04-cuda-summary.md) · [返回总目录](./README.md) · [下一节：6 数据预处理：建两套词表并加入 SOS/EOS →](./06-preprocessing.md)
+[← 上一节：4 CUDA 配置总结：把可复现信息写进项目](./04-cuda-summary.md) · [返回总目录](./README.md) · [下一节：6 数据预处理：读取双语句对并建立两套词表 →](./06-preprocessing.md)

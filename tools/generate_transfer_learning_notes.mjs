@@ -117,10 +117,10 @@ const fixedMaskFlow = {
   diagram: `
 flowchart LR
     A["完整评论"] --> B["编码/截断到 32 token"]
-    B --> C["保存下标 15 的原 token ID 为 label"]
-    C --> D["把下标 15 改成 MASK"]
+    B --> C["保存代码下标 16 的原 token ID 为 label"]
+    C --> D["把代码下标 16 改成 MASK"]
     D --> E["BERT 输出 [B,32,768]"]
-    E --> F["取位置 15 → [B,768]"]
+    E --> F["取下标 16 → [B,768]"]
     F --> G["Linear → [B,V]"]
 `,
 };
@@ -542,7 +542,7 @@ def collate_fn(rows):
   {
     p: 173, slug: "classification-model", title: "中文分类案例（三）：自定义 BERT + Linear(768→2) 网络",
     problem: "老师没有直接用现成分类模型，而是怎样把预训练 BERT 的 768 维表示接到自己的二分类层？",
-    chain: ["定义 nn.Module", "保存预训练 BertModel", "取 pooled/CLS 表示 [B,768]", "Linear 映射 [B,2]", "softmax 得两类概率"],
+    chain: ["定义 nn.Module", "保存预训练 BertModel", "取 pooled/CLS 表示 [B,768]", "Linear 输出 [B,2] logits", "交给 CrossEntropyLoss"],
     extraVisuals: [autoUml, classificationFlow],
     article: article([
       ["0:00–5:20", "自定义类的两个成员", "老师继承 `nn.Module`，在 `__init__` 中保存已经加载的中文 `BertModel`，再定义 `nn.Linear(768,2)`。768 来自该 BERT Base 的 hidden size，2 来自好评/差评两个类别；若换模型或类别数，这两个数字都要随 config/数据改变。"],
@@ -569,7 +569,7 @@ class HotelClassifier(nn.Module):
     quiz: "768 和 2 分别由什么决定？", answer: "768 由预训练 BERT 的 hidden_size 决定；2 由目标任务好评/差评两个类别决定。"
   },
   {
-    p: 174, slug: "classification-training", title: "中文分类案例（四）：训练循环、梯度更新和学习率调度",
+    p: 174, slug: "classification-training", title: "中文分类案例（四）：训练循环、梯度更新和逐轮保存",
     problem: "一个批次从 DataLoader 到参数更新完整经历哪些步骤，为什么顺序不能乱？",
     chain: ["加载训练集与模型", "冻结预训练 BERT", "CrossEntropy + Adam", "每批 forward/backward/step", "每轮保存 state_dict"],
     extraVisuals: [classificationFlow],
@@ -595,9 +595,9 @@ for ids,types,mask,labels in train_loader:
     quiz: "为什么课堂训练快于全量微调？", answer: "BERT 主体被冻结，不计算/保存其参数梯度，只训练很小的线性分类头。"
   },
   {
-    p: 175, slug: "classification-evaluation", title: "中文分类案例（五）：eval/no_grad、准确率与保存最佳模型",
+    p: 175, slug: "classification-evaluation", title: "中文分类案例（五）：加载 checkpoint、全量准确率与评估边界",
     problem: "验证时怎样保证不更新参数、不受 dropout 随机性影响，并正确汇总整套数据？",
-    chain: ["model.eval", "torch.no_grad", "逐批 logits→预测", "累计全量指标", "保存/加载最佳 checkpoint"],
+    chain: ["加载课堂第 3 轮 checkpoint", "model.eval", "torch.no_grad", "逐批 logits→预测", "累计全量准确率"],
     extraVisuals: [classificationFlow],
     article: article([
       ["0:00–3:49", "测试 DataLoader 与训练不同", "评估函数加载 test CSV 并创建 DataLoader。老师把原来写死训练路径的加载器逻辑改成可接收 Dataset；测试时 `shuffle=False`，通常也不应 `drop_last=True`，否则会漏掉最后不足一批的样本。"],
@@ -621,15 +621,15 @@ print(correct/total)`,
     quiz: "最后一个 batch 较小时，为什么不能简单平均每批 accuracy？", answer: "那会让小批与满批权重相同；应累计正确样本数再除总样本数。"
   },
   {
-    p: 176, slug: "mlm-preprocessing", title: "中文填空案例（一）：固定遮罩第 16 个位置的数据整理",
-    problem: "老师怎样把完整酒店评论改成“第 16 个 token 被遮住、标签是原 token ID”的分类样本？",
-    chain: ["取一批完整评论", "编码到长度 32", "保存位置 15 原 token ID", "把位置 15 改成 MASK ID", "返回四个输入与标签"],
+    p: 176, slug: "mlm-preprocessing", title: "中文填空案例（一）：固定遮罩下标 16 的数据整理",
+    problem: "课堂代码怎样把完整酒店评论改成“下标 16 被遮住、标签是原 token ID”的分类样本？",
+    chain: ["取一批完整评论", "编码到长度 32", "保存下标 16 原 token ID", "把下标 16 改成 MASK ID", "返回四个输入与标签"],
     extraVisuals: [fixedMaskFlow, mlmFlow],
     article: article([
-      ["0:00–4:55", "把填空看成 21128 类分类", "老师用中文 BERT 词表举例：若词表大小是 21128，那么空位就有 21128 个候选，本质是一个大规模多分类。课堂继续复用酒店评论 train/test/validation，而不是另找语料。老师先口头说可随机遮罩若干词，但为了代码简单，实际案例固定处理第 16 个 token 位置。"],
-      ["4:55–11:50", "复制分类案例并改 collate_fn", "数据加载与上一案例相同，主要改批整理函数：每批 8 条评论，用 tokenizer 截断/补齐到长度 32，得到 `input_ids/token_type_ids/attention_mask`。注意 Python 下标从 0 开始，口头“第 16 个位置”对应下标 15（代码若采用 16，正文应按实际代码核对）。"],
+      ["0:00–4:55", "把填空看成 21128 类分类", "老师用中文 BERT 词表举例：若词表大小是 21128，那么空位就有 21128 个候选，本质是一个大规模多分类。课堂继续复用酒店评论 train/test/validation，而不是另找语料。老师先口头说可随机遮罩若干词，但为了代码简单，实际案例固定处理一个位置。"],
+      ["4:55–11:50", "复制分类案例并改 collate_fn", "数据加载与上一案例相同，主要改批整理函数：每批 8 条评论，用 tokenizer 截断/补齐到长度 32，得到 `input_ids/token_type_ids/attention_mask`。这里必须以视频里的实际代码为准：代码使用 `input_ids[:, 16]`，Python 从 0 开始，因此处理的是代码下标 16、自然计数第 17 个 token。老师口头仍把它叫“第 16 个位置”，这是口述与代码下标混用，不能擅自改成下标 15。"],
       ["11:50–18:50", "先存答案，再写入 MASK", "从原始 input_ids 取目标位置 ID 作为 `labels [B]`；随后把同一位置替换为 `tokenizer.mask_token_id`。这时 `input_ids [B,32]` 是带遮罩输入，labels `[B]` 是每条评论原来被遮住的一个 token ID。模型只预测这一个位置，不是标准 BERT MLM 的全位置 `[B,L]` labels。"],
-      ["18:50–27:59", "DataLoader 测试与教学简化的边界", "老师把新整理函数接进 DataLoader，打印一批确认固定位置确实变成 MASK、labels 保存原 ID。这个固定位置方案便于复用分类训练循环，但不是经典 15% 动态遮罩/80-10-10；短文本若第 16 位是 PAD，预测没有意义，因此训练和评估阶段会先过滤真实长度大于 32 的文本。"],
+      ["18:50–27:59", "DataLoader 测试与教学简化的边界", "老师把新整理函数接进 DataLoader，打印一批确认下标 16 确实变成 MASK、labels 保存原 ID。这个固定位置方案便于复用分类训练循环，但不是经典 15% 动态遮罩/80-10-10；短文本若该位置是 PAD，预测没有意义，因此训练和评估阶段会先过滤真实长度大于 32 的文本。"],
     ]),
     points: ["课堂实现固定预测一个位置", "必须先保存原 token ID，再把输入换成 MASK", "这是教学简化，不等于完整 BERT MLM 数据构造"],
     code: `def fill_mask_collate(rows):
@@ -638,7 +638,7 @@ print(correct/total)`,
         padding="max_length",truncation=True,max_length=32,
         return_tensors="pt",
     )
-    pos=15  # 第 16 个 token，Python 从 0 开始
+    pos=16  # 复现课堂代码：下标 16，即自然计数第 17 个 token
     labels=enc["input_ids"][:,pos].clone()
     enc["input_ids"][:,pos]=tokenizer.mask_token_id
     return enc["input_ids"],enc.get("token_type_ids"),enc["attention_mask"],labels`,
@@ -648,12 +648,12 @@ print(correct/total)`,
   },
   {
     p: 177, slug: "mlm-model", title: "中文填空案例（二）：自定义 BERT + Linear(768→词表大小)",
-    problem: "怎样只取每条文本第 16 个位置的 768 维表示，并预测整个中文词表？",
+    problem: "怎样只取每条文本代码下标 16 的 768 维表示，并预测整个中文词表？",
     chain: ["BERT 输出 [B,32,768]", "选固定位置 [B,768]", "Linear 到 [B,V]", "CrossEntropy 预测 token ID", "手工测试形状"],
     extraVisuals: [fixedMaskFlow, autoUml],
     article: article([
       ["0:00–1:58", "从分类网络复制后改输出维", "老师复用前面的自定义 `nn.Module`，BERT 主体不变，把 `Linear(768,2)` 改成 `Linear(768, tokenizer.vocab_size)`；课堂中文词表约 21128。用 `vocab_size` 而非把 21128 写死，换 tokenizer 时更安全，并关闭 bias 以减少少量参数。"],
-      ["1:58–4:53", "只取被遮罩位置", "BERT 的 `last_hidden_state [B,32,768]` 含所有位置。课堂只要第 16 个位置，所以用类似 `hidden[:,15,:]` 取 `[B,768]`，再过线性层得到 `[B,21128] = B 条评论 × 每条在整个词表上的 logits`。音轨口头出现“索引 16”，要牢记代码下标和自然数位置差 1。"],
+      ["1:58–4:53", "只取被遮罩位置", "BERT 的 `last_hidden_state [B,32,768]` 含所有位置。课堂实际代码用 `hidden[:,16,:]` 取 `[B,768]`，再过线性层得到 `[B,21128] = B 条评论 × 每条在整个词表上的 logits`。这里必须与数据整理阶段的 `input_ids[:,16]` 完全一致；它是下标 16，也就是自然计数第 17 个 token。"],
       ["4:53–8:57", "测试模型结构", "用 DataLoader 的一批输入测试前向，检查输出第二维确实等于词表大小。训练时用 CrossEntropyLoss 直接接 logits 和 labels `[B]`；不必先 softmax。老师强调其他初始化、设备移动与分类模型几乎相同，只改任务头和抽取位置。"],
     ]),
     points: ["课堂模型只输出一个位置的 `[B,V]`", "V 由 tokenizer.vocab_size 决定", "CrossEntropyLoss 接 logits，不接 softmax 概率"],
@@ -664,7 +664,7 @@ print(correct/total)`,
         self.linear=torch.nn.Linear(bert.config.hidden_size,tokenizer.vocab_size,bias=False)
     def forward(self,ids,types,mask):
         h=self.pre_model(input_ids=ids,token_type_ids=types,attention_mask=mask).last_hidden_state
-        return self.linear(h[:,15,:])`,
+        return self.linear(h[:,16,:])`,
     output: "若 B=8、V=21128，输出 `[8,21128]`。",
     pit: "把整个 `[B,L,H]` 直接传 Linear 后得到 `[B,L,V]`，却仍拿 `[B]` 标签计算而没有选位置。",
     quiz: "为什么线性层输入是 768？", answer: "被遮罩位置从 BERT 取出的单个 token 上下文表示维度是 hidden_size=768。"
@@ -675,7 +675,7 @@ print(correct/total)`,
     chain: ["加载训练 CSV", "filter 长度>32", "使用填空 collate_fn", "冻结 BERT/训练词表头", "逐轮保存 FillMask 模型"],
     extraVisuals: [fixedMaskFlow],
     article: article([
-      ["0:00–3:55", "为什么先过滤长度大于 32", "课堂把分类训练函数复制过来，第一处修改是 `dataset.filter(lambda x: len(x['sentence']) > 32)`。如果原文很短，补到 32 后第 16 个位置可能是 PAD，拿 PAD 当真实填空标签没有意义。老师选择长文本，确保固定遮罩位置来自原文。严格说字符长度不等于 tokenizer 后 token 长度，稳妥做法应按编码后的有效 token 数过滤。"],
+      ["0:00–3:55", "为什么先过滤长度大于 32", "课堂把分类训练函数复制过来，第一处修改是 `dataset.filter(lambda x: len(x['sentence']) > 32)`。如果原文很短，补到 32 后代码下标 16 可能是 PAD，拿 PAD 当真实填空标签没有意义。老师选择长文本，确保固定遮罩位置来自原文。严格说字符长度不等于 tokenizer 后 token 长度，稳妥做法应按编码后的有效 token 数过滤。"],
       ["3:55–7:30", "三处关键修改", "数据改用过滤后的训练集，DataLoader 的整理函数换成填空版本，模型换成 768→词表大小的填空网络；保存文件名换成 FillMask1/2/3。其余 device、冻结预训练 BERT、CrossEntropy、Adam、三轮循环基本复用。"],
       ["7:30–12:19", "损失和预测", "labels 是每条原文固定位置的词表 ID `[B]`，模型 logits `[B,V]`，CrossEntropy 直接计算。每 20 批可打印局部 loss 和 token top-1 准确率，但仍不是整轮指标。老师强调复用代码时要逐项改路径、函数和模型名，不能只改标题。"],
     ]),
@@ -689,7 +689,7 @@ for ids,types,mask,labels in loader:
     optimizer.zero_grad(); loss.backward(); optimizer.step()`,
     output: "每批用固定位置原 token ID 监督 `[B,V]` 输出。",
     pit: "按 Python 字符数判断长度，却忽略 tokenizer 可能加入特殊 token 或拆分子词。",
-    quiz: "为什么第 16 个位置若是 PAD 会破坏训练？", answer: "模型会反复学习预测 PAD，而不是根据真实上下文恢复有意义的原 token。"
+    quiz: "为什么代码下标 16 若是 PAD 会破坏训练？", answer: "模型会反复学习预测 PAD，而不是根据真实上下文恢复有意义的原 token。"
   },
   {
     p: 179, slug: "mlm-evaluation", title: "中文填空案例（四）：加载 FillMask 模型并计算固定位置准确率",
@@ -698,7 +698,7 @@ for ids,types,mask,labels in loader:
     extraVisuals: [fixedMaskFlow],
     article: article([
       ["0:00–2:52", "评估代码仍只改三处", "加载 test CSV，先过滤 sentence 长度大于 32；DataLoader 使用填空 `collate_fn2`；模型路径从 classification 改为 FillMask checkpoint。训练和评估的数据规则必须一致，否则准确率不可比较。"],
-      ["2:52–4:48", "固定位置 top-1", "model.eval/no_grad 前向得到 `[B,V]`，argmax 得每条预测 token ID，与 labels `[B]` 比较并累计 correct/total。课堂跑出的准确率大约 70%，表示固定第 16 个 token 的 top-1 命中率，不是整句完形填空准确率，也不能外推到随机位置。"],
+      ["2:52–4:48", "固定位置 top-1", "model.eval/no_grad 前向得到 `[B,V]`，argmax 得每条预测 token ID，与 labels `[B]` 比较并累计 correct/total。课堂跑出的准确率大约 70%，表示代码下标 16（自然计数第 17 个 token）的 top-1 命中率，不是整句完形填空准确率，也不能外推到随机位置。"],
       ["4:48–8:28", "结果为什么看似较高", "固定位置、同领域酒店评论、冻结的预训练 BERT 和词频分布都可能让任务较容易。除了 top-1，还应看 top-5、按 token 频次分组和可读候选，避免模型只会猜常见字。老师完成评估后进入 NSP 句子关系任务。"],
     ]),
     points: ["测试必须复用相同过滤与遮罩位置", "70% 是固定位置 token top-1", "应增加 top-k 与错误样例分析"],

@@ -32,10 +32,10 @@ flowchart LR
 ```mermaid
 flowchart LR
     A["完整评论"] --> B["编码/截断到 32 token"]
-    B --> C["保存下标 15 的原 token ID 为 label"]
-    C --> D["把下标 15 改成 MASK"]
+    B --> C["保存代码下标 16 的原 token ID 为 label"]
+    C --> D["把代码下标 16 改成 MASK"]
     D --> E["BERT 输出 [B,32,768]"]
-    E --> F["取位置 15 → [B,768]"]
+    E --> F["取下标 16 → [B,768]"]
     F --> G["Linear → [B,V]"]
 ```
 
@@ -47,7 +47,7 @@ flowchart LR
 
 ### 2:52–4:48　固定位置 top-1
 
-model.eval/no_grad 前向得到 `[B,V]`，argmax 得每条预测 token ID，与 labels `[B]` 比较并累计 correct/total。课堂跑出的准确率大约 70%，表示固定第 16 个 token 的 top-1 命中率，不是整句完形填空准确率，也不能外推到随机位置。
+model.eval/no_grad 前向得到 `[B,V]`，argmax 得每条预测 token ID，与 labels `[B]` 比较并累计 correct/total。课堂跑出的准确率大约 70%，表示代码下标 16（自然计数第 17 个 token）的 top-1 命中率，不是整句完形填空准确率，也不能外推到随机位置。
 
 ### 4:48–8:28　结果为什么看似较高
 

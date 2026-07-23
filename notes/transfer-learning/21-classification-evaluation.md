@@ -1,8 +1,8 @@
-# 第 21 节：中文分类案例（五）：eval/no_grad、准确率与保存最佳模型
+# 第 21 节：中文分类案例（五）：加载 checkpoint、全量准确率与评估边界
 
 > 笔记编号 21/29 · 对应原视频 P175 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=175)
 
-[← 上一节：20 中文分类案例（四）：训练循环、梯度更新和学习率调度](./20-classification-training.md) · [返回总目录](./README.md) · [下一节：22 中文填空案例（一）：固定遮罩第 16 个位置的数据整理 →](./22-mlm-preprocessing.md)
+[← 上一节：20 中文分类案例（四）：训练循环、梯度更新和逐轮保存](./20-classification-training.md) · [返回总目录](./README.md) · [下一节：22 中文填空案例（一）：固定遮罩下标 16 的数据整理 →](./22-mlm-preprocessing.md)
 
 ## 这节解决什么问题
 
@@ -16,11 +16,11 @@
 
 ```mermaid
 flowchart LR
-    N0["model.eval"]
-    N1["torch.no_grad"]
-    N2["逐批 logits→预测"]
-    N3["累计全量指标"]
-    N4["保存/加载最佳 checkpoint"]
+    N0["加载课堂第 3 轮 checkpoint"]
+    N1["model.eval"]
+    N2["torch.no_grad"]
+    N3["逐批 logits→预测"]
+    N4["累计全量准确率"]
     N0 --> N1
     N1 --> N2
     N2 --> N3
@@ -100,7 +100,7 @@ print(correct/total)
 
 ## 本节知识链
 
-`model.eval → torch.no_grad → 逐批 logits→预测 → 累计全量指标 → 保存/加载最佳 checkpoint`
+`加载课堂第 3 轮 checkpoint → model.eval → torch.no_grad → 逐批 logits→预测 → 累计全量准确率`
 
 ## 自测
 
@@ -120,4 +120,4 @@ print(correct/total)
 - [ ] 我知道这节方法最容易用错的地方
 - [ ] 我能独立回答自测题
 
-[← 上一节：20 中文分类案例（四）：训练循环、梯度更新和学习率调度](./20-classification-training.md) · [返回总目录](./README.md) · [下一节：22 中文填空案例（一）：固定遮罩第 16 个位置的数据整理 →](./22-mlm-preprocessing.md)
+[← 上一节：20 中文分类案例（四）：训练循环、梯度更新和逐轮保存](./20-classification-training.md) · [返回总目录](./README.md) · [下一节：22 中文填空案例（一）：固定遮罩下标 16 的数据整理 →](./22-mlm-preprocessing.md)

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
   <title id="title">中文分类案例（三）：自定义 BERT + Linear(768→2) 网络</title>
-  <desc id="desc">定义 nn.Module，然后保存预训练 BertModel，然后取 pooled/CLS 表示 [B,768]，然后Linear 映射 [B,2]，然后softmax 得两类概率</desc>
+  <desc id="desc">定义 nn.Module，然后保存预训练 BertModel，然后取 pooled/CLS 表示 [B,768]，然后Linear 输出 [B,2] logits，然后交给 CrossEntropyLoss</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60788E"/></marker>
@@ -39,15 +39,17 @@
       <rect x="727.5999999999999" y="245" width="183.2" height="190" rx="24" fill="#F6EAFF" stroke="#8C62C7" stroke-width="3"/>
       <circle cx="819.1999999999999" cy="285" r="19" fill="#8C62C7"/>
       <text x="819.1999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">4</text>
-      <text x="819.1999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Linear 映射</text>
-<text x="819.1999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">[B,2]</text>
+      <text x="819.1999999999999" y="338" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Linear 输出</text>
+<text x="819.1999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">[B,2]</text>
+<text x="819.1999999999999" y="406" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">logits</text>
     </g>
 <g>
       <rect x="946.8" y="245" width="183.2" height="190" rx="24" fill="#FFECE7" stroke="#D6674F" stroke-width="3"/>
       <circle cx="1038.3999999999999" cy="285" r="19" fill="#D6674F"/>
       <text x="1038.3999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">5</text>
-      <text x="1038.3999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">softmax 得两</text>
-<text x="1038.3999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">类概率</text>
+      <text x="1038.3999999999999" y="338" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">交给</text>
+<text x="1038.3999999999999" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">CrossEntro</text>
+<text x="1038.3999999999999" y="406" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">pyLoss</text>
     </g>
   <rect x="70" y="512" width="1060" height="105" rx="20" fill="#102A43"/>
   <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">老师没有直接用现成分类模型，而是怎样把预训练 BERT 的 768 维表示接到自己的</text>

@@ -34,8 +34,8 @@ flowchart LR
 ```mermaid
 flowchart LR
     A["英法平行语料"] --> B["清洗与标准化"]
-    B --> C["两套词表 + SOS/EOS/PAD"]
-    C --> D["Dataset / DataLoader"]
+    B --> C["两套词表 + SOS/EOS"]
+    C --> D["Dataset / DataLoader（batch=1）"]
     D --> E["GRU Encoder"]
     E --> F["Attention Decoder"]
     F --> G["Teacher Forcing 训练"]
@@ -48,39 +48,36 @@ flowchart LR
 ```mermaid
 classDiagram
     class EncoderGRU {
-      source_embedding
+      embedding
       gru
-      forward(source_ids)
+      forward(input, hidden)
     }
-    class AttentionDecoderGRU {
-      target_embedding
-      attention
+    class AttnDecoderGRU {
+      embedding
+      dropout
+      attn: Linear(2H,max_length)
+      attn_combine: Linear(2H,H)
       gru
-      classifier
-      forward_step(token, hidden, encoder_outputs)
+      out: Linear(H,target_vocab)
+      log_softmax
+      forward(input,hidden,encoder_outputs)
     }
-    class Seq2Seq {
-      teacher_forcing_ratio
-      forward(source, target)
-      greedy_decode(source)
-    }
-    Seq2Seq *-- EncoderGRU
-    Seq2Seq *-- AttentionDecoderGRU
+    EncoderGRU --> AttnDecoderGRU : outputs + final hidden
 ```
 
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:54　任务与章节路线
 
-老师说明输入英文句子、输出法文句子，是 N→M 的 Seq2Seq。项目会覆盖 CUDA、清洗、Dataset/DataLoader、GRU Encoder、无/有注意力 Decoder、Teacher Forcing、训练、预测与 TensorBoard。
+老师说明输入英文句子、输出法文句子，是 N→M 的 Seq2Seq。项目会覆盖 CUDA、清洗、Dataset/DataLoader、GRU Encoder、无/有注意力 Decoder、Teacher Forcing、训练、预测与注意力热力图。
 
 ### 4:54–9:52　为什么代码量大
 
 算法主体并非 800 个新知识点，代码量来自数据管道、三类模型组件、训练日志、保存加载和测试。先按模块理解接口，再串成主流程。
 
-### 9:52–14:53　输入输出的边界符
+### 9:52–14:53　模型本质是反复做法语词分类
 
-源句和目标句各自建词表，加入 SOS（开始）、EOS（结束）、PAD（补齐）等。模型训练预测的是下一个 token ID，最后再从法语词表还原文本。
+老师把英文经 Encoder 压成中间表示，再由 Decoder 逐时间步生成法语。每一步都会对约 4345 个法语词给出概率，概率最高的候选作为预测，因此从输出层角度看是重复进行多分类。课程后续词表会加入 SOS 与 EOS；本案例没有定义 PAD 或 UNK。
 
 ## 完整原声逐段记录
 
@@ -94,7 +91,7 @@ classDiagram
 - 源/目标需要独立词表
 - 先学模块接口，再学整条训练线
 
-## 最小可运行代码
+## 配套现代化实现示例（注意力公式与课堂版不同）
 
 下面代码默认从项目根目录运行；专题配套实现见 [seq2seq_from_scratch 配套实现](../../seq2seq_from_scratch/README.md)。
 

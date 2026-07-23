@@ -156,9 +156,7 @@ ${lesson.problem}
 
 ## 辅助流程图
 
-${makeMermaidFlow(lesson.chain)}${extraVisuals}
-
-${beginnerLesson}
+${makeMermaidFlow(lesson.chain)}${extraVisuals}${beginnerLesson}
 
 ## 老师原声整理稿（按讲解顺序）
 
@@ -174,7 +172,7 @@ ${lesson.article}
 
 ${lesson.points.map(point => `- ${point}`).join("\n")}
 
-## 最小可运行代码
+## ${lesson.codeLabel ?? "最小可运行代码"}
 
 ${codeIntro}
 
