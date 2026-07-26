@@ -72,6 +72,28 @@ def main() -> int:
             fail(f"重点补写文章缺少老师讲解标记：{note.relative_to(ROOT)}", failures)
 
     accuracy_contracts = {
+        "notes/text-preprocessing/13-word2vec-cbow.md": {
+            "required": (
+                "输入词向量矩阵",
+                "Loss 只负责报告错了多少",
+                "反向传播",
+                "梯度下降",
+                "loss.backward()",
+                "optimizer.step()",
+            ),
+            "forbidden": ("反向传播更新参数，梯度下降计算梯度",),
+        },
+        "notes/text-preprocessing/14-word2vec-skipgram.md": {
+            "required": (
+                "同一个中心词被重复拿来",
+                "并列的预测目标",
+                "复用同一个输出层",
+                "合并损失",
+            ),
+            "forbidden": (
+                "中心词 → 共享隐层 → 左上下文 → 右上下文",
+            ),
+        },
         "notes/seq2seq-translation/07-dataset.md": {
             "required": ("追加 EOS", "torch.long", "没有定义 UNK"),
             "forbidden": ("padding 更适合放进 collate_fn",),
