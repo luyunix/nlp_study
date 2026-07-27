@@ -198,6 +198,9 @@ def main() -> int:
     for marker in ("nlp-study-last-lesson", "pushState", "popstate", "handleMarkdownLink", "search-${CONTENT_VERSION}"):
         if marker not in frontend:
             fail(f"前端缺少能力标记：{marker}", failures)
+    for marker in ("splitDetailsBlocks", 'TextDecoder("utf-8")', "isTranscriptPath", "transcript-modal"):
+        if marker not in frontend and marker not in (WEB / "app/globals.css").read_text(encoding="utf-8"):
+            fail(f"前端缺少 Markdown 阅读修复：{marker}", failures)
     for marker in ("IntersectionObserver", "useId", "DiagramLightbox", "放大查看"):
         if marker not in mermaid:
             fail(f"流程图缺少能力标记：{marker}", failures)
