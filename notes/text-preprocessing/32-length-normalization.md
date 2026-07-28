@@ -72,6 +72,118 @@ GPU 要把多句话堆成一个规则长方体。短句像短木板，要补 PAD
 
 用一句话过关：**一个批次要堆成规则张量，句子长度必须相同。短句补 PAD，长句截断；从左还是从右操作，取决于关键信息通常出现在哪里。**
 
+## 真正看懂这节：padding 是占位，truncation 是丢信息
+
+三条 ID 序列：
+
+```text
+A = [5, 8, 2, 9]       长度 4
+B = [3, 7]             长度 2
+C = [6, 1, 4, 8, 2]    长度 5
+```
+
+若本次目标长度 `L=4`：
+
+```text
+A → [5, 8, 2, 9]       不变
+B → [3, 7, 0, 0]       补两个 PAD
+C → [6, 1, 4, 8]       截掉最后一个 ID
+```
+
+```mermaid
+flowchart LR
+    A["短于 L"] --> P["padding<br/>补 PAD"]
+    B["等于 L"] --> K["保持不变"]
+    C["长于 L"] --> T["truncation<br/>截掉 token"]
+    P --> O["统一长度 L"]
+    K --> O
+    T --> O
+```
+
+补 PAD 不增加语义，只为形成矩形张量；截断会真正丢掉原文，因此风险更高。
+
+### pre 与 post 分别控制哪一侧
+
+有两个独立选择：
+
+1. `padding='pre'/'post'`：PAD 加在前还是后；
+2. `truncating='pre'/'post'`：超长内容从前删还是从后删。
+
+```text
+原序列：[1, 2]
+post padding → [1, 2, 0, 0]
+pre  padding → [0, 0, 1, 2]
+
+原序列：[1, 2, 3, 4, 5]
+post truncating → [1, 2, 3, 4]
+pre  truncating → [2, 3, 4, 5]
+```
+
+```mermaid
+flowchart TB
+    A["关键信息常在开头"] --> B["优先保留前部<br/>从后截"]
+    C["关键信息常在结尾"] --> D["优先保留后部<br/>从前截"]
+    E["模型/预训练规范"] --> F["遵循对应 padding 约定"]
+```
+
+不能只凭习惯选择。应查看真实文本、模型结构和验证结果。
+
+### PAD 为什么必须有专用 ID
+
+PAD 不能与真实词共用 ID。若 ID `0` 本来代表“包装”，又拿 0 填充，模型无法区分真实“包装”和空位置。通常单独保留 `<PAD>`。
+
+但“给 PAD 一个专用 ID”还不够。后续模型需要 mask：
+
+```text
+ids  = [3, 7, 0, 0]
+mask = [1, 1, 0, 0]
+```
+
+mask 告诉 Attention、池化或损失函数哪些位置是真实 token。否则模型可能把 PAD 向量计入平均值或注意力。
+
+### 为什么不是整套数据永远统一一个长度
+
+普通张量要求同一批次内是规则矩形，但不一定要求所有 batch 都使用全局最大长度。常见做法有：
+
+- 全局固定 `max_length`：实现简单、形状稳定；
+- 每个 batch 动态补到本批最长：减少 PAD 浪费；
+- RNN 的 packed sequence 或框架的变长方案：避免部分无效计算。
+
+课程先讲全局固定长度，是最容易理解的基础路线，不是唯一实现。
+
+### 目标长度怎样选
+
+连接第 24 节：
+
+```mermaid
+flowchart LR
+    A["训练集 token 长度分布"] --> B["候选 L"]
+    B --> C["截断率"]
+    B --> D["PAD 比例"]
+    B --> E["显存/速度"]
+    B --> F["验证指标"]
+    C --> G["综合选择"]
+    D --> G
+    E --> G
+    F --> G
+```
+
+`L` 太小，关键内容被截；太大，显存和计算浪费。不要用极端最大值直接决定，也不要在测试集上反复挑选。
+
+### 手写逻辑必须先截断再补齐
+
+```python
+def normalize(ids, max_len, pad_id=0, truncating="post", padding="post"):
+    if len(ids) > max_len:
+        ids = ids[:max_len] if truncating == "post" else ids[-max_len:]
+
+    missing = max_len - len(ids)
+    pads = [pad_id] * missing
+    return ids + pads if padding == "post" else pads + ids
+```
+
+先处理超长序列，才能保证 `missing` 不为负数。最后必须断言每条输出都正好长度 `max_len`。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–2:54　为什么一个 batch 必须统一长度

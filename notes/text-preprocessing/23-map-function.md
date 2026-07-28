@@ -67,6 +67,108 @@ flowchart LR
 
 用一句话过关：**map 像一条流水线：左边不断来元素，中间执行同一个函数，右边才产生结果。它默认惰性计算，所以通常要 list 才能直接查看。**
 
+## 真正看懂这节：`map` 只是把循环写成一条流水线
+
+假设有三条已经分词的文本：
+
+```python
+sentences = [
+    ["包装", "破损", "申请", "换货"],
+    ["物流", "很快"],
+    ["退款", "一直", "没有", "到账"],
+]
+```
+
+想得到每句话的 token 数，最普通的循环是：
+
+```python
+lengths = []
+for tokens in sentences:
+    lengths.append(len(tokens))
+```
+
+结果是 `[4, 2, 4]`。`map` 没有增加新的算法，只是表达“把同一个函数 `len` 依次用到每个元素”：
+
+```python
+lengths = list(map(len, sentences))
+```
+
+```mermaid
+flowchart LR
+    A1["[包装, 破损, 申请, 换货]"] --> F["len"]
+    A2["[物流, 很快]"] --> F
+    A3["[退款, 一直, 没有, 到账]"] --> F
+    F --> R1["4"]
+    F --> R2["2"]
+    F --> R3["4"]
+```
+
+### `map(function, iterable)` 的两个位置各是什么
+
+- `function`：每个元素要执行的规则；
+- `iterable`：一串可依次取出的元素。
+
+`map` 每次从 iterable 取一个元素，把它交给 function，再产生一个结果。输入有多少项，正常情况下就会产生多少项。
+
+```mermaid
+flowchart LR
+    I["iterable<br/>x₀, x₁, x₂"] --> M["map(f, iterable)"]
+    M --> O["f(x₀), f(x₁), f(x₂)"]
+```
+
+### 为什么打印 `map(...)` 看不到列表
+
+Python 3 的 `map` 返回惰性迭代器。创建它时不急着把所有结果算完；当 `list(...)`、`for` 或其他消费者来取值时，才逐个计算。
+
+```python
+m = map(len, sentences)
+print(m)        # 只会看到 map 对象
+print(list(m))  # [4, 2, 4]，这里才消费
+print(list(m))  # []，同一个迭代器已经走完
+```
+
+惰性的好处是可以处理很长的数据流，不必一次把全部中间结果存进内存；代价是它通常只能向前消费一次。
+
+### `lambda` 只是一段很短的临时函数
+
+如果数据还是字符串：
+
+```python
+texts = ["包装 破损 申请 换货", "物流 很快"]
+```
+
+直接 `map(len, texts)` 数的是字符数，包含空格，不是 token 数。需要先切分：
+
+```python
+lengths = list(map(lambda text: len(text.split()), texts))
+```
+
+等价于：
+
+```python
+def token_count(text):
+    return len(text.split())
+```
+
+`lambda` 没有特殊性能魔法，只是省去函数名。逻辑复杂、需要调试或复用时，普通 `def` 更清楚。
+
+### `map`、列表推导和普通循环怎么选
+
+```python
+# map
+list(map(len, sentences))
+
+# 列表推导
+[len(tokens) for tokens in sentences]
+
+# 普通循环
+lengths = []
+for tokens in sentences:
+    lengths.append(len(tokens))
+```
+
+三者都能得到 `[4,2,4]`。学习本节的目标不是强制把所有循环改成 `map`，而是以后看到 `map` 能立刻读成：“对每条数据应用同一转换”。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:59　统计句长前先补 map 基础

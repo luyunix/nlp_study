@@ -114,6 +114,193 @@ def main() -> int:
                 "epoch=5 表示只更新 5 次",
             ),
         },
+        "notes/text-preprocessing/19-embedding-vs-word2vec.md": {
+            "required": (
+                "Word2Vec 和 `nn.Embedding` 不是只能二选一",
+                "任务内联合训练",
+                "训练中会更新”不等于“能根据一句话的上下文产生不同词义",
+                "Embedding.from_pretrained",
+                "行顺序错位",
+            ),
+            "forbidden": (
+                "`nn.Embedding` 天然具有上下文动态词义",
+                "Word2Vec 向量永远不能更新",
+            ),
+        },
+        "notes/text-preprocessing/20-embedding-lookup.md": {
+            "required": (
+                "输入 ID 形状",
+                "[B, L, D]",
+                "dtype=torch.long",
+                "padding_idx=0",
+                "vectors[0, 1]",
+            ),
+            "forbidden": (
+                "Embedding 总是输出三维张量",
+                "ID 2 表示破损程度为 2",
+            ),
+        },
+        "notes/text-preprocessing/21-embedding-visualization.md": {
+            "required": (
+                "行与标签严格一一对应",
+                "降维不是删除几列",
+                "随机 Embedding 画不出语义",
+                "metadata",
+                "detach().cpu()",
+            ),
+            "forbidden": (
+                "二维距离就是原始高维距离",
+                "随机点聚类证明存在语义",
+            ),
+        },
+        "notes/text-preprocessing/22-label-distribution.md": {
+            "required": (
+                "每个集合的总样本数",
+                "每个标签所占比例",
+                "dropna=False",
+                "宏平均指标",
+                "验证/测试集保持真实分布",
+            ),
+            "forbidden": (
+                "类别不平衡只看 Accuracy 就够了",
+            ),
+        },
+        "notes/text-preprocessing/23-map-function.md": {
+            "required": (
+                "map(function, iterable)",
+                "惰性迭代器",
+                "同一个迭代器已经走完",
+                "数的是字符数",
+                "列表推导",
+            ),
+            "forbidden": (
+                "map 会立刻返回完整列表",
+            ),
+        },
+        "notes/text-preprocessing/24-sentence-length-distribution.md": {
+            "required": (
+                "与最终 tokenizer 完全一致",
+                "P90",
+                "覆盖率与计算成本",
+                "不要用测试集反复挑",
+                "一个极长样本不等于脏数据",
+            ),
+            "forbidden": (
+                "直接用全数据最大长度最好",
+            ),
+        },
+        "notes/text-preprocessing/25-length-by-label.md": {
+            "required": (
+                "P(长度 | label=1)",
+                "jitter",
+                "模型学会长度捷径",
+                "只用长度",
+                "不自动等于泄露",
+            ),
+            "forbidden": (
+                "类别长度不同就必须删除长文本",
+            ),
+        },
+        "notes/text-preprocessing/26-itertools-chain.md": {
+            "required": (
+                "只铺平一层",
+                "chain.from_iterable",
+                "字符串本身也是字符的可迭代对象",
+                "重新创建 chain",
+            ),
+            "forbidden": (
+                "chain 会自动完成分词",
+                "chain 会递归铺平任意深度",
+            ),
+        },
+        "notes/text-preprocessing/27-vocabulary-count.md": {
+            "required": (
+                "token 总数",
+                "type/词汇量",
+                "Counter(words)",
+                "词表和频率阈值应只由训练集决定",
+                "OOV 比例",
+            ),
+            "forbidden": (
+                "训练和测试合并建模词表",
+            ),
+        },
+        "notes/text-preprocessing/28-adjective-wordcloud.md": {
+            "required": (
+                "词云只把频率画大",
+                "客服不耐心",
+                "类内频率",
+                "词性标注不是标准答案",
+                "Top-N 频率表",
+            ),
+            "forbidden": (
+                "词云可以自动判断情感",
+                "字体越大区分度一定越高",
+            ),
+        },
+        "notes/text-preprocessing/29-zip-function.md": {
+            "required": (
+                "同位置配对",
+                "最短序列结束时停止",
+                "strict=True",
+                "星号解包",
+            ),
+            "forbidden": (
+                "zip 会根据词义配对",
+                "zip 默认检查长度一致",
+            ),
+        },
+        "notes/text-preprocessing/30-n-gram.md": {
+            "required": (
+                "L - n + 1",
+                "长度为 n 的滑动尺",
+                "set，最后只剩",
+                "word n-gram 与 character n-gram",
+                "特征更多",
+            ),
+            "forbidden": (
+                "n 越大效果一定越好",
+                "set 去重不会影响词频",
+            ),
+        },
+        "notes/text-preprocessing/31-text-similarity.md": {
+            "required": (
+                "共同词表按固定顺序",
+                "欧氏距离越小",
+                "余弦相似度越大",
+                "零向量没有方向",
+                "词重合不等于语义相同",
+            ),
+            "forbidden": (
+                "两个句子各自建词表后可以直接逐格比较",
+            ),
+        },
+        "notes/text-preprocessing/32-length-normalization.md": {
+            "required": (
+                "padding 是占位，truncation 是丢信息",
+                "mask = [1, 1, 0, 0]",
+                "同一批次内",
+                "每个 batch 动态补到本批最长",
+                "先处理超长序列",
+            ),
+            "forbidden": (
+                "PAD 会为文本增加语义",
+                "所有数据必须永远使用全局最大长度",
+            ),
+        },
+        "notes/text-preprocessing/33-back-translation.md": {
+            "required": (
+                "标签保持检查",
+                "只能增强训练集",
+                "原句和改写句可能分别落入训练集与测试集",
+                "外部服务",
+                "不增强基线",
+            ),
+            "forbidden": (
+                "验证集和测试集也应回译扩充",
+                "回译结果可以直接继承标签无需检查",
+            ),
+        },
         "notes/seq2seq-translation/07-dataset.md": {
             "required": ("追加 EOS", "torch.long", "没有定义 UNK"),
             "forbidden": ("padding 更适合放进 collate_fn",),
