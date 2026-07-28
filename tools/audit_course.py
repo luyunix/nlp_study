@@ -63,6 +63,14 @@ def main() -> int:
         ROOT / "notes/attention/03-attention-steps.md": (5, "eat 作查询"),
         ROOT / "notes/seq2seq-translation/06-preprocessing.md": (5, "这里还没有实现 PAD 或 UNK"),
         ROOT / "notes/seq2seq-translation/13-test-plain-decoder.md": (5, "不能被表述成完整推理算法"),
+        ROOT / "notes/rnn/08-lstm-diagram-part2.md": (4, "手算两个记忆维度"),
+        ROOT / "notes/attention/04-seq2seq-task.md": (5, "把一句翻译完整走一遍"),
+        ROOT / "notes/attention/05-seq2seq-with-attention.md": (4, "同一源句算三次权重"),
+        ROOT / "notes/attention/14-attention-parameters.md": (5, "不要从数字猜含义"),
+        ROOT / "notes/seq2seq-translation/05-data-cleaning.md": (3, "从原始行到可训练句对"),
+        ROOT / "notes/transfer-learning/10-auto-text-classification.md": (3, "Pipeline 隐藏的五步"),
+        ROOT / "notes/transfer-learning/15-auto-ner.md": (3, "一条句子怎样还原成实体"),
+        ROOT / "notes/foundation-models/03-bert-mlm-nsp.md": (4, "标签其实藏在原文里"),
     }
     for note, (minimum_sections, marker) in targeted.items():
         text = note.read_text(encoding="utf-8")
@@ -70,6 +78,25 @@ def main() -> int:
             fail(f"重点补写文章时间段不足：{note.relative_to(ROOT)}", failures)
         if marker not in text:
             fail(f"重点补写文章缺少老师讲解标记：{note.relative_to(ROOT)}", failures)
+
+    reader = (WEB / "app/page.tsx").read_text(encoding="utf-8")
+    guide_topics = (
+        "course-introduction",
+        "text-preprocessing",
+        "rnn",
+        "attention",
+        "seq2seq-translation",
+        "transformer",
+        "fasttext-classification",
+        "transfer-learning",
+        "foundation-models",
+    )
+    for topic in guide_topics:
+        if f'"{topic}"' not in reader and f"{topic}:" not in reader:
+            fail(f"阅读器缺少章节零基础导学：{topic}", failures)
+    for marker in ("prerequisites", "workedExample", "shapePath", "stages", "展开本章零基础导学"):
+        if marker not in reader:
+            fail(f"阅读器章节导学缺少字段或入口：{marker}", failures)
 
     accuracy_contracts = {
         "notes/text-preprocessing/13-word2vec-cbow.md": {

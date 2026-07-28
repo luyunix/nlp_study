@@ -65,6 +65,45 @@ sequenceDiagram
     O->>O: zero_grad → backward → step
 ```
 
+## 真正看懂 Auto 流程：Pipeline 隐藏的五步
+
+假设模型用于三分类客服路由，标签映射是：
+
+```python
+{0: "咨询", 1: "售后", 2: "物流"}
+```
+
+输入两条文本 `["屏幕碎了怎么办", "快递到哪里了"]`。Tokenizer 不只是“分词”，还会加入特殊 token、查 ID、按批次补齐并生成 mask：
+
+```text
+input_ids      [2,L]  两行 token ID
+attention_mask [2,L]  有效 token 为 1，padding 为 0
+```
+
+模型内部先产生每个位置的上下文表示 `[2,L,H]`，分类头再把整句信息映射成：
+
+```text
+logits [2,3]
+```
+
+例如第一行 logits 是 `[0.4, 2.1, -0.2]`。它们可以为负，也不要求和为 1，因为 logits 只是分数。Softmax 才把它们变成三类概率；最大值所在的 ID 为 1，再通过 `id2label` 得到“售后”。
+
+### 五个对象不能混在一起
+
+| 对象 | 它负责什么 | 它不负责什么 |
+|---|---|---|
+| tokenizer | 文本到 ID、mask、补齐和截断 | 不做类别预测 |
+| base model | 产生上下文表示 | 不一定自带当前任务标签 |
+| classification head | 把整句表示映射到 C 个分数 | 不负责把 ID 翻译成业务名称 |
+| `softmax` / `sigmoid` | 把 logits 转成可解释概率 | 不训练模型 |
+| `id2label` | 把类别 ID 映射成标签名 | 不改变预测结果 |
+
+### 为什么 `eval()` 和 `no_grad()` 要同时用
+
+`model.eval()` 切换 Dropout 等层的行为，但仍然会记录梯度；`torch.no_grad()` 停止构建反向传播图，但不会自动关闭 Dropout。推理时通常两者都需要。它们不会冻结或删除模型参数，只改变本次运行方式。
+
+若 checkpoint 是多标签分类，三类可以同时为真，就不能用 Softmax 强迫概率互相竞争，也不能只取一个 argmax；应对每类独立做 sigmoid，再按经过验证集选择的阈值保留标签。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–7:00　为什么改用 Auto 类

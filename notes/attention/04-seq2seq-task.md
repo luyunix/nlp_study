@@ -51,6 +51,53 @@ classDiagram
     Decoder --> Attention : 下一时间步更新Q
 ```
 
+## 真正看懂 Seq2Seq：把一句翻译完整走一遍
+
+假设任务是把英文 `I am tired` 翻译成法文 `je suis fatigué`。两边分别有自己的词表，源句加入结束符后可能编码为：
+
+```text
+source_ids = [I, am, tired, EOS]        # 长度 Ls=4
+target_ids = [SOS, je, suis, fatigué, EOS]  # 长度 Lt=5
+```
+
+这里的编号实际会是整数；为了看懂流程，先用词名代替。`Ls` 与 `Lt` 不相等完全正常，因为 Seq2Seq 学的是“一个序列到另一个序列”，不是逐位置替换。
+
+### 第一步：Encoder 不是直接翻译
+
+Encoder 依次读取源词，并产生：
+
+```text
+encoder_outputs: [B, Ls, H]
+encoder_hidden:  [layers, B, H]   # 具体形状随 RNN 类型而变
+```
+
+当 `B=1、Ls=4、H=256` 时，`encoder_outputs` 是 `[1,4,256]`：源句四个位置各有一份 256 维表示。普通固定向量方案可能只把最终 hidden 交给 Decoder；Attention 方案会保留四个位置，供 Decoder 随时回看。
+
+### 第二步：Decoder 为什么必须“一步一步”生成
+
+开始时 Decoder 收到 `SOS`。它先预测第一个目标词 `je`；下一步需要知道前面已经生成什么，才能预测 `suis`。因此一次解码可以写成：
+
+```text
+SOS → je → suis → fatigué → EOS
+```
+
+每一步输出的不是一个词本身，而是目标词表上所有词的分数 `[B,Vt]`。取最高分或用搜索策略选出一个 token，再进入下一步。生成 `EOS` 表示停止；如果始终没有生成 EOS，还必须设置最大长度，避免无限循环。
+
+### 第三步：训练和真正翻译为什么不同
+
+训练数据有正确译文，所以预测 `suis` 时，可以把真实的 `je` 作为上一词输入，这叫 Teacher Forcing。推理时正确译文不存在，只能把模型自己刚预测的 `je` 喂回去。
+
+```text
+训练：SOS → 真值 je → 真值 suis → 真值 fatigué
+推理：SOS → 预测 je → 预测 suis → 预测 fatigué
+```
+
+Teacher Forcing 能让早期训练更稳定，但也造成训练与推理输入分布不同。它不是“把未来答案同时给模型看”：在第 t 步，输入的是第 t−1 个真实词，当前目标仍是第 t 个词。
+
+### 第四步：Attention 到底修复哪里
+
+若只用一个固定向量 C，源句无论 4 个词还是 40 个词，都要压进同样大小的盒子。Attention 不取消 Encoder 或 Decoder，而是在每个解码步，根据当前 Decoder 状态给所有 `encoder_outputs` 分配权重，得到本步专用 context。生成 `fatigué` 时可以重点查看 `tired`，生成 `je` 时则可重点查看 `I`。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:59　句子到句子的任务

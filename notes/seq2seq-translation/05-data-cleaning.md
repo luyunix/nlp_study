@@ -51,6 +51,52 @@ classDiagram
     TranslationDataset --> DataLoader
 ```
 
+## 真正看懂成对清洗：从原始行到可训练句对
+
+假设平行语料的一行是用制表符分开的：
+
+```text
+I’m cold.	J’ai froid.
+```
+
+这是一条训练样本，不是两条互不相关的句子。正确处理应先把整行拆成 `(source, target)`，再分别应用与语言相容的规范化规则，最后对**整对**作保留或丢弃决定。
+
+```python
+import re
+import unicodedata
+
+def normalize_text(text: str) -> str:
+    text = unicodedata.normalize("NFKC", text).strip().lower()
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+def parse_pair(line: str):
+    columns = line.rstrip("\n").split("\t")
+    if len(columns) != 2:
+        return None, "bad_column_count"
+    source, target = map(normalize_text, columns)
+    if not source or not target:
+        return None, "empty_side"
+    return (source, target), None
+```
+
+这段安全的最小规则只统一 Unicode、大小写和空白，不会擅自删除 `j’ai` 中的撇号或 `é`。课程中“转 ASCII”是为了演示简化流程，并不意味着所有生产语料都应该去掉重音。
+
+### 过滤长度时，为什么必须以“对”为单位
+
+假设限制两边都不超过 20 个 token：
+
+```text
+源句 12 词，目标句 15 词 → 保留整对
+源句 12 词，目标句 35 词 → 删除整对
+```
+
+如果只删除过长目标句，却把源句留在列表里，后面的第 8 个源句就可能配上第 9 个目标句。模型会被要求学习错误翻译，损失可能照样计算，但监督信号已经毁坏。
+
+### 清洗必须留下可审计信息
+
+至少记录原始行数、成功句对数、列数异常、空侧、超长和字符异常分别有多少；再随机查看清洗前后样本。训练/验证/测试应使用同一套文本规范，但数据增强和由训练数据估计的规则只能在训练划分中拟合，避免验证信息渗入训练。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:58　清洗函数的职责
