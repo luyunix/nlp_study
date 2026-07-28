@@ -61,6 +61,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：MLM 头把每个 H 维位置映射到整个词表
+
+BERT 输出 `[B,L,H]`，课程自定义 `Linear(H,V)` 得 `[B,L,V]`。只取 mask 位置 `[B,V]` 计算交叉熵更直观；若保留全部位置，labels 的非目标位置设 -100。
+
+直接线性层是教学简化，标准 BertForMaskedLM 头还可能含变换、激活、归一化和与输入 Embedding 权重共享。加载预训练时要明确哪些头是新初始化。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–1:58　从分类网络复制后改输出维

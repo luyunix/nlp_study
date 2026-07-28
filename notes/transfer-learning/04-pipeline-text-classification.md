@@ -52,6 +52,12 @@ flowchart TB
     C["BertTokenizer + BertFor... 等具体类"] --> L["明确绑定某个架构"]
 ```
 
+## 真正看懂本节：Pipeline 输出标签前隐藏了五步
+
+文本先 tokenize 成 `[B,L]` IDs/mask，任务模型输出 `[B,C]` logits，单标签做 Softmax/argmax，再由 `id2label` 变成名称。`LABEL_0` 只说明 checkpoint 没提供业务名，不应自行猜其含义。
+
+Pipeline 适合确认输入输出，不免除核对 checkpoint 任务、最大长度、截断和标签映射。多标签模型应 sigmoid+阈值，不能照搬单标签 argmax。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:49　环境与 pipeline 参数

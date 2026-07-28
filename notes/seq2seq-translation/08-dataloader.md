@@ -51,6 +51,14 @@ classDiagram
     TranslationDataset --> DataLoader
 ```
 
+## 真正看懂本节：batch_size=1 是教学简化，不是 DataLoader 上限
+
+英法句对长度不同，例如源 `[4]`、目标 `[6]`。课程用 batch size 1 时，每批可直接得到各自长度的 ID 序列；若 batch>1，默认堆叠会因样本长度不一失败。
+
+正式拼批需要 `collate_fn` 分别 padding 源/目标，返回 `[B,Ls]、[B,Lt]`、真实长度或 mask。源 PAD 不能进入 Encoder 有效状态，目标 PAD 不能计入 loss。`shuffle=True` 适合训练，验证通常固定顺序。
+
+第一批要打印源 ID、目标 ID、EOS、shape 和 decode 结果，确认两套词表没有混用。DataLoader 只负责取批，不自动保证 padding 被模型正确忽略。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–2:33　用 Dataset 创建 DataLoader，课堂把一批固定为一条句对

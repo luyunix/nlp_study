@@ -74,6 +74,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：checkpoint 必须同时匹配 tokenizer、config 和权重
+
+Tokenizer 决定 ID，config 定义架构/标签，model 权重解释这些 ID。混用不同 checkpoint 可能维度能运行却语义错位。Pipeline 是高层封装，Auto 类按 config 选具体实现，具体类显式绑定模型家族。
+
+下载缓存、离线目录、版本与设备都应记录。先加载一个小 checkpoint 做最小前向，再进入任务；不要把网络下载错误、权限错误和模型代码错误混为一谈。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–1:47　先复盘模型三分法

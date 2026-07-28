@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
   <title id="title">词向量迁移：把别人训练好的语义坐标系拿来起步</title>
-  <desc id="desc">选择同语言预训练向量，然后下载并校验，然后解压/加载，然后检查近邻，然后用于下游任务或继续训练</desc>
+  <desc id="desc">选择同语言预训练向量，然后下载并校验，然后区分二进制模型和文本向量，然后检查近邻与覆盖率，然后查询或初始化下游模型</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60788E"/></marker>
@@ -40,8 +40,8 @@
       <rect x="946.8" y="245" width="183.2" height="190" rx="24" fill="#FFECE7" stroke="#D6674F" stroke-width="3"/>
       <circle cx="1038.3999999999999" cy="285" r="19" fill="#D6674F"/>
       <text x="1038.3999999999999" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">5</text>
-      <text x="1038.3999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">用于下游任务或继续训</text>
-<text x="1038.3999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">练</text>
+      <text x="1038.3999999999999" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">查询或初始化</text>
+<text x="1038.3999999999999" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">下游模型</text>
     </g>
   <rect x="70" y="512" width="1060" height="105" rx="20" fill="#102A43"/>
   <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">自己的标注数据很少时，怎样复用大语料上已经学到的词向量，而不是从随机数开始？</text>

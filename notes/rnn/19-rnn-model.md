@@ -55,6 +55,23 @@ flowchart LR
 
 
 
+## 真正看懂本节：模型类只是把三段形状接起来
+
+姓名 `Abel` 经字符 One-Hot 后可看作 `[B,L,D]=[1,4,57]`。RNN 产生：
+
+```text
+output [1,4,H]
+h_n    [1,1,H]
+```
+
+多对一分类只需要整句一个结果，所以取最终有效表示 `[1,H]`，再经过 `Linear(H,18)` 得到 `[1,18]`。Linear 的 18 来自类别数，不来自姓名长度。
+
+若使用 LogSoftmax，模型输出是 18 个 log-probability，可与 NLLLoss 配套；若输出原始 logits，则直接使用 CrossEntropyLoss。两套写法选一套，避免重复归一化。
+
+无 padding 的单层单向输入可用 `output[:,-1,:]`；变长 batch 中最后位置可能是 PAD，应依据 lengths 取有效位置、使用 packing，或正确读取 h_n。`initHidden` 返回的零状态形状必须与层数、方向、batch 和 H 一致，device 也要与输入相同。
+
+模型能 forward 只证明接口连接正确；权重随机时输出 18 类仍没有业务意义。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

@@ -38,6 +38,25 @@ flowchart LR
     D --> E
 ```
 
+## 真正看懂本节：GPU、驱动、CUDA Toolkit 和 PyTorch 是四层
+
+- GPU：物理硬件；
+- 驱动：操作系统与 GPU 通信；
+- CUDA Toolkit：编译器、头文件和开发工具；
+- PyTorch：上层框架，安装包可携带特定 CUDA runtime 组件。
+
+`nvidia-smi` 显示的 CUDA 版本通常表示驱动支持能力，不等同于你本机 Toolkit 版本，也不直接证明当前 PyTorch 能用 GPU。真正运行检查：
+
+```python
+torch.cuda.is_available()
+torch.version.cuda
+torch.cuda.get_device_name(0)
+```
+
+三者分别回答可用性、PyTorch 构建所用 CUDA 版本和设备名称。模型与所有输入张量必须在同一 device；只有模型移到 GPU、标签留在 CPU 仍会报错。
+
+对本课程小样本，CPU 也能验证正确性。先确保代码和形状正确，再决定是否配置 GPU；环境层问题不应与模型原理混在一起。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–6:55　四层概念

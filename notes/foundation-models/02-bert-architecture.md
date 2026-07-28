@@ -69,6 +69,20 @@ flowchart TB
     N --> E["Encoder Layers"]
 ```
 
+## 真正看懂本节：三种 Embedding 相加后形状不变
+
+对 `[B,L]` token IDs，BERT 查：
+
+```text
+Token Embedding   [B,L,H]
+Position Embedding[B,L,H]
+Segment Embedding [B,L,H]
+```
+
+三者逐元素相加仍是 `[B,L,H]`，再进入多层 Transformer Encoder，输出每个位置 `[B,L,H]`。Segment ID 用于区分句 A/B；单句常全 0，具体模型未必都依赖它。
+
+`[CLS]`、`[SEP]`、padding 都占位置；attention_mask 让有效位置不再把 PAD 当作可读取的 key。模型仍可能为 PAD 查询位置产生输出，因此下游池化和损失还要继续忽略这些位置。分类常读 `[CLS]` 或池化，NER 读每个有效 token，MLM 映射每个位置到词表 `[B,L,V]`。同一 Encoder 因任务头读取方式不同完成不同任务。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–1:55　特殊 token 与句段

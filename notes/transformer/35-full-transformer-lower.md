@@ -12,6 +12,14 @@ encode 只接收源 ID 和源 mask；decode 接收目标 ID、memory、源 mask 
 
 图要沿箭头或结构层级阅读。先说清楚数据从哪里来、形状怎样变化，再记组件名称。
 
+## 真正看懂本节：encode 与 decode 分开是为了复用 memory
+
+`encode(src,src_mask)` 只运行一次，得到 `memory [B,Ls,D]`。自回归生成时目标前缀不断增长，`decode(memory,src_mask,tgt,tgt_mask)` 会重复调用，但不应每个目标步重新编码相同 src。
+
+Decoder 输出 `[B,Lt,D]`，Generator 再映射 `[B,Lt,Vt]`；训练可并行输入右移后的完整 tgt，因果 mask 防未来泄漏。推理只读取最后位置分布选下一个 token。
+
+src_mask 约束对源 PAD 的可见性，tgt_mask 同时处理目标 PAD 与未来位置，不能交换。拆分接口让缓存、测试和生成流程更清楚，不改变模型数学结构。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:52　encode：源 ID 变成 memory

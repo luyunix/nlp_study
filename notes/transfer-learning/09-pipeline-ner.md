@@ -43,6 +43,12 @@ sequenceDiagram
     H-->>U: 标签、分数、答案或生成文本
 ```
 
+## 真正看懂本节：Pipeline 还要把子词标签聚合回实体
+
+模型先对每个 token 输出 `[B,L,C]` 标签分数；特殊 token/PAD 被忽略，子词通过 BIO 与 offsets 合并为原文 span。`aggregation_strategy` 会影响合并结果，不能只看 token 列表。
+
+评估应按完整实体边界与类别，而非单 token accuracy。Pipeline 简化调用，但领域标签、重叠实体与异常 BIO 仍需明确策略。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:50　NER 是 token 级分类

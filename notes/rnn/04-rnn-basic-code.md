@@ -41,6 +41,27 @@ flowchart LR
 
 
 
+## 真正看懂本节：先在运行前写出四个数字
+
+```python
+rnn = torch.nn.RNN(input_size=3, hidden_size=5, num_layers=1, batch_first=True)
+x = torch.randn(2, 4, 3)
+output, h_n = rnn(x)
+```
+
+输入 `[2,4,3]` 表示 2 条序列、每条 4 个时间步、每步 3 个特征。运行前就应推导：
+
+```text
+output: [B,L,H]      = [2,4,5]
+h_n:    [layers,B,H] = [1,2,5]
+```
+
+`output[:,t,:]` 保存最后一层在第 t 步的状态；`h_n` 保存每一层的最终状态。单层、单向且所有序列都没有 padding 时，`output[:,-1,:]` 与 `h_n[0]` 对应同一最终状态。
+
+`batch_first=True` 只把输入/输出约定改成 `[B,L,D]`，不会把 `h_n` 改成 batch first。若显式传初始状态，必须是 `[layers,B,H]`；不传时框架创建全零状态。
+
+第一轮调试只检查 dtype、device 和 shape，不要从随机输出数值判断模型好坏。随机初始化且未训练的 RNN 能运行，但还不会完成任务。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

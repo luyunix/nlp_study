@@ -62,6 +62,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：NSP 是 `[CLS]` 表示上的二分类
+
+BERT 输出 `[B,L,H]`，取 `[CLS]`/pooler 得 `[B,H]`，`Linear(H,2)` 输出句对关系 logits `[B,2]`。CrossEntropyLoss 直接接 logits 与 `[B]` 标签。
+
+若基础模型冻结，只有分类头学习；全量微调共享 Encoder 也更新。课程自定义头用于理解形状，标准预训练模型可能已有 NSP 头，加载/新建必须分清。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–1:57　模型与分类案例一模一样

@@ -65,6 +65,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：Feature Extraction 返回 token 表示，不自动是句向量
+
+典型输出 `[B,L,H]`：每条文本 L 个 token、每个 H 维。直接取平均必须用 attention_mask 排除 PAD；取 `[CLS]` 是否合适取决于 checkpoint 训练方式。不同长度、分词和 pooling 会改变句向量。
+
+特征相似不等于事实相同。用于检索/分类前应固定 pooling、归一化和模型版本，并在目标数据验证。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:54　带任务头与不带任务头

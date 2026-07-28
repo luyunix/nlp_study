@@ -61,6 +61,12 @@ flowchart TB
     ED --> S["T5/BART 类：翻译、摘要、生成"]
 ```
 
+## 真正看懂本节：tokenize、generate、decode 各管一段
+
+Tokenizer 把文本变 `[B,Ls]`，`generate` 依据模型与解码参数返回目标 IDs `[B,Lt]`，decode 才转回字符串。`max_new_tokens` 与总 `max_length` 语义不同，应按当前接口明确使用。
+
+推理需 eval/no_grad；padding 与 attention_mask 必须传入。生成后仍需事实核查，不能用 decode 成功证明摘要正确。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:00　加载 Seq2Seq 任务模型

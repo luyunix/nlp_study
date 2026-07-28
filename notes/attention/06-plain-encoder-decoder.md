@@ -51,6 +51,20 @@ classDiagram
     Decoder --> Attention : 下一时间步更新Q
 ```
 
+## 真正看懂本节：固定 C 把整句压成一个瓶颈
+
+普通 Encoder 读完 `I am very tired today` 后，把最终状态 `C:[B,H]` 交给 Decoder。无论源句 5 个词还是 50 个词，接口都只有 H 个数。
+
+Decoder 每一步都依赖同一 C：
+
+```text
+sₜ = Decoder(previous_token, sₜ₋₁, C)
+```
+
+生成不同目标词时不能直接回到某个源位置，只能希望所有细节都已压入 C。短句可能足够，长句、专名和远距离细节更容易丢失。
+
+固定向量方案不是“完全不工作”，也不等于 Decoder 每步权重相同；Decoder 状态仍会变化。它的限制是源信息入口始终只有同一个 C。Attention 改成保留 Encoder 的 `[B,L,H]`，每步产生不同 `Cₜ`。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:58　编码器的非线性压缩

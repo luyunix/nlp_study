@@ -41,6 +41,27 @@ flowchart LR
 
 
 
+## 真正看懂本节：GRU 的接口为什么少一个 c
+
+```python
+gru = torch.nn.GRU(3, 5, num_layers=2, batch_first=True)
+x = torch.randn(4, 7, 3)
+output, h_n = gru(x)
+```
+
+输出为：
+
+```text
+output [B,L,H]      = [4,7,5]
+h_n    [layers,B,H] = [2,4,5]
+```
+
+GRU 用更新门和重置门把 LSTM 的部分功能合并到单一隐藏状态 h 中，因此没有独立 `c_n`。这不表示 GRU “没有长期记忆”，而是记忆管理结构不同。
+
+若把 LSTM 代码直接复制过来写成 `output,(h,c)=gru(x)`，会因返回结构不匹配而报错。反过来只接 LSTM 的两个返回对象也会把 `(h,c)` 整体误当一个张量。
+
+和 RNN/LSTM 一样，`batch_first` 只影响输入和 output。双向 GRU 输出 `[B,L,2H]`，最终状态 `[2×layers,B,H]`。选 GRU 还是 LSTM 应通过同样数据划分、隐藏宽度和训练预算比较，不要仅凭门数量断言谁一定更好。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

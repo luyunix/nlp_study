@@ -43,6 +43,30 @@ flowchart LR
 
 
 
+## 真正看懂本节：DataLoader 为什么在变长姓名上会卡住
+
+DataLoader 从 Dataset 取多条样本并尝试堆叠。`Li` 和 `Smith` 的长度不同：
+
+```text
+Li    [2,D]
+Smith [5,D]
+```
+
+普通堆叠无法直接得到一个矩形 `[2,L,D]`。课程使用 `batch_size=1` 可以暂时绕开变长拼批问题，因为每批只有一个 L；若要提高 batch size，必须提供 `collate_fn` 做 padding、返回真实长度或使用 packed sequence。
+
+例如补到 L=5：
+
+```text
+x       [2,5,D]
+lengths [2] = [2,5]
+mask    [2,5]
+labels  [2]
+```
+
+`shuffle=True` 只改变训练样本顺序，不改变样本内容；验证/测试通常关闭 shuffle 便于复现。`drop_last=True` 会丢掉不足一个完整 batch 的尾部样本，评估时通常不应随意启用。
+
+第一次遍历只取一批并检查 shape、dtype、标签范围与真实长度，不要直接进入长训练。DataLoader 能迭代不代表 padding 位置已被模型正确忽略。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

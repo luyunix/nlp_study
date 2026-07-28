@@ -42,6 +42,27 @@ flowchart LR
     B2 --> C["context [B,Dv]"]
 ```
 
+## 真正看懂本节：bmm 是“每个 batch 各乘各的”
+
+`torch.bmm(A,B)` 要求两个输入都是三维：
+
+```text
+A [B,N,M]
+B [B,M,P]
+结果 [B,N,P]
+```
+
+第 b 个结果只等于 `A[b] @ B[b]`，不同样本不会混合。中间维 M 必须相等，batch B 也必须一致；bmm 本身不做任意广播。
+
+单查询 Attention：
+
+```text
+K [B,L,H] @ Q.unsqueeze(-1) [B,H,1] → scores [B,L,1]
+weights.unsqueeze(1) [B,1,L] @ V [B,L,Dv] → context [B,1,Dv]
+```
+
+`unsqueeze` 只增加长度为 1 的轴，不复制数值；`squeeze` 只能安全移除明确为 1 的轴。调试 bmm 前把每个维度写成语义字母，比盯 `1×32×64` 更不易错。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–2:53　为什么先补 bmm

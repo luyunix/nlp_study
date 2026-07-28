@@ -41,6 +41,34 @@ flowchart LR
 
 
 
+## 真正看懂本节：LSTM 比 RNN 多返回一份状态
+
+```python
+lstm = torch.nn.LSTM(3, 5, num_layers=2, batch_first=True)
+x = torch.randn(4, 7, 3)
+output, (h_n, c_n) = lstm(x)
+```
+
+形状应为：
+
+```text
+output [B,L,H]      = [4,7,5]
+h_n    [layers,B,H] = [2,4,5]
+c_n    [layers,B,H] = [2,4,5]
+```
+
+`output` 是最后一层每个时间步对外的 h；`h_n` 是各层最后时刻的隐藏状态；`c_n` 是各层最后时刻的细胞状态。h 和 c 形状相同但职责不同，不能只传一个或互换顺序。
+
+显式初始状态也必须提供一对：
+
+```python
+h0 = torch.zeros(2, 4, 5)
+c0 = torch.zeros(2, 4, 5)
+output, (h_n, c_n) = lstm(x, (h0, c0))
+```
+
+`batch_first=True` 仍只影响 x 与 output，h/c 始终把层/方向放第一维。若 `bidirectional=True`，第一维变成 `2×layers`，output 最后一维变成 `2H`。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

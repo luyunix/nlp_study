@@ -38,6 +38,20 @@ flowchart TB
     D --> E
 ```
 
+## 真正看懂本节：Teacher Forcing 改的是下一步输入来源
+
+目标序列：
+
+```text
+SOS, je, suis, fatigué, EOS
+```
+
+预测 `suis` 时，Teacher Forcing 分支喂真实 `je`；非 Teacher Forcing 分支喂模型刚预测的 token。两条分支当前标签都仍是 `suis`，loss 都可计算。
+
+比例 0.5 表示训练时以某种采样策略决定使用真值的机会，不代表把半个 token 输入。高比例训练稳定，却增大训练与推理差异；低比例更接近推理，但早期错误会快速累积。合适策略需验证，课程值不是普适常数。
+
+Teacher Forcing 不是未来泄漏：第 t 步只喂 t−1 的真值，目标 t 仍待预测。评估时必须关闭真值输入，否则得到的不是自回归翻译能力。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:50　真实目标是标签，Teacher Forcing 决定它是否也作为下一输入

@@ -44,6 +44,24 @@ sequenceDiagram
 
 
 
+## 真正看懂本节：五行训练代码各自改变什么
+
+```python
+optimizer.zero_grad()
+logp = model(x)
+loss = criterion(logp, y)
+loss.backward()
+optimizer.step()
+```
+
+假设这一批真类概率仅 0.2，NLL 约 `-log(0.2)=1.609`。`loss.backward()` 沿计算图求出每个参数对 1.609 的梯度，但此时参数值还没变；`optimizer.step()` 才根据学习率更新。下一批前 `zero_grad()` 清掉默认累积的旧梯度。
+
+一次 step 对应一批，不等于一轮 epoch。若训练集 900 条、batch size 30，一轮约 30 次更新；5 个 epoch 约 150 次更新（不考虑尾批等细节）。
+
+平均 loss 要统一口径：若每批 loss 是样本均值，最后可按 batch 样本数加权后除总样本数，避免大小不同的尾批与完整批权重相同。准确率则累计正确数除样本数。
+
+保存“最佳验证模型”与保存“最后一轮模型”不是一回事。还应保存配置、类别表和预处理规则；训练集准确率上升不能替代独立验证。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

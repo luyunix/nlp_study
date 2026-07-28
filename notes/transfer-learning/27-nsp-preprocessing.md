@@ -40,6 +40,12 @@ flowchart LR
     M --> O["NSP logits [B,2]"]
 ```
 
+## 真正看懂本节：句对编码靠特殊 token 与 segment 区分
+
+输入形如 `[CLS] A [SEP] B [SEP]`。input_ids 给 token，attention_mask 屏蔽 PAD，token_type_ids 常用 0/1 区分 A/B（具体模型未必使用）。
+
+截断要给两句分配长度预算，避免一侧把另一侧全部挤掉。标签 `[B]` 表示 IsNext/NotNext，映射必须固定；特殊 token 与 segment 由 tokenizer 生成，不宜手工猜 ID。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:50　理解 DataLoader 传入的数据结构

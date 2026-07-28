@@ -65,6 +65,12 @@ sequenceDiagram
     O->>O: zero_grad → backward → step
 ```
 
+## 真正看懂本节：BERT 输出 768 不等于永远都写 768
+
+课程 checkpoint 的 hidden_size=768，因此分类头可 `Linear(768,2)`；稳妥代码从 `config.hidden_size` 读取，换模型后自动匹配。基础模型输出 `[B,L,H]`，分类读取 pooler/CLS 或明确池化为 `[B,H]` 再映射 `[B,C]`。
+
+是否冻结 BERT、如何 Dropout、用何种 pooling 都是实验选择。模型 forward 输出 logits；CrossEntropyLoss 接 logits 与 `[B]` 标签，不需先 Softmax。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:20　自定义类的两个成员

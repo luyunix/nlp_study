@@ -49,6 +49,22 @@ classDiagram
     EncoderGRU --> AttnDecoderGRU : outputs + final hidden
 ```
 
+## 真正看懂本节：无 Attention Decoder 每步拿到什么
+
+Encoder 最终状态作为初始 decoder hidden。第 t 步输入上一目标 token：
+
+```text
+token ID [B,1] → Embedding [B,1,E]
+Embedding + hidden → GRU → output [B,1,H], new_hidden
+Linear(H,Vt) → logits/log_probs [B,Vt]
+```
+
+训练时上一 token 可能来自真实目标前一项；推理时只能来自模型自己上一项预测。初始输入为 SOS，生成 EOS 停止。
+
+无 Attention 版本不会每步访问完整 Encoder outputs，源句信息主要压在 initial hidden 中。这正是它与后续 Attention Decoder 的对照基线。
+
+单步输出 `[B,Vt]` 是“下一个 token 的词表分布”，不是完整译句。完整译句由循环多次单步调用逐渐形成。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–1:40　先沿结构图区分张量和网络层

@@ -65,6 +65,21 @@ classDiagram
     EncoderGRU --> AttnDecoderGRU : outputs + final hidden
 ```
 
+## 真正看懂本节：先把 800 行项目拆成六个可验模块
+
+翻译系统不是一个巨型 forward，而是：
+
+```text
+双语句对 → 两套词表/Dataset → Encoder → Decoder(+Attention)
+        → 训练循环 → 自回归评估
+```
+
+每个模块都有明确契约。Dataset 输出源/目标 ID 与 EOS；Encoder 接收 `[B,Ls]` 输出 memory；Decoder 每步接收上一 token、状态和 context，输出 `[B,Vt]`；训练累计目标 token loss；评估从 SOS 开始直到 EOS 或最大长度。
+
+实现顺序应从小到大：先用一条句对验词表，再验 Encoder 形状，再单步 Decoder，再单样本训练，最后才跑全量。直接运行整份项目时，一个词表错位会在很后面表现成 loss 不降，难以定位。
+
+课程示例是教学型 GRU Seq2Seq，固定长度、batch size 和数据规模的简化不能自动等同于生产翻译系统。需求验收要同时记录数据版本、特殊 token、形状、训练/推理差异和评估边界。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:54　任务与章节路线

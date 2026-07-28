@@ -56,6 +56,12 @@ flowchart LR
     F --> G
 ```
 
+## 真正看懂本节：Fill-Mask 只预测明确的 mask 位置
+
+输入必须使用该 tokenizer 的 mask token；模型对每个位置输出 `[V]` 词表 logits，Pipeline 定位 mask 并返回 top-k 候选。分数是在词表候选中的条件概率，不表示事实真伪。
+
+多个 mask 的联合组合可能不是把每个位置独立 top-k 就完事，具体 Pipeline 能力依版本/模型而异。BERT MLM 适合补空，不等同于从左到右长文本生成。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–2:54　任务与模型匹配

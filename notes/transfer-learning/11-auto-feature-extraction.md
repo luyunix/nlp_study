@@ -49,6 +49,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：masked mean pooling 要除以有效 token 数
+
+`last_hidden_state [B,L,H]` 乘 `mask.unsqueeze(-1)` 清掉 PAD，再沿 L 求和并除 `mask.sum`，得到 `[B,H]`。若直接 `.mean(dim=1)`，补齐多的短句会被更多零/PAD 表示稀释。
+
+池化只是压缩策略，不会训练相似度目标；要用于语义检索，最好选择相应训练过的句向量 checkpoint并验证。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:30　基础模型没有任务头

@@ -48,6 +48,17 @@ def main() -> int:
         visible = re.sub(r"[#>*_`|\[\]()\s]", "", visible)
         if len(visible) < 1000:
             fail(f"{note.relative_to(ROOT)} 可读正文过短：{len(visible)} 字", failures)
+        has_independent_bridge = (
+            "真正看懂" in text
+            or "读 Word2Vec 前，先补齐" in text
+            or len(visible) >= 1800
+        )
+        if not has_independent_bridge:
+            fail(
+                f"{note.relative_to(ROOT)} 尚未达到逐节重写深度："
+                f"正文 {len(visible)} 字且缺少独立推导",
+                failures,
+            )
         for paragraph in re.split(r"\n\s*\n", text):
             if paragraph.startswith("```"):
                 continue

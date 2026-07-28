@@ -71,6 +71,12 @@ flowchart LR
     F --> G
 ```
 
+## 真正看懂本节：具体类把架构约束写在类名里
+
+`BertForMaskedLM` 明确要求 BERT 型 config 和 MLM 头；Auto 类则读取 config 自动选择。两者使用同 checkpoint 时核心行为可相同，差异在显式性与可移植性。
+
+不能用任意 `BertModel` 直接期待词表 logits：基础模型只给 `[B,L,H]`，MLM 类额外映射到 `[B,L,V]`。Tokenizer、模型类和 checkpoint 必须兼容。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:30　Auto 与具体类的边界

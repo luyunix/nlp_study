@@ -49,6 +49,12 @@ classDiagram
     AutoModelForTask --> AutoConfig
 ```
 
+## 真正看懂本节：两个最大值未必组成合法答案
+
+独立 argmax 的 start/end 可能 end<start、跨特殊 token 或过长。应在有效 context 范围枚举/组合高分起止，满足 `start≤end` 与最大长度，再用 offset 回切原文。
+
+长文本分块时还要跨窗口比较候选；无答案任务需要单独阈值。模型输出 token 位置，原文答案必须通过 tokenizer offset 恢复，不能靠 decode 猜字符边界。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:30　成对编码

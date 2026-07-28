@@ -39,6 +39,23 @@ flowchart LR
     W --> C["context：本次专属信息"]
 ```
 
+## 真正看懂本节：打分函数只负责生成 logits
+
+常见规则：
+
+```text
+dot:      score(q,k)=qᵀk
+general:  score(q,k)=qᵀWk
+additive: score(q,k)=vᵀ tanh(Wq q + Wk k)
+scaled:   score(q,k)=qᵀk / √dₖ
+```
+
+dot 要求 q、k 同维；general 用可学习矩阵变换；additive 可把不同输入维投到共同空间；scaled dot-product 用 `√dₖ` 抑制维度大时点积方差过大、Softmax 过早饱和。
+
+这些 score 都是未归一化实数，可正可负，不是概率。之后才应用 mask 与 Softmax。不同规则参数量、速度和归纳偏置不同，不能只凭名称断言某种总是更准。
+
+以 `dₖ=64` 为例缩放除以 8。缩放改变分布温度，不改变 Q/K/V 的形状。Transformer 多头注意力通常对每个头分别使用缩放点积。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:47　共同主干

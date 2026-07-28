@@ -40,6 +40,32 @@ flowchart TB
 
 
 
+## 真正看懂本节：logits、概率和 log-probability 是三种数据
+
+模型对三个类别输出 logits：
+
+```text
+z = [2.0, 1.0, 0.0]
+```
+
+logits 可以为任意实数，不要求和为 1。Softmax 后约为：
+
+```text
+p = [0.665, 0.245, 0.090]
+```
+
+再取对数：
+
+```text
+log_p ≈ [-0.408, -1.408, -2.408]
+```
+
+若真实类别是第 2 类（ID=1），NLLLoss 取 `-log_p[1]≈1.408`。模型给真类概率越高，负对数损失越小。
+
+`LogSoftmax + NLLLoss` 与直接把 logits 交给 `CrossEntropyLoss` 在数学目标上等价。不能先 LogSoftmax 再交 CrossEntropy，否则重复应用归一化；也不能把普通概率直接给 NLLLoss，它期望的是 log-probability。
+
+分类维通常是最后一维：输入 `[B,C]` 时用 `dim=-1`。标签形状为 `[B]`、dtype long，每个值在 `[0,C)`。推理取 `argmax` 时 logits、概率、log-probability 的最大类别相同，不必为了选类别额外 Softmax；需要展示概率时才转换。
+
 ## 零基础精讲：先把这一节真正弄懂
 
 ### 先用一个场景理解

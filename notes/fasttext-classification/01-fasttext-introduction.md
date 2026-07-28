@@ -66,6 +66,12 @@ classDiagram
     fasttext ..> FastTextModel : 创建或加载
 ```
 
+## 真正看懂本节：FastText 分类器把整段文本压成一个向量
+
+带标签一行 `__label__售后 手机 屏幕 碎 了` 中，词和可选 word n-gram 各自查向量，通常做平均/汇总得到 `[D]` 的文本表示，再由线性层映射到 `[C]` 类别分数。
+
+它快的原因是结构浅、特征汇总简单，不需要 RNN 逐步递归或 Transformer 多层注意力。简单也意味着对复杂长距离语序的表达有限。`train_supervised` 学分类；`train_unsupervised` 学词向量，二者 API 相近但目标和数据格式不同。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–2:47　从“代码很长”引出 FastText

@@ -43,6 +43,12 @@ sequenceDiagram
     O->>O: zero_grad → backward → step
 ```
 
+## 真正看懂本节：padding 和 truncation 共同决定 `[B,L]`
+
+Tokenizer 输出 input_ids、attention_mask，句对模型还可能有 token_type_ids。批量补齐到同一 L，mask 中真实 token=1、PAD=0；截断长度应由任务与分布决定，不能因接口默认随意丢尾部。
+
+训练预测必须复用同 tokenizer/checkpoint 与最大长度。动态 padding 省计算，固定 padding 便于某些部署；两者语义一致但性能不同。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:56　整理函数一次只处理一批

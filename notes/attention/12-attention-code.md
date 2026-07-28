@@ -68,6 +68,20 @@ classDiagram
     Value_V --> Attention
 ```
 
+## 真正看懂本节：代码应严格对应五个可验步骤
+
+1. 接收 `Q [B,H]、K [B,L,H]、V [B,L,Dv]`；
+2. 用 bmm 得 `scores [B,L]`；
+3. mask 后对 L 做 Softmax 得 `weights [B,L]`；
+4. `weights×V` 得 `context [B,Dv]`；
+5. 按课程结构把 Q/context 融合为增强表示。
+
+每一步都应在第一次运行打印 shape。若 K/V 的 L 不同，权重无法一一作用；若 Q/K 的 H 不同，点积不成立，需线性投影。
+
+Dropout 若作用于权重，训练态下权重数值会随机变化，不能用一次输出做固定断言；`eval()` 后才稳定。Mask 应与 score 可广播且使用正确布尔语义。
+
+返回 context 的同时保留 weights 很有用：前者给后续网络，后者用于测试概率和、mask 和可视化。不要为了画图在 forward 中把张量转 NumPy，避免切断梯度或设备错误。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:52　任务与模块接口

@@ -38,6 +38,24 @@ flowchart LR
     D --> E
 ```
 
+## 真正看懂本节：用最小矩阵乘法定位环境层
+
+安装后不要直接跑翻译训练，先执行：
+
+```python
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+x = torch.randn(2,3, device=device)
+w = torch.randn(3,4, device=device)
+y = x @ w
+print(device, y.shape)
+```
+
+若这里失败，问题在环境或设备；若成功而模型失败，再检查模型/输入是否同 device、dtype 是否匹配、显存是否足够。
+
+排错顺序固定：确认当前 Python 环境→导入 torch→检查版本信息→检查 is_available→运行最小张量→再运行项目。不要在多个 Conda 环境反复安装后凭包名猜测。
+
+GPU 不会改变数学形状：`[2,3]@[3,4]→[2,4]` 在 CPU/GPU 相同。设备只是计算位置。为复现应记录 Python、PyTorch、平台、GPU/驱动与安装命令，而不只是截图一次成功输出。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–4:51　隔离环境

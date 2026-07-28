@@ -43,6 +43,12 @@ sequenceDiagram
     O->>O: zero_grad → backward → step
 ```
 
+## 真正看懂本节：全量准确率会隐藏类别与泄漏问题
+
+评估使用 `eval()+no_grad()`，累计混淆矩阵、每类 precision/recall/F1 和宏平均指标。类别不平衡时 accuracy 可能很高却忽略少数类。
+
+checkpoint、tokenizer、标签映射和预处理必须同训练。测试集只用于最终报告；反复挑 checkpoint 会把它变成验证集。还应抽查高置信错误、截断样本和重复泄漏。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–3:49　测试 DataLoader 与训练不同

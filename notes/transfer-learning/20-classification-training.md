@@ -43,6 +43,12 @@ sequenceDiagram
     O->>O: zero_grad → backward → step
 ```
 
+## 真正看懂本节：微调仍是同一套五步，但学习率分组可能不同
+
+每批 `zero_grad→forward→loss→backward→step`，并按需 scheduler.step。预训练底座常用较小学习率，随机任务头可用不同学习率；这不是固定定律，需验证。
+
+mask、标签和模型必须同 device。梯度裁剪、混合精度和累积只改变训练实现，不改变 loss 目标。按验证指标保存最佳 checkpoint，不能只保存最后一轮。
+
 ## 老师原声整理稿（按讲解顺序）
 
 ### 0:00–5:47　训练函数的准备阶段
