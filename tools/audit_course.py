@@ -94,6 +94,26 @@ def main() -> int:
                 "中心词 → 共享隐层 → 左上下文 → 右上下文",
             ),
         },
+        "notes/text-preprocessing/18-fasttext-hyperparameters.md": {
+            "required": (
+                "`input` 是**必需的数据路径**，不是可调的数值超参数",
+                "参数 1：`input`",
+                "参数 2：`model`",
+                "参数 3：`dim`",
+                "参数 4：`epoch`",
+                "参数 5：`lr`",
+                "参数 6：`thread`",
+                "一轮不是一次更新",
+                "训练开始时的学习率",
+                "严格比较参数、希望结果可复现时使用单线程",
+                "这里故意不编造任何“实验结果”",
+            ),
+            "forbidden": (
+                "Skip-Gram 永远比 CBOW 更好",
+                "thread 会增加词向量维度",
+                "epoch=5 表示只更新 5 次",
+            ),
+        },
         "notes/seq2seq-translation/07-dataset.md": {
             "required": ("追加 EOS", "torch.long", "没有定义 UNK"),
             "forbidden": ("padding 更适合放进 collate_fn",),
