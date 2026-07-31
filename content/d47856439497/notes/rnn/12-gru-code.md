@@ -1,0 +1,165 @@
+# 第 12 节：GRU 代码：替换循环层并验证接口
+
+> 笔记编号 12/28 · 对应原视频 P49 · [打开这一集](https://www.bilibili.com/video/BV14mdfBDE4Q?p=49)
+
+[← 上一节：11 GRU 图解：两扇门合并记忆管理](./11-gru-diagram.md) · [返回总目录](./README.md) · [下一节：13 姓名分类需求：从名字预测 18 个国家类别 →](./13-name-classification-requirement.md)
+
+## 这节解决什么问题
+
+为何 GRU 代码几乎能沿用 RNN，而不能完全照搬 LSTM？
+
+![第 12 节原创概念图](./diagrams/12-concept.svg)
+
+图从左向右读。先跟着数据或推理过程走一遍，再学习下面的术语。
+
+## 辅助流程图
+
+```mermaid
+flowchart LR
+    N0["nn.GRU 配置"]
+    N1["input/h0"]
+    N2["运行前向"]
+    N3["得到 output/hn"]
+    N4["比较三模型"]
+    N0 --> N1
+    N1 --> N2
+    N2 --> N3
+    N3 --> N4
+```
+
+### PyTorch 循环层的张量形状
+
+```mermaid
+flowchart LR
+    X["input<br/>[batch, seq, input_size]"] --> R["RNN / LSTM / GRU"]
+    H0["h0<br/>[layers×directions, batch, hidden]"] --> R
+    C0["仅 LSTM：c0<br/>形状同 h0"] -.-> R
+    R --> O["output<br/>每个时间步<br/>[batch, seq, directions×hidden]"]
+    R --> HN["hn<br/>每层最终状态"]
+    R -.-> CN["仅 LSTM：cn"]
+```
+
+
+
+## 真正看懂本节：GRU 的接口为什么少一个 c
+
+```python
+gru = torch.nn.GRU(3, 5, num_layers=2, batch_first=True)
+x = torch.randn(4, 7, 3)
+output, h_n = gru(x)
+```
+
+输出为：
+
+```text
+output [B,L,H]      = [4,7,5]
+h_n    [layers,B,H] = [2,4,5]
+```
+
+GRU 用更新门和重置门把 LSTM 的部分功能合并到单一隐藏状态 h 中，因此没有独立 `c_n`。这不表示 GRU “没有长期记忆”，而是记忆管理结构不同。
+
+若把 LSTM 代码直接复制过来写成 `output,(h,c)=gru(x)`，会因返回结构不匹配而报错。反过来只接 LSTM 的两个返回对象也会把 `(h,c)` 整体误当一个张量。
+
+和 RNN/LSTM 一样，`batch_first` 只影响输入和 output。双向 GRU 输出 `[B,L,2H]`，最终状态 `[2×layers,B,H]`。选 GRU 还是 LSTM 应通过同样数据划分、隐藏宽度和训练预算比较，不要仅凭门数量断言谁一定更好。
+
+## 零基础精讲：先把这一节真正弄懂
+
+### 先用一个场景理解
+
+PyTorch 的 GRU 对外形状与普通 RNN 很像，所以替换层以后，主要变化在内部公式而非数据管道。
+
+### 沿数据流一步一步走
+
+1. nn.GRU 配置
+2. input/h0
+3. 运行前向
+4. 得到 output/hn
+5. 比较三模型
+
+上面每一步都对应流程图的一段。读图时不断问自己：“此刻张量里装的是什么，形状是什么，下一步为什么需要它？”
+
+### 第一次看代码只盯住这里
+
+把 nn.RNN 换成 nn.GRU 后，继续验证 output 和 hn；不要凭接口相似就跳过形状测试。
+
+运行代码前先写出预期形状，运行后逐维核对。数值可以暂时算不出，但 B（批量）、L（长度）、D/H（特征或隐藏宽度）为什么出现，必须能说清。
+
+### 本节边界
+
+只改 nn.RNN 为 nn.GRU 后，变量名、注释和保存路径也要同步，避免训练/加载错模型。
+
+本节过关不是背公式，而是能从第 1 步讲到最后一步，并指出哪一个状态把前文带到了后面。
+
+## 老师原声整理稿（按讲解顺序）
+
+### 0:00–5:44　概念与优缺点复盘
+
+老师先写 GRU 全称、两扇门和长序列优势，再指出它仍无法跨时间步并行。课堂对“GRU 一定弱于 LSTM”的绝对说法过强：不同任务可能各有胜负，应实测。
+
+### 5:44–10:38　五步 API 演示
+
+创建 nn.GRU、创建输入、创建 h0、运行、打印。参数 input_size/hidden_size/num_layers 与 RNN 一致。
+
+### 10:38–13:37　输出形状
+
+output 含所有时间步，h_n 含每层最终状态；因为没有 c_n，解包与普通 RNN 相同。老师再次用形状表提醒不要混淆时间维、批量维和隐藏维。
+
+### 13:37–16:49　选择题与纠错
+
+LSTM 是三门一状态，不存在“记忆门”；GRU 和 LSTM 都有门控。真正写项目时，可把公共分类头封装，让三种循环主干可切换。
+
+## 完整原声逐段记录
+
+[查看本节按时间戳整理的完整音轨转写](./transcripts/p049.md)
+
+逐段记录用于核查老师讲解是否遗漏；正文会进一步纠正口误和语音识别中的技术术语。
+
+## 零基础先记住
+
+- GRU 调用接口与 RNN 接近
+- LSTM 才返回 c_n
+- 同形状不代表内部计算相同
+
+## 最小可运行代码
+
+下面代码默认从项目根目录运行；专题配套实现见 [rnn_from_scratch 配套实现](../../rnn_from_scratch/README.md)。
+
+```python
+import torch
+for cls in (torch.nn.RNN, torch.nn.GRU):
+    m = cls(5, 6, batch_first=True)
+    out, hn = m(torch.randn(2, 3, 5))
+    print(cls.__name__, out.shape, hn.shape)
+```
+
+### 输入和输出怎么看
+
+两者外部形状相同，但内部更新方程不同。
+
+## 最容易踩的坑
+
+只改 nn.RNN 为 nn.GRU 后，变量名、注释和保存路径也要同步，避免训练/加载错模型。
+
+## 本节知识链
+
+`nn.GRU 配置 → input/h0 → 运行前向 → 得到 output/hn → 比较三模型`
+
+## 自测
+
+**问题：GRU forward 默认返回几个顶层结果？**
+
+<details>
+<summary>点开核对答案</summary>
+
+两个：output 和 h_n。
+
+</details>
+
+## 学完检查
+
+- [ ] 我能用自己的话复述老师的讲解顺序
+- [ ] 我能在运行前预测关键输出或张量形状
+- [ ] 我知道这节方法最容易用错的地方
+- [ ] 我能独立回答自测题
+
+[← 上一节：11 GRU 图解：两扇门合并记忆管理](./11-gru-diagram.md) · [返回总目录](./README.md) · [下一节：13 姓名分类需求：从名字预测 18 个国家类别 →](./13-name-classification-requirement.md)

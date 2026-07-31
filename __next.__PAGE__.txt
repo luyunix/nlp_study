@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[47257,["/nlp_study/_next/static/chunks/08zok6.5_1m~9.js"],"ClientPageRoot"]
+3:I[31713,["/nlp_study/_next/static/chunks/08zok6.5_1m~9.js","/nlp_study/_next/static/chunks/0~1r-jk9f3nqu.js","/nlp_study/_next/static/chunks/0lk1wcf-es3in.js"],"default"]
+6:I[97367,["/nlp_study/_next/static/chunks/08zok6.5_1m~9.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/nlp_study/_next/static/chunks/0~1r-jk9f3nqu.js","async":true}],["$","script","script-1",{"src":"/nlp_study/_next/static/chunks/0lk1wcf-es3in.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"XK3vdmGUPFSlKnYshoa8s"}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null

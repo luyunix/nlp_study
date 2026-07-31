@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">英译法需求：先看懂 800 行项目的六个模块</title>
+  <desc id="desc">平行语料，然后数据与词表，然后Encoder，然后Attention Decoder，然后训练，然后预测/可视化</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#F8FBFF"/><stop offset="1" stop-color="#F7F4FF"/></linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#60788E"/></marker>
+  </defs>
+  <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
+  <text x="70" y="62" font-family="sans-serif" font-size="18" font-weight="700" fill="#3B6A91">第 01 节 · 概念图</text>
+  <text x="70" y="112" text-anchor="start" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" font-weight="760" fill="#102A43">英译法需求：先看懂 800 行项目的六个模块</text>
+  <line x1="223.66666666666666" y1="340" x2="243.66666666666666" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="406.3333333333333" y1="340" x2="426.3333333333333" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="589" y1="340" x2="609" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="771.6666666666666" y1="340" x2="791.6666666666666" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+<line x1="954.3333333333333" y1="340" x2="974.3333333333333" y2="340" stroke="#60788E" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+      <rect x="70" y="245" width="146.66666666666666" height="190" rx="24" fill="#E7F3FF" stroke="#3B82C4" stroke-width="3"/>
+      <circle cx="143.33333333333331" cy="285" r="19" fill="#3B82C4"/>
+      <text x="143.33333333333331" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">1</text>
+      <text x="143.33333333333331" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">平行语料</text>
+    </g>
+<g>
+      <rect x="252.66666666666666" y="245" width="146.66666666666666" height="190" rx="24" fill="#EAF8F0" stroke="#31966F" stroke-width="3"/>
+      <circle cx="326" cy="285" r="19" fill="#31966F"/>
+      <text x="326" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">2</text>
+      <text x="326" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">数据与词表</text>
+    </g>
+<g>
+      <rect x="435.3333333333333" y="245" width="146.66666666666666" height="190" rx="24" fill="#FFF4D9" stroke="#D69424" stroke-width="3"/>
+      <circle cx="508.66666666666663" cy="285" r="19" fill="#D69424"/>
+      <text x="508.66666666666663" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">3</text>
+      <text x="508.66666666666663" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Encoder</text>
+    </g>
+<g>
+      <rect x="618" y="245" width="146.66666666666666" height="190" rx="24" fill="#F6EAFF" stroke="#8C62C7" stroke-width="3"/>
+      <circle cx="691.3333333333334" cy="285" r="19" fill="#8C62C7"/>
+      <text x="691.3333333333334" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">4</text>
+      <text x="691.3333333333334" y="355" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Attention</text>
+<text x="691.3333333333334" y="389" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">Decoder</text>
+    </g>
+<g>
+      <rect x="800.6666666666666" y="245" width="146.66666666666666" height="190" rx="24" fill="#FFECE7" stroke="#D6674F" stroke-width="3"/>
+      <circle cx="874" cy="285" r="19" fill="#D6674F"/>
+      <text x="874" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">5</text>
+      <text x="874" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">训练</text>
+    </g>
+<g>
+      <rect x="983.3333333333333" y="245" width="146.66666666666666" height="190" rx="24" fill="undefined" stroke="undefined" stroke-width="3"/>
+      <circle cx="1056.6666666666665" cy="285" r="19" fill="undefined"/>
+      <text x="1056.6666666666665" y="292" text-anchor="middle" font-family="sans-serif" font-size="19" font-weight="700" fill="white">6</text>
+      <text x="1056.6666666666665" y="372" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="23" font-weight="600" fill="#16324F">预测/可视化</text>
+    </g>
+  <rect x="70" y="512" width="1060" height="105" rx="20" fill="#102A43"/>
+  <text x="600" y="553" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" font-weight="500" fill="#FFFFFF">英译法项目代码很多，怎样先建立全景，不被某一个函数带跑？</text>
+  <text x="1130" y="650" text-anchor="end" font-family="sans-serif" font-size="16" fill="#6C8194">原创示意图</text>
+</svg>
