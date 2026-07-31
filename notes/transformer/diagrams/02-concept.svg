@@ -1,54 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Transformer 总体架构</title>
-  <desc id="desc">Encoder 理解输入，Decoder 在已生成前缀与编码结果的共同条件下预测下一个词。</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="900" viewBox="0 0 1000 900" role="img" aria-labelledby="title desc">
+  <title id="title">Transformer 从两路输入到下一词概率</title>
+  <desc id="desc">源句经过 Encoder 形成 memory；右移目标进入 Decoder，Decoder 查询 memory 后由 Generator 输出下一词分布。</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f8fbff"/>
-      <stop offset="0.55" stop-color="#f4fbf9"/>
-      <stop offset="1" stop-color="#faf7ff"/>
+      <stop offset="0" stop-color="#f6fbff"/>
+      <stop offset="1" stop-color="#f7fbf8"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#47716d" flood-opacity=".12"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#244a4d" flood-opacity=".12"/>
     </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#47716d"/>
     </marker>
   </defs>
-  <rect width="1200" height="680" rx="34" fill="url(#bg)"/>
-  <circle cx="1120" cy="70" r="150" fill="#c4b5fd" opacity=".22"/>
-  <circle cx="70" cy="650" r="190" fill="#bae6fd" opacity=".28"/>
-  <g filter="url(#shadow)">
-    <rect x="55" y="45" width="1090" height="590" rx="30" fill="#ffffff" fill-opacity=".88" stroke="#d9e5e3"/>
-  </g>
-  <text x="90" y="100" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#38bdf8">第 02 节 · 概念图</text>
-  <text x="90" y="145" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#17343a">Transformer 总体架构</text>
+
+  <rect width="1000" height="900" rx="32" fill="url(#bg)"/>
+  <rect x="38" y="34" width="924" height="832" rx="28" fill="#ffffff" stroke="#d7e5e3" filter="url(#shadow)"/>
+
   <g font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
-    <rect x="120" y="150" width="350" height="380" rx="30" fill="#e8f4ff" stroke="#38bdf8" stroke-width="3"/><rect x="730" y="150" width="350" height="380" rx="30" fill="#f5edff" stroke="#a879d1" stroke-width="3"/><text x="295" y="205" text-anchor="middle" font-size="27" font-weight="800" fill="#38bdf8">ENCODER</text><text x="905" y="205" text-anchor="middle" font-size="27" font-weight="800" fill="#c084fc">DECODER</text>
-    <rect x="165" y="245" width="260" height="62" rx="22" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="165" y="245" width="8" height="62" rx="4" fill="#38bdf8"/>
-    <text x="299" y="284" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">源序列</text>
-  
-    <rect x="165" y="333" width="260" height="62" rx="22" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="165" y="333" width="8" height="62" rx="4" fill="#38bdf8"/>
-    <text x="299" y="372" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">Embedding + 位置编码</text>
-  
-    <rect x="165" y="421" width="260" height="62" rx="22" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
-    <rect x="165" y="421" width="8" height="62" rx="4" fill="#38bdf8"/>
-    <text x="299" y="460" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">Encoder × N</text>
-  
-    <rect x="775" y="245" width="260" height="62" rx="22" fill="#ffffff" stroke="#c084fc" stroke-width="2"/>
-    <rect x="775" y="245" width="8" height="62" rx="4" fill="#c084fc"/>
-    <text x="909" y="284" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">Decoder × N</text>
-  
-    <rect x="775" y="333" width="260" height="62" rx="22" fill="#ffffff" stroke="#c084fc" stroke-width="2"/>
-    <rect x="775" y="333" width="8" height="62" rx="4" fill="#c084fc"/>
-    <text x="909" y="372" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">Linear + Softmax</text>
-  
-    <rect x="775" y="421" width="260" height="62" rx="22" fill="#ffffff" stroke="#c084fc" stroke-width="2"/>
-    <rect x="775" y="421" width="8" height="62" rx="4" fill="#c084fc"/>
-    <text x="909" y="460" text-anchor="middle" font-size="21" font-weight="600" fill="#16324f">目标序列</text>
-  <path d="M 475 340 L 725 340" stroke="#fbbf24" stroke-width="4" fill="none" marker-end="url(#arrow)"/><text x="600" y="325" text-anchor="middle" font-size="20" font-weight="600" fill="#fbbf24">memory</text>
+    <text x="78" y="90" font-size="22" font-weight="700" fill="#1683a8">第 02 节 · 独立学习图</text>
+    <text x="78" y="138" font-size="34" font-weight="800" fill="#17343a">源句与目标前缀怎样汇合</text>
+    <text x="78" y="178" font-size="20" fill="#4f676d">沿箭头读；每个框都标出了它保存的数据与形状。</text>
+
+    <text x="78" y="238" font-size="23" font-weight="750" fill="#196f92">① 源句路线</text>
+
+    <rect x="78" y="263" width="230" height="130" rx="20" fill="#eaf7ff" stroke="#38a6d3" stroke-width="2.5"/>
+    <text x="193" y="306" text-anchor="middle" font-size="24" font-weight="750" fill="#17343a">源句 ID</text>
+    <text x="193" y="342" text-anchor="middle" font-size="22" fill="#375b63">我　爱　你</text>
+    <text x="193" y="374" text-anchor="middle" font-size="19" fill="#60747a">[B, Ls]</text>
+
+    <rect x="385" y="263" width="230" height="130" rx="20" fill="#eaf7ff" stroke="#38a6d3" stroke-width="2.5"/>
+    <text x="500" y="306" text-anchor="middle" font-size="24" font-weight="750" fill="#17343a">Encoder × N</text>
+    <text x="500" y="342" text-anchor="middle" font-size="21" fill="#375b63">理解源句上下文</text>
+    <text x="500" y="374" text-anchor="middle" font-size="18" fill="#60747a">Embedding + 位置</text>
+
+    <rect x="692" y="263" width="230" height="130" rx="20" fill="#e7f6f2" stroke="#3b9b88" stroke-width="2.5"/>
+    <text x="807" y="306" text-anchor="middle" font-size="24" font-weight="750" fill="#17343a">memory</text>
+    <text x="807" y="342" text-anchor="middle" font-size="20" fill="#375b63">保留所有源位置</text>
+    <text x="807" y="374" text-anchor="middle" font-size="19" fill="#60747a">[B, Ls, D]</text>
+
+    <path d="M308 328H371" stroke="#47716d" stroke-width="3.5" marker-end="url(#arrow)"/>
+    <path d="M615 328H678" stroke="#47716d" stroke-width="3.5" marker-end="url(#arrow)"/>
+
+    <text x="78" y="472" font-size="23" font-weight="750" fill="#8055a6">② 目标路线</text>
+
+    <rect x="78" y="497" width="230" height="140" rx="20" fill="#f6effc" stroke="#a879d1" stroke-width="2.5"/>
+    <text x="193" y="538" text-anchor="middle" font-size="23" font-weight="750" fill="#17343a">右移目标 ID</text>
+    <text x="193" y="575" text-anchor="middle" font-size="21" fill="#375b63">&lt;BOS&gt; I love you</text>
+    <text x="193" y="610" text-anchor="middle" font-size="18" fill="#60747a">因果 mask · [B, Lt]</text>
+
+    <rect x="385" y="497" width="230" height="140" rx="20" fill="#f6effc" stroke="#a879d1" stroke-width="2.5"/>
+    <text x="500" y="538" text-anchor="middle" font-size="24" font-weight="750" fill="#17343a">Decoder × N</text>
+    <text x="500" y="575" text-anchor="middle" font-size="21" fill="#375b63">前缀 + memory</text>
+    <text x="500" y="610" text-anchor="middle" font-size="19" fill="#60747a">[B, Lt, D]</text>
+
+    <rect x="692" y="497" width="230" height="140" rx="20" fill="#fff6dc" stroke="#d99a24" stroke-width="2.5"/>
+    <text x="807" y="538" text-anchor="middle" font-size="23" font-weight="750" fill="#5c4518">Generator</text>
+    <text x="807" y="575" text-anchor="middle" font-size="20" fill="#66592f">Linear + Softmax</text>
+    <text x="807" y="610" text-anchor="middle" font-size="19" fill="#66592f">[B, Lt, Vt]</text>
+
+    <path d="M308 567H371" stroke="#7b58a0" stroke-width="3.5" marker-end="url(#arrow)"/>
+    <path d="M615 567H678" stroke="#47716d" stroke-width="3.5" marker-end="url(#arrow)"/>
+    <path d="M807 393V430Q807 447 790 447H545Q528 447 528 464V484" fill="none" stroke="#3b7e72" stroke-width="3.5" marker-end="url(#arrow)"/>
+    <text x="670" y="438" text-anchor="middle" font-size="19" font-weight="700" fill="#3b7e72">交叉注意力读取 memory 的 K、V</text>
+
+    <rect x="78" y="700" width="844" height="116" rx="20" fill="#eef6f4" stroke="#b6d4ce" stroke-width="2"/>
+    <text x="108" y="740" font-size="21" font-weight="750" fill="#285b5d">训练时，同一目标错开一格</text>
+    <text x="108" y="777" font-size="20" fill="#375b63">Decoder 输入：&lt;BOS&gt;　I　love　you</text>
+    <text x="108" y="807" font-size="20" fill="#375b63">正确标签：　　　 I　love　you　&lt;EOS&gt;</text>
   </g>
-  <rect x="90" y="565" width="1020" height="48" rx="14" fill="#e8f5f2" stroke="#b9d8d3"/>
-  <text x="600" y="596" text-anchor="middle" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="19" font-weight="600" fill="#285b5d">Encoder 理解输入，Decoder 在已生成前缀与编码结果的共同条件下预测下一个词。</text>
 </svg>

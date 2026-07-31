@@ -110,6 +110,23 @@ def main() -> int:
             fail(f"阅读器章节导学缺少字段或入口：{marker}", failures)
 
     accuracy_contracts = {
+        "notes/transformer/02-transformer-architecture-text.md": {
+            "required": (
+                "## 不看视频也能学懂",
+                "用“我爱你 → I love you”完整走一遍训练",
+                "右移目标序列",
+                "并行计算不等于允许偷看未来",
+                "训练和真正翻译，最容易混淆的地方",
+                "三种 Attention 到底是谁问谁",
+                "memory=[2, 7, 64]",
+                "课程仓库的 `transformer_from_scratch` 为了更易训练采用 Pre-LN",
+            ),
+            "forbidden": (
+                "memory 是整句压缩成的一个向量",
+                "训练和生成都能一次并行产生完整目标句",
+                "六个 EncoderLayer 共享同一套参数",
+            ),
+        },
         "notes/text-preprocessing/13-word2vec-cbow.md": {
             "required": (
                 "输入词向量矩阵",
