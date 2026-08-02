@@ -1,5 +1,5 @@
 {
-  "version": "2a934ba8dcff",
+  "version": "838d8b8dc092",
   "total": 189,
   "topics": [
     {
@@ -15,7 +15,7 @@
           "topicIndex": 1,
           "title": "课程导学：为什么学 NLP，以及整门课怎样走",
           "excerpt": "第 1 节：课程导学：为什么学 NLP，以及整门课怎样走 笔记编号 1/4 · 对应原视频 P1 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=1 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 阶段大纲：六章内容",
-          "path": "/content/2a934ba8dcff/notes/course-introduction/01-course-guide.md"
+          "path": "/content/838d8b8dc092/notes/course-introduction/01-course-guide.md"
         },
         {
           "id": 2,
@@ -24,7 +24,7 @@
           "topicIndex": 2,
           "title": "阶段大纲：六章内容、重点难点与案例路线",
           "excerpt": "第 2 节：阶段大纲：六章内容、重点难点与案例路线 笔记编号 2/4 · 对应原视频 P2 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=2 ← 上一节：1 课程导学：为什么学 NLP，以及整门课怎样走 ./01-course-guide",
-          "path": "/content/2a934ba8dcff/notes/course-introduction/02-stage-outline.md"
+          "path": "/content/838d8b8dc092/notes/course-introduction/02-stage-outline.md"
         },
         {
           "id": 3,
@@ -33,7 +33,7 @@
           "topicIndex": 3,
           "title": "NLP 概念与发展：从图灵测试到 Transformer",
           "excerpt": "第 3 节：NLP 概念与发展：从图灵测试到 Transformer 笔记编号 3/4 · 对应原视频 P3 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=3 ← 上一节：2 阶段大纲：六章内容、重点难点与案例路线 ./02-stage-",
-          "path": "/content/2a934ba8dcff/notes/course-introduction/03-nlp-concepts-and-history.md"
+          "path": "/content/838d8b8dc092/notes/course-introduction/03-nlp-concepts-and-history.md"
         },
         {
           "id": 4,
@@ -42,7 +42,7 @@
           "topicIndex": 4,
           "title": "NLP 应用场景：语音助手、身份核验与机器翻译",
           "excerpt": "第 4 节：NLP 应用场景：语音助手、身份核验与机器翻译 笔记编号 4/4 · 对应原视频 P4 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=4 ← 上一节：3 NLP 概念与发展：从图灵测试到 Transformer ./03-nl",
-          "path": "/content/2a934ba8dcff/notes/course-introduction/04-nlp-applications.md"
+          "path": "/content/838d8b8dc092/notes/course-introduction/04-nlp-applications.md"
         }
       ]
     },
@@ -59,7 +59,7 @@
           "topicIndex": 1,
           "title": "文本预处理全景：先看清问题，再动手处理",
           "excerpt": "第 1 节：文本预处理全景：先看清问题，再动手处理 笔记编号 1/33 · 对应原视频 P5 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=5 ← 已是第一节 · 返回总目录 ./README.md · 下一节：02 环境准备与分词：机器",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/01-overview.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/01-overview.md"
         },
         {
           "id": 6,
@@ -68,7 +68,7 @@
           "topicIndex": 2,
           "title": "环境准备与分词：机器眼中的句子没有天然词界",
           "excerpt": "第 2 节：环境准备与分词：机器眼中的句子没有天然词界 笔记编号 2/33 · 对应原视频 P6 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=6 ← 上一节：01 文本预处理全景：先看清问题，再动手处理 ./01-overview.md",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/02-environment-and-tokenization.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/02-environment-and-tokenization.md"
         },
         {
           "id": 7,
@@ -77,7 +77,7 @@
           "topicIndex": 3,
           "title": "jieba 精确模式：给句子一条主要切分路径",
           "excerpt": "第 3 节：jieba 精确模式：给句子一条主要切分路径 笔记编号 3/33 · 对应原视频 P7 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=7 ← 上一节：02 环境准备与分词：机器眼中的句子没有天然词界 ./02-environm",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/03-jieba-precise-mode.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/03-jieba-precise-mode.md"
         },
         {
           "id": 8,
@@ -86,7 +86,7 @@
           "topicIndex": 4,
           "title": "jieba 全模式：把可能的词尽量找出来",
           "excerpt": "第 4 节：jieba 全模式：把可能的词尽量找出来 笔记编号 4/33 · 对应原视频 P8 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=8 ← 上一节：03 jieba 精确模式：给句子一条主要切分路径 ./03-jieba-pre",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/04-jieba-full-mode.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/04-jieba-full-mode.md"
         },
         {
           "id": 9,
@@ -95,7 +95,7 @@
           "topicIndex": 5,
           "title": "jieba 搜索引擎模式：长词再拆一层，提高召回",
           "excerpt": "第 5 节：jieba 搜索引擎模式：长词再拆一层，提高召回 笔记编号 5/33 · 对应原视频 P9 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=9 ← 上一节：04 jieba 全模式：把可能的词尽量找出来 ./04-jieba-f",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/05-jieba-search-mode.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/05-jieba-search-mode.md"
         },
         {
           "id": 10,
@@ -104,7 +104,7 @@
           "topicIndex": 6,
           "title": "繁体中文分词：接口相同，词典覆盖决定效果",
           "excerpt": "第 6 节：繁体中文分词：接口相同，词典覆盖决定效果 笔记编号 6/33 · 对应原视频 P10 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=10 ← 上一节：05 jieba 搜索引擎模式：长词再拆一层，提高召回 ./05-jieba",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/06-traditional-chinese.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/06-traditional-chinese.md"
         },
         {
           "id": 11,
@@ -113,7 +113,7 @@
           "topicIndex": 7,
           "title": "自定义词典：教分词器认识你的领域词",
           "excerpt": "第 7 节：自定义词典：教分词器认识你的领域词 笔记编号 7/33 · 对应原视频 P11 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=11 ← 上一节：06 繁体中文分词：接口相同，词典覆盖决定效果 ./06-traditional-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/07-custom-dictionary.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/07-custom-dictionary.md"
         },
         {
           "id": 12,
@@ -122,7 +122,7 @@
           "topicIndex": 8,
           "title": "命名实体识别与词性标注：词是什么角色",
           "excerpt": "第 8 节：命名实体识别与词性标注：词是什么角色 笔记编号 8/33 · 对应原视频 P12 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=12 ← 上一节：07 自定义词典：教分词器认识你的领域词 ./07-custom-diction",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/08-ner-and-pos.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/08-ner-and-pos.md"
         },
         {
           "id": 13,
@@ -131,7 +131,7 @@
           "topicIndex": 9,
           "title": "文本张量表示：模型为什么只接收数字",
           "excerpt": "第 9 节：文本张量表示：模型为什么只接收数字 笔记编号 9/33 · 对应原视频 P13 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=13 ← 上一节：08 命名实体识别与词性标注：词是什么角色 ./08-ner-and-pos.md",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/09-text-to-tensor.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/09-text-to-tensor.md"
         },
         {
           "id": 14,
@@ -140,7 +140,7 @@
           "topicIndex": 10,
           "title": "One-Hot 生成：从词表位置得到独热向量",
           "excerpt": "第 10 节：One-Hot 生成：从词表位置得到独热向量 笔记编号 10/33 · 对应原视频 P14 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=14 ← 上一节：09 文本张量表示：模型为什么只接收数字 ./09-text-to-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/10-one-hot-generation.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/10-one-hot-generation.md"
         },
         {
           "id": 15,
@@ -149,7 +149,7 @@
           "topicIndex": 11,
           "title": "One-Hot 使用：加载同一映射并处理未知词",
           "excerpt": "第 11 节：One-Hot 使用：加载同一映射并处理未知词 笔记编号 11/33 · 对应原视频 P15 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=15 ← 上一节：10 One-Hot 生成：从词表位置得到独热向量 ./10-on",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/11-one-hot-usage.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/11-one-hot-usage.md"
         },
         {
           "id": 16,
@@ -158,7 +158,7 @@
           "topicIndex": 12,
           "title": "手写 One-Hot：看见稀疏表示的优点和代价",
           "excerpt": "第 12 节：手写 One-Hot：看见稀疏表示的优点和代价 笔记编号 12/33 · 对应原视频 P16 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=16 ← 上一节：11 One-Hot 使用：加载同一映射并处理未知词 ./11-o",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/12-simple-one-hot.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/12-simple-one-hot.md"
         },
         {
           "id": 17,
@@ -167,7 +167,7 @@
           "topicIndex": 13,
           "title": "Word2Vec 的 CBOW：用上下文猜中间词",
           "excerpt": "第 13 节：Word2Vec 的 CBOW：用上下文猜中间词 笔记编号 13/33 · 对应原视频 P17 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=17 ← 上一节：12 手写 One-Hot：看见稀疏表示的优点和代价 ./12-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/13-word2vec-cbow.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/13-word2vec-cbow.md"
         },
         {
           "id": 18,
@@ -176,7 +176,7 @@
           "topicIndex": 14,
           "title": "Word2Vec 的 Skip-Gram：用中间词猜周围词",
           "excerpt": "第 14 节：Word2Vec 的 Skip-Gram：用中间词猜周围词 笔记编号 14/33 · 对应原视频 P18 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=18 ← 上一节：13 Word2Vec 的 CBOW：用上下文猜中间词",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/14-word2vec-skipgram.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/14-word2vec-skipgram.md"
         },
         {
           "id": 19,
@@ -185,7 +185,7 @@
           "topicIndex": 15,
           "title": "FastText 准备：从大语料到可训练文件",
           "excerpt": "第 15 节：FastText 准备：从大语料到可训练文件 笔记编号 15/33 · 对应原视频 P19 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=19 ← 上一节：14 Word2Vec 的 Skip-Gram：用中间词猜周围词 .",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/15-fasttext-setup.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/15-fasttext-setup.md"
         },
         {
           "id": 20,
@@ -194,7 +194,7 @@
           "topicIndex": 16,
           "title": "FastText 训练与保存：让语料自己产生监督信号",
           "excerpt": "第 16 节：FastText 训练与保存：让语料自己产生监督信号 笔记编号 16/33 · 对应原视频 P20 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=20 ← 上一节：15 FastText 准备：从大语料到可训练文件 ./15",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/16-fasttext-training.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/16-fasttext-training.md"
         },
         {
           "id": 21,
@@ -203,7 +203,7 @@
           "topicIndex": 17,
           "title": "FastText 加载、查看与评估：向量好不好要验证",
           "excerpt": "第 17 节：FastText 加载、查看与评估：向量好不好要验证 笔记编号 17/33 · 对应原视频 P21 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=21 ← 上一节：16 FastText 训练与保存：让语料自己产生监督信号 ",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/17-fasttext-evaluation.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/17-fasttext-evaluation.md"
         },
         {
           "id": 22,
@@ -212,7 +212,7 @@
           "topicIndex": 18,
           "title": "FastText 超参数：每个旋钮改变什么",
           "excerpt": "第 18 节：FastText 超参数：每个旋钮改变什么 笔记编号 18/33 · 对应原视频 P22 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=22 ← 上一节：17 FastText 加载、查看与评估：向量好不好要验证 ./17-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/18-fasttext-hyperparameters.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/18-fasttext-hyperparameters.md"
         },
         {
           "id": 23,
@@ -221,7 +221,7 @@
           "topicIndex": 19,
           "title": "Word2Vec 与 Embedding：预训练方法和查表层的区别",
           "excerpt": "第 19 节：Word2Vec 与 Embedding：预训练方法和查表层的区别 笔记编号 19/33 · 对应原视频 P23 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=23 ← 上一节：18 FastText 超参数：每个旋钮改变什",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/19-embedding-vs-word2vec.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/19-embedding-vs-word2vec.md"
         },
         {
           "id": 24,
@@ -230,7 +230,7 @@
           "topicIndex": 20,
           "title": "Embedding 取词向量：从句子到三维张量",
           "excerpt": "第 20 节：Embedding 取词向量：从句子到三维张量 笔记编号 20/33 · 对应原视频 P24 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=24 ← 上一节：19 Word2Vec 与 Embedding：预训练方法和查表层",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/20-embedding-lookup.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/20-embedding-lookup.md"
         },
         {
           "id": 25,
@@ -239,7 +239,7 @@
           "topicIndex": 21,
           "title": "Embedding 可视化：把高维空间投影到屏幕",
           "excerpt": "第 21 节：Embedding 可视化：把高维空间投影到屏幕 笔记编号 21/33 · 对应原视频 P25 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=25 ← 上一节：20 Embedding 取词向量：从句子到三维张量 ./20-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/21-embedding-visualization.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/21-embedding-visualization.md"
         },
         {
           "id": 26,
@@ -248,7 +248,7 @@
           "topicIndex": 22,
           "title": "标签数量分布：先发现类别不平衡",
           "excerpt": "第 22 节：标签数量分布：先发现类别不平衡 笔记编号 22/33 · 对应原视频 P26 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=26 ← 上一节：21 Embedding 可视化：把高维空间投影到屏幕 ./21-embeddin",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/22-label-distribution.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/22-label-distribution.md"
         },
         {
           "id": 27,
@@ -257,7 +257,7 @@
           "topicIndex": 23,
           "title": "map：把同一个函数依次用到每条数据",
           "excerpt": "第 23 节：map：把同一个函数依次用到每条数据 笔记编号 23/33 · 对应原视频 P27 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=27 ← 上一节：22 标签数量分布：先发现类别不平衡 ./22-label-distribu",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/23-map-function.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/23-map-function.md"
         },
         {
           "id": 28,
@@ -266,7 +266,7 @@
           "topicIndex": 24,
           "title": "句子长度分布：为截断和补齐找依据",
           "excerpt": "第 24 节：句子长度分布：为截断和补齐找依据 笔记编号 24/33 · 对应原视频 P28 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=28 ← 上一节：23 map：把同一个函数依次用到每条数据 ./23-map-function.",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/24-sentence-length-distribution.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/24-sentence-length-distribution.md"
         },
         {
           "id": 29,
@@ -275,7 +275,7 @@
           "topicIndex": 25,
           "title": "按标签比较长度：长度本身也可能泄露规律",
           "excerpt": "第 25 节：按标签比较长度：长度本身也可能泄露规律 笔记编号 25/33 · 对应原视频 P29 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=29 ← 上一节：24 句子长度分布：为截断和补齐找依据 ./24-sentence-len",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/25-length-by-label.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/25-length-by-label.md"
         },
         {
           "id": 30,
@@ -284,7 +284,7 @@
           "topicIndex": 26,
           "title": "chain：把嵌套词列表铺平成一个词流",
           "excerpt": "第 26 节：chain：把嵌套词列表铺平成一个词流 笔记编号 26/33 · 对应原视频 P30 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=30 ← 上一节：25 按标签比较长度：长度本身也可能泄露规律 ./25-length-by",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/26-itertools-chain.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/26-itertools-chain.md"
         },
         {
           "id": 31,
@@ -293,7 +293,7 @@
           "topicIndex": 27,
           "title": "词汇量统计：不同词有多少、各出现几次",
           "excerpt": "第 27 节：词汇量统计：不同词有多少、各出现几次 笔记编号 27/33 · 对应原视频 P31 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=31 ← 上一节：26 chain：把嵌套词列表铺平成一个词流 ./26-itertools-",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/27-vocabulary-count.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/27-vocabulary-count.md"
         },
         {
           "id": 32,
@@ -302,7 +302,7 @@
           "topicIndex": 28,
           "title": "形容词词云：先按词性筛选，再按频率画图",
           "excerpt": "第 28 节：形容词词云：先按词性筛选，再按频率画图 笔记编号 28/33 · 对应原视频 P32 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=32 ← 上一节：27 词汇量统计：不同词有多少、各出现几次 ./27-vocabulary",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/28-adjective-wordcloud.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/28-adjective-wordcloud.md"
         },
         {
           "id": 33,
@@ -311,7 +311,7 @@
           "topicIndex": 29,
           "title": "zip：把多个等长位置对齐成元组",
           "excerpt": "第 29 节：zip：把多个等长位置对齐成元组 笔记编号 29/33 · 对应原视频 P33 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=33 ← 上一节：28 形容词词云：先按词性筛选，再按频率画图 ./28-adjective-wo",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/29-zip-function.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/29-zip-function.md"
         },
         {
           "id": 34,
@@ -320,7 +320,7 @@
           "topicIndex": 30,
           "title": "n-gram：保留连续局部顺序的文本特征",
           "excerpt": "第 30 节：n-gram：保留连续局部顺序的文本特征 笔记编号 30/33 · 对应原视频 P34 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=34 ← 上一节：29 zip：把多个等长位置对齐成元组 ./29-zip-functio",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/30-n-gram.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/30-n-gram.md"
         },
         {
           "id": 35,
@@ -329,7 +329,7 @@
           "topicIndex": 31,
           "title": "文本相似度：先对齐特征，再比较方向或集合",
           "excerpt": "第 31 节：文本相似度：先对齐特征，再比较方向或集合 笔记编号 31/33 · 对应原视频 P35 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=35 ← 上一节：30 n-gram：保留连续局部顺序的文本特征 ./30-n-gram.",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/31-text-similarity.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/31-text-similarity.md"
         },
         {
           "id": 36,
@@ -338,7 +338,7 @@
           "topicIndex": 32,
           "title": "长度规范化：截断与补齐组成统一批次",
           "excerpt": "第 32 节：长度规范化：截断与补齐组成统一批次 笔记编号 32/33 · 对应原视频 P36 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=36 ← 上一节：31 文本相似度：先对齐特征，再比较方向或集合 ./31-text-simil",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/32-length-normalization.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/32-length-normalization.md"
         },
         {
           "id": 37,
@@ -347,7 +347,7 @@
           "topicIndex": 33,
           "title": "回译数据增强：换一种说法，尽量保持标签",
           "excerpt": "第 33 节：回译数据增强：换一种说法，尽量保持标签 笔记编号 33/33 · 对应原视频 P37 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=37 ← 上一节：32 长度规范化：截断与补齐组成统一批次 ./32-length-norm",
-          "path": "/content/2a934ba8dcff/notes/text-preprocessing/33-back-translation.md"
+          "path": "/content/838d8b8dc092/notes/text-preprocessing/33-back-translation.md"
         }
       ]
     },
@@ -364,7 +364,7 @@
           "topicIndex": 1,
           "title": "RNN 简介：让当前判断带上过去的信息",
           "excerpt": "第 1 节：RNN 简介：让当前判断带上过去的信息 笔记编号 1/28 · 对应原视频 P38 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=38 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 RNN 分类：输入",
-          "path": "/content/2a934ba8dcff/notes/rnn/01-rnn-introduction.md"
+          "path": "/content/838d8b8dc092/notes/rnn/01-rnn-introduction.md"
         },
         {
           "id": 39,
@@ -373,7 +373,7 @@
           "topicIndex": 2,
           "title": "RNN 分类：输入输出关系与内部结构是两个维度",
           "excerpt": "第 2 节：RNN 分类：输入输出关系与内部结构是两个维度 笔记编号 2/28 · 对应原视频 P39 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=39 ← 上一节：1 RNN 简介：让当前判断带上过去的信息 ./01-rnn-intr",
-          "path": "/content/2a934ba8dcff/notes/rnn/02-rnn-types.md"
+          "path": "/content/838d8b8dc092/notes/rnn/02-rnn-types.md"
         },
         {
           "id": 40,
@@ -382,7 +382,7 @@
           "topicIndex": 3,
           "title": "RNN 模型结构：公式、共享权重与张量形状",
           "excerpt": "第 3 节：RNN 模型结构：公式、共享权重与张量形状 笔记编号 3/28 · 对应原视频 P40 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=40 ← 上一节：2 RNN 分类：输入输出关系与内部结构是两个维度 ./02-rnn-ty",
-          "path": "/content/2a934ba8dcff/notes/rnn/03-rnn-structure.md"
+          "path": "/content/838d8b8dc092/notes/rnn/03-rnn-structure.md"
         },
         {
           "id": 41,
@@ -391,7 +391,7 @@
           "topicIndex": 4,
           "title": "RNN 基础代码：创建层、准备输入、运行并验形状",
           "excerpt": "第 4 节：RNN 基础代码：创建层、准备输入、运行并验形状 笔记编号 4/28 · 对应原视频 P41 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=41 ← 上一节：3 RNN 模型结构：公式、共享权重与张量形状 ./03-rnn-s",
-          "path": "/content/2a934ba8dcff/notes/rnn/04-rnn-basic-code.md"
+          "path": "/content/838d8b8dc092/notes/rnn/04-rnn-basic-code.md"
         },
         {
           "id": 42,
@@ -400,7 +400,7 @@
           "topicIndex": 5,
           "title": "修改句长：只应改变 output 的时间维",
           "excerpt": "第 5 节：修改句长：只应改变 output 的时间维 笔记编号 5/28 · 对应原视频 P42 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=42 ← 上一节：4 RNN 基础代码：创建层、准备输入、运行并验形状 ./04-rnn-b",
-          "path": "/content/2a934ba8dcff/notes/rnn/05-change-sequence-length.md"
+          "path": "/content/838d8b8dc092/notes/rnn/05-change-sequence-length.md"
         },
         {
           "id": 43,
@@ -409,7 +409,7 @@
           "topicIndex": 6,
           "title": "修改隐藏层与总结：维度代表模型的记忆容量",
           "excerpt": "第 6 节：修改隐藏层与总结：维度代表模型的记忆容量 笔记编号 6/28 · 对应原视频 P43 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=43 ← 上一节：5 修改句长：只应改变 output 的时间维 ./05-change-se",
-          "path": "/content/2a934ba8dcff/notes/rnn/06-change-hidden-size.md"
+          "path": "/content/838d8b8dc092/notes/rnn/06-change-hidden-size.md"
         },
         {
           "id": 44,
@@ -418,7 +418,7 @@
           "topicIndex": 7,
           "title": "LSTM 图解（上）：遗忘门与输入门管理长期记忆",
           "excerpt": "第 7 节：LSTM 图解（上）：遗忘门与输入门管理长期记忆 笔记编号 7/28 · 对应原视频 P44 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=44 ← 上一节：6 修改隐藏层与总结：维度代表模型的记忆容量 ./06-change",
-          "path": "/content/2a934ba8dcff/notes/rnn/07-lstm-diagram-part1.md"
+          "path": "/content/838d8b8dc092/notes/rnn/07-lstm-diagram-part1.md"
         },
         {
           "id": 45,
@@ -427,7 +427,7 @@
           "topicIndex": 8,
           "title": "LSTM 图解（下）：输出门产生当前隐藏状态",
           "excerpt": "第 8 节：LSTM 图解（下）：输出门产生当前隐藏状态 笔记编号 8/28 · 对应原视频 P45 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=45 ← 上一节：7 LSTM 图解（上）：遗忘门与输入门管理长期记忆 ./07-lstm",
-          "path": "/content/2a934ba8dcff/notes/rnn/08-lstm-diagram-part2.md"
+          "path": "/content/838d8b8dc092/notes/rnn/08-lstm-diagram-part2.md"
         },
         {
           "id": 46,
@@ -436,7 +436,7 @@
           "topicIndex": 9,
           "title": "Bi-LSTM：从前后两个方向理解同一位置",
           "excerpt": "第 9 节：Bi-LSTM：从前后两个方向理解同一位置 笔记编号 9/28 · 对应原视频 P46 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=46 ← 上一节：8 LSTM 图解（下）：输出门产生当前隐藏状态 ./08-lstm-di",
-          "path": "/content/2a934ba8dcff/notes/rnn/09-bidirectional-lstm.md"
+          "path": "/content/838d8b8dc092/notes/rnn/09-bidirectional-lstm.md"
         },
         {
           "id": 47,
@@ -445,7 +445,7 @@
           "topicIndex": 10,
           "title": "LSTM 代码：多一个细胞状态，接口如何变化",
           "excerpt": "第 10 节：LSTM 代码：多一个细胞状态，接口如何变化 笔记编号 10/28 · 对应原视频 P47 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=47 ← 上一节：9 Bi-LSTM：从前后两个方向理解同一位置 ./09-bidir",
-          "path": "/content/2a934ba8dcff/notes/rnn/10-lstm-code.md"
+          "path": "/content/838d8b8dc092/notes/rnn/10-lstm-code.md"
         },
         {
           "id": 48,
@@ -454,7 +454,7 @@
           "topicIndex": 11,
           "title": "GRU 图解：两扇门合并记忆管理",
           "excerpt": "第 11 节：GRU 图解：两扇门合并记忆管理 笔记编号 11/28 · 对应原视频 P48 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=48 ← 上一节：10 LSTM 代码：多一个细胞状态，接口如何变化 ./10-lstm-code",
-          "path": "/content/2a934ba8dcff/notes/rnn/11-gru-diagram.md"
+          "path": "/content/838d8b8dc092/notes/rnn/11-gru-diagram.md"
         },
         {
           "id": 49,
@@ -463,7 +463,7 @@
           "topicIndex": 12,
           "title": "GRU 代码：替换循环层并验证接口",
           "excerpt": "第 12 节：GRU 代码：替换循环层并验证接口 笔记编号 12/28 · 对应原视频 P49 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=49 ← 上一节：11 GRU 图解：两扇门合并记忆管理 ./11-gru-diagram.md",
-          "path": "/content/2a934ba8dcff/notes/rnn/12-gru-code.md"
+          "path": "/content/838d8b8dc092/notes/rnn/12-gru-code.md"
         },
         {
           "id": 50,
@@ -472,7 +472,7 @@
           "topicIndex": 13,
           "title": "姓名分类需求：从名字预测 18 个国家类别",
           "excerpt": "第 13 节：姓名分类需求：从名字预测 18 个国家类别 笔记编号 13/28 · 对应原视频 P50 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=50 ← 上一节：12 GRU 代码：替换循环层并验证接口 ./12-gru-code.",
-          "path": "/content/2a934ba8dcff/notes/rnn/13-name-classification-requirement.md"
+          "path": "/content/838d8b8dc092/notes/rnn/13-name-classification-requirement.md"
         },
         {
           "id": 51,
@@ -481,7 +481,7 @@
           "topicIndex": 14,
           "title": "全局字母表与国家名：固定输入列和输出列",
           "excerpt": "第 14 节：全局字母表与国家名：固定输入列和输出列 笔记编号 14/28 · 对应原视频 P51 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=51 ← 上一节：13 姓名分类需求：从名字预测 18 个国家类别 ./13-name-cl",
-          "path": "/content/2a934ba8dcff/notes/rnn/14-alphabet-and-countries.md"
+          "path": "/content/838d8b8dc092/notes/rnn/14-alphabet-and-countries.md"
         },
         {
           "id": 52,
@@ -490,7 +490,7 @@
           "topicIndex": 15,
           "title": "读取数据：把姓名与国家分别保存并处理异常行",
           "excerpt": "第 15 节：读取数据：把姓名与国家分别保存并处理异常行 笔记编号 15/28 · 对应原视频 P52 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=52 ← 上一节：14 全局字母表与国家名：固定输入列和输出列 ./14-alphabe",
-          "path": "/content/2a934ba8dcff/notes/rnn/15-read-name-data.md"
+          "path": "/content/838d8b8dc092/notes/rnn/15-read-name-data.md"
         },
         {
           "id": 53,
@@ -499,7 +499,7 @@
           "topicIndex": 16,
           "title": "Dataset：把变长姓名转成字符 One-Hot 张量",
           "excerpt": "第 16 节：Dataset：把变长姓名转成字符 One-Hot 张量 笔记编号 16/28 · 对应原视频 P53 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=53 ← 上一节：15 读取数据：把姓名与国家分别保存并处理异常行 ./1",
-          "path": "/content/2a934ba8dcff/notes/rnn/16-dataset.md"
+          "path": "/content/838d8b8dc092/notes/rnn/16-dataset.md"
         },
         {
           "id": 54,
@@ -508,7 +508,7 @@
           "topicIndex": 17,
           "title": "DataLoader：为变长姓名组织训练迭代",
           "excerpt": "第 17 节：DataLoader：为变长姓名组织训练迭代 笔记编号 17/28 · 对应原视频 P54 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=54 ← 上一节：16 Dataset：把变长姓名转成字符 One-Hot 张量 ./",
-          "path": "/content/2a934ba8dcff/notes/rnn/17-dataloader.md"
+          "path": "/content/838d8b8dc092/notes/rnn/17-dataloader.md"
         },
         {
           "id": 55,
@@ -517,7 +517,7 @@
           "topicIndex": 18,
           "title": "LogSoftmax：旧式 NLLLoss 与现代 CrossEntropyLoss 的关系",
           "excerpt": "第 18 节：LogSoftmax：旧式 NLLLoss 与现代 CrossEntropyLoss 的关系 笔记编号 18/28 · 对应原视频 P55 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=55 ← 上一节：17 DataLoa",
-          "path": "/content/2a934ba8dcff/notes/rnn/18-log-softmax.md"
+          "path": "/content/838d8b8dc092/notes/rnn/18-log-softmax.md"
         },
         {
           "id": 56,
@@ -526,7 +526,7 @@
           "topicIndex": 19,
           "title": "RNN 分类模型：取最后时间步映射到 18 类",
           "excerpt": "第 19 节：RNN 分类模型：取最后时间步映射到 18 类 笔记编号 19/28 · 对应原视频 P56 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=56 ← 上一节：18 LogSoftmax：旧式 NLLLoss 与现代 Cros",
-          "path": "/content/2a934ba8dcff/notes/rnn/19-rnn-model.md"
+          "path": "/content/838d8b8dc092/notes/rnn/19-rnn-model.md"
         },
         {
           "id": 57,
@@ -535,7 +535,7 @@
           "topicIndex": 20,
           "title": "测试 RNN：用随机输入把形状链走通",
           "excerpt": "第 20 节：测试 RNN：用随机输入把形状链走通 笔记编号 20/28 · 对应原视频 P57 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=57 ← 上一节：19 RNN 分类模型：取最后时间步映射到 18 类 ./19-rnn-mo",
-          "path": "/content/2a934ba8dcff/notes/rnn/20-test-rnn.md"
+          "path": "/content/838d8b8dc092/notes/rnn/20-test-rnn.md"
         },
         {
           "id": 58,
@@ -544,7 +544,7 @@
           "topicIndex": 21,
           "title": "搭建 LSTM 与 GRU 模型：复用分类头，隔离状态差异",
           "excerpt": "第 21 节：搭建 LSTM 与 GRU 模型：复用分类头，隔离状态差异 笔记编号 21/28 · 对应原视频 P58 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=58 ← 上一节：20 测试 RNN：用随机输入把形状链走通 ./20-",
-          "path": "/content/2a934ba8dcff/notes/rnn/21-lstm-gru-models.md"
+          "path": "/content/838d8b8dc092/notes/rnn/21-lstm-gru-models.md"
         },
         {
           "id": 59,
@@ -553,7 +553,7 @@
           "topicIndex": 22,
           "title": "测试三种模型：用同一数据管道公平验形状",
           "excerpt": "第 22 节：测试三种模型：用同一数据管道公平验形状 笔记编号 22/28 · 对应原视频 P59 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=59 ← 上一节：21 搭建 LSTM 与 GRU 模型：复用分类头，隔离状态差异 ./21",
-          "path": "/content/2a934ba8dcff/notes/rnn/22-test-three-models.md"
+          "path": "/content/838d8b8dc092/notes/rnn/22-test-three-models.md"
         },
         {
           "id": 60,
@@ -562,7 +562,7 @@
           "topicIndex": 23,
           "title": "训练 RNN：外层 epoch、内层 batch 与五步反向传播",
           "excerpt": "第 23 节：训练 RNN：外层 epoch、内层 batch 与五步反向传播 笔记编号 23/28 · 对应原视频 P60 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=60 ← 上一节：22 测试三种模型：用同一数据管道公平验形状 .",
-          "path": "/content/2a934ba8dcff/notes/rnn/23-train-rnn.md"
+          "path": "/content/838d8b8dc092/notes/rnn/23-train-rnn.md"
         },
         {
           "id": 61,
@@ -571,7 +571,7 @@
           "topicIndex": 24,
           "title": "训练 LSTM：复用训练循环，正确管理 h 与 c",
           "excerpt": "第 24 节：训练 LSTM：复用训练循环，正确管理 h 与 c 笔记编号 24/28 · 对应原视频 P61 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=61 ← 上一节：23 训练 RNN：外层 epoch、内层 batch 与五步",
-          "path": "/content/2a934ba8dcff/notes/rnn/24-train-lstm.md"
+          "path": "/content/838d8b8dc092/notes/rnn/24-train-lstm.md"
         },
         {
           "id": 62,
@@ -580,7 +580,7 @@
           "topicIndex": 25,
           "title": "训练 GRU：同一协议下比较速度与效果",
           "excerpt": "第 25 节：训练 GRU：同一协议下比较速度与效果 笔记编号 25/28 · 对应原视频 P62 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=62 ← 上一节：24 训练 LSTM：复用训练循环，正确管理 h 与 c ./24-tra",
-          "path": "/content/2a934ba8dcff/notes/rnn/25-train-gru.md"
+          "path": "/content/838d8b8dc092/notes/rnn/25-train-gru.md"
         },
         {
           "id": 63,
@@ -589,7 +589,7 @@
           "topicIndex": 26,
           "title": "可视化三模型：损失、时间和准确率要一起看",
           "excerpt": "第 26 节：可视化三模型：损失、时间和准确率要一起看 笔记编号 26/28 · 对应原视频 P63 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=63 ← 上一节：25 训练 GRU：同一协议下比较速度与效果 ./25-train-gr",
-          "path": "/content/2a934ba8dcff/notes/rnn/26-visualize-comparison.md"
+          "path": "/content/838d8b8dc092/notes/rnn/26-visualize-comparison.md"
         },
         {
           "id": 64,
@@ -598,7 +598,7 @@
           "topicIndex": 27,
           "title": "RNN 预测：姓名转张量、加载权重并取 Top-k",
           "excerpt": "第 27 节：RNN 预测：姓名转张量、加载权重并取 Top-k 笔记编号 27/28 · 对应原视频 P64 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=64 ← 上一节：26 可视化三模型：损失、时间和准确率要一起看 ./26-vi",
-          "path": "/content/2a934ba8dcff/notes/rnn/27-rnn-prediction.md"
+          "path": "/content/838d8b8dc092/notes/rnn/27-rnn-prediction.md"
         },
         {
           "id": 65,
@@ -607,7 +607,7 @@
           "topicIndex": 28,
           "title": "姓名分类总结：按单模型跑通，再统一重构",
           "excerpt": "第 28 节：姓名分类总结：按单模型跑通，再统一重构 笔记编号 28/28 · 对应原视频 P65 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=65 ← 上一节：27 RNN 预测：姓名转张量、加载权重并取 Top-k ./27-rnn",
-          "path": "/content/2a934ba8dcff/notes/rnn/28-name-classifier-summary.md"
+          "path": "/content/838d8b8dc092/notes/rnn/28-name-classifier-summary.md"
         }
       ]
     },
@@ -624,7 +624,7 @@
           "topicIndex": 1,
           "title": "注意力机制介绍：把有限精力分给更相关的信息",
           "excerpt": "第 1 节：注意力机制介绍：把有限精力分给更相关的信息 笔记编号 1/14 · 对应原视频 P66 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=66 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 Q、K、V：问",
-          "path": "/content/2a934ba8dcff/notes/attention/01-attention-introduction.md"
+          "path": "/content/838d8b8dc092/notes/attention/01-attention-introduction.md"
         },
         {
           "id": 67,
@@ -633,7 +633,7 @@
           "topicIndex": 2,
           "title": "Q、K、V：问题、索引与实际内容",
           "excerpt": "第 2 节：Q、K、V：问题、索引与实际内容 笔记编号 2/14 · 对应原视频 P67 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=67 ← 上一节：1 注意力机制介绍：把有限精力分给更相关的信息 ./01-attention-int",
-          "path": "/content/2a934ba8dcff/notes/attention/02-qkv-introduction.md"
+          "path": "/content/838d8b8dc092/notes/attention/02-qkv-introduction.md"
         },
         {
           "id": 68,
@@ -642,7 +642,7 @@
           "topicIndex": 3,
           "title": "注意力实现步骤：算分、归一化、加权求和",
           "excerpt": "第 3 节：注意力实现步骤：算分、归一化、加权求和 笔记编号 3/14 · 对应原视频 P68 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=68 ← 上一节：2 Q、K、V：问题、索引与实际内容 ./02-qkv-introductio",
-          "path": "/content/2a934ba8dcff/notes/attention/03-attention-steps.md"
+          "path": "/content/838d8b8dc092/notes/attention/03-attention-steps.md"
         },
         {
           "id": 69,
@@ -651,7 +651,7 @@
           "topicIndex": 4,
           "title": "Seq2Seq 任务：编码器把输入交给解码器逐词生成",
           "excerpt": "第 4 节：Seq2Seq 任务：编码器把输入交给解码器逐词生成 笔记编号 4/14 · 对应原视频 P69 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=69 ← 上一节：3 注意力实现步骤：算分、归一化、加权求和 ./03-atten",
-          "path": "/content/2a934ba8dcff/notes/attention/04-seq2seq-task.md"
+          "path": "/content/838d8b8dc092/notes/attention/04-seq2seq-task.md"
         },
         {
           "id": 70,
@@ -660,7 +660,7 @@
           "topicIndex": 5,
           "title": "Seq2Seq 加入注意力：每个目标词拥有自己的 context",
           "excerpt": "第 5 节：Seq2Seq 加入注意力：每个目标词拥有自己的 context 笔记编号 5/14 · 对应原视频 P70 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=70 ← 上一节：4 Seq2Seq 任务：编码器把输入交给解码器逐词",
-          "path": "/content/2a934ba8dcff/notes/attention/05-seq2seq-with-attention.md"
+          "path": "/content/838d8b8dc092/notes/attention/05-seq2seq-with-attention.md"
         },
         {
           "id": 71,
@@ -669,7 +669,7 @@
           "topicIndex": 6,
           "title": "普通 Encoder-Decoder：一个 C 服务所有解码步骤",
           "excerpt": "第 6 节：普通 Encoder-Decoder：一个 C 服务所有解码步骤 笔记编号 6/14 · 对应原视频 P71 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=71 ← 上一节：5 Seq2Seq 加入注意力：每个目标词拥有自己的",
-          "path": "/content/2a934ba8dcff/notes/attention/06-plain-encoder-decoder.md"
+          "path": "/content/838d8b8dc092/notes/attention/06-plain-encoder-decoder.md"
         },
         {
           "id": 72,
@@ -678,7 +678,7 @@
           "topicIndex": 7,
           "title": "带注意力 Encoder-Decoder：从公式看 Cᵢ 怎样生成",
           "excerpt": "第 7 节：带注意力 Encoder-Decoder：从公式看 Cᵢ 怎样生成 笔记编号 7/14 · 对应原视频 P72 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=72 ← 上一节：6 普通 Encoder-Decoder：一个 C",
-          "path": "/content/2a934ba8dcff/notes/attention/07-attentive-encoder-decoder.md"
+          "path": "/content/838d8b8dc092/notes/attention/07-attentive-encoder-decoder.md"
         },
         {
           "id": 73,
@@ -687,7 +687,7 @@
           "topicIndex": 8,
           "title": "注意力概率分布：Decoder 状态如何与所有 Encoder 状态比较",
           "excerpt": "第 8 节：注意力概率分布：Decoder 状态如何与所有 Encoder 状态比较 笔记编号 8/14 · 对应原视频 P73 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=73 ← 上一节：7 带注意力 Encoder-Decoder",
-          "path": "/content/2a934ba8dcff/notes/attention/08-attention-probabilities.md"
+          "path": "/content/838d8b8dc092/notes/attention/08-attention-probabilities.md"
         },
         {
           "id": 74,
@@ -696,7 +696,7 @@
           "topicIndex": 9,
           "title": "软注意力、硬注意力与自注意力",
           "excerpt": "第 9 节：软注意力、硬注意力与自注意力 笔记编号 9/14 · 对应原视频 P74 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=74 ← 上一节：8 注意力概率分布：Decoder 状态如何与所有 Encoder 状态比较 ./08-",
-          "path": "/content/2a934ba8dcff/notes/attention/09-attention-types.md"
+          "path": "/content/838d8b8dc092/notes/attention/09-attention-types.md"
         },
         {
           "id": 75,
@@ -705,7 +705,7 @@
           "topicIndex": 10,
           "title": "常见注意力计算规则：拼接式、加法式与缩放点积",
           "excerpt": "第 10 节：常见注意力计算规则：拼接式、加法式与缩放点积 笔记编号 10/14 · 对应原视频 P75 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=75 ← 上一节：9 软注意力、硬注意力与自注意力 ./09-attention-ty",
-          "path": "/content/2a934ba8dcff/notes/attention/10-attention-scoring-rules.md"
+          "path": "/content/838d8b8dc092/notes/attention/10-attention-scoring-rules.md"
         },
         {
           "id": 76,
@@ -714,7 +714,7 @@
           "topicIndex": 11,
           "title": "bmm：一次完成一批三维矩阵乘法",
           "excerpt": "第 11 节：bmm：一次完成一批三维矩阵乘法 笔记编号 11/14 · 对应原视频 P76 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=76 ← 上一节：10 常见注意力计算规则：拼接式、加法式与缩放点积 ./10-attention",
-          "path": "/content/2a934ba8dcff/notes/attention/11-bmm.md"
+          "path": "/content/838d8b8dc092/notes/attention/11-bmm.md"
         },
         {
           "id": 77,
@@ -723,7 +723,7 @@
           "topicIndex": 12,
           "title": "注意力代码实现：从 Q/K/V 到增强后的查询",
           "excerpt": "第 12 节：注意力代码实现：从 Q/K/V 到增强后的查询 笔记编号 12/14 · 对应原视频 P77 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=77 ← 上一节：11 bmm：一次完成一批三维矩阵乘法 ./11-bmm.md ·",
-          "path": "/content/2a934ba8dcff/notes/attention/12-attention-code.md"
+          "path": "/content/838d8b8dc092/notes/attention/12-attention-code.md"
         },
         {
           "id": 78,
@@ -732,7 +732,7 @@
           "topicIndex": 13,
           "title": "注意力测试代码：检查形状、概率和与梯度",
           "excerpt": "第 13 节：注意力测试代码：检查形状、概率和与梯度 笔记编号 13/14 · 对应原视频 P78 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=78 ← 上一节：12 注意力代码实现：从 Q/K/V 到增强后的查询 ./12-atten",
-          "path": "/content/2a934ba8dcff/notes/attention/13-attention-test.md"
+          "path": "/content/838d8b8dc092/notes/attention/13-attention-test.md"
         },
         {
           "id": 79,
@@ -741,7 +741,7 @@
           "topicIndex": 14,
           "title": "参数解释：把 1×32、32×64、1×96 全部读成语义",
           "excerpt": "第 14 节：参数解释：把 1×32、32×64、1×96 全部读成语义 笔记编号 14/14 · 对应原视频 P79 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=79 ← 上一节：13 注意力测试代码：检查形状、概率和与梯度 ./13",
-          "path": "/content/2a934ba8dcff/notes/attention/14-attention-parameters.md"
+          "path": "/content/838d8b8dc092/notes/attention/14-attention-parameters.md"
         }
       ]
     },
@@ -758,7 +758,7 @@
           "topicIndex": 1,
           "title": "英译法需求：先看懂 800 行项目的六个模块",
           "excerpt": "第 1 节：英译法需求：先看懂 800 行项目的六个模块 笔记编号 1/26 · 对应原视频 P80 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=80 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 CUDA 环",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/01-translation-requirements.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/01-translation-requirements.md"
         },
         {
           "id": 81,
@@ -767,7 +767,7 @@
           "topicIndex": 2,
           "title": "CUDA 环境（上）：GPU、驱动、工具包与 PyTorch 不是同一层",
           "excerpt": "第 2 节：CUDA 环境（上）：GPU、驱动、工具包与 PyTorch 不是同一层 笔记编号 2/26 · 对应原视频 P81 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=81 ← 上一节：1 英译法需求：先看懂 800 行项目的六个",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/02-cuda-concepts.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/02-cuda-concepts.md"
         },
         {
           "id": 82,
@@ -776,7 +776,7 @@
           "topicIndex": 3,
           "title": "CUDA 环境实操：创建环境、安装、验证与排错",
           "excerpt": "第 3 节：CUDA 环境实操：创建环境、安装、验证与排错 笔记编号 3/26 · 对应原视频 P82 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=82 ← 上一节：2 CUDA 环境（上）：GPU、驱动、工具包与 PyTorch 不是",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/03-cuda-practice.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/03-cuda-practice.md"
         },
         {
           "id": 83,
@@ -785,7 +785,7 @@
           "topicIndex": 4,
           "title": "CUDA 配置总结：把可复现信息写进项目",
           "excerpt": "第 4 节：CUDA 配置总结：把可复现信息写进项目 笔记编号 4/26 · 对应原视频 P83 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=83 ← 上一节：3 CUDA 环境实操：创建环境、安装、验证与排错 ./03-cuda-pr",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/04-cuda-summary.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/04-cuda-summary.md"
         },
         {
           "id": 84,
@@ -794,7 +794,7 @@
           "topicIndex": 5,
           "title": "数据清洗：规范文本，但不要改坏翻译含义",
           "excerpt": "第 5 节：数据清洗：规范文本，但不要改坏翻译含义 笔记编号 5/26 · 对应原视频 P84 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=84 ← 上一节：4 CUDA 配置总结：把可复现信息写进项目 ./04-cuda-summar",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/05-data-cleaning.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/05-data-cleaning.md"
         },
         {
           "id": 85,
@@ -803,7 +803,7 @@
           "topicIndex": 6,
           "title": "数据预处理：读取双语句对并建立两套词表",
           "excerpt": "第 6 节：数据预处理：读取双语句对并建立两套词表 笔记编号 6/26 · 对应原视频 P85 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=85 ← 上一节：5 数据清洗：规范文本，但不要改坏翻译含义 ./05-data-cleanin",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/06-preprocessing.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/06-preprocessing.md"
         },
         {
           "id": 86,
@@ -812,7 +812,7 @@
           "topicIndex": 7,
           "title": "构建 Dataset：逐词查表、追加 EOS 并转成张量",
           "excerpt": "第 7 节：构建 Dataset：逐词查表、追加 EOS 并转成张量 笔记编号 7/26 · 对应原视频 P86 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=86 ← 上一节：6 数据预处理：读取双语句对并建立两套词表 ./06-pre",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/07-dataset.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/07-dataset.md"
         },
         {
           "id": 87,
@@ -821,7 +821,7 @@
           "topicIndex": 8,
           "title": "构建 DataLoader：用 batch_size=1 检查英法 ID 序列",
           "excerpt": "第 8 节：构建 DataLoader：用 batch size=1 检查英法 ID 序列 笔记编号 8/26 · 对应原视频 P87 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=87 ← 上一节：7 构建 Dataset：逐词查表、追",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/08-dataloader.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/08-dataloader.md"
         },
         {
           "id": 88,
@@ -830,7 +830,7 @@
           "topicIndex": 9,
           "title": "GRU Encoder：Embedding 后保留每个时间步输出",
           "excerpt": "第 9 节：GRU Encoder：Embedding 后保留每个时间步输出 笔记编号 9/26 · 对应原视频 P88 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=88 ← 上一节：8 构建 DataLoader：用 batch si",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/09-gru-encoder.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/09-gru-encoder.md"
         },
         {
           "id": 89,
@@ -839,7 +839,7 @@
           "topicIndex": 10,
           "title": "测试 Encoder：先验形状再运行",
           "excerpt": "第 10 节：测试 Encoder：先验形状再运行 笔记编号 10/26 · 对应原视频 P89 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=89 ← 上一节：9 GRU Encoder：Embedding 后保留每个时间步输出 ./0",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/10-test-encoder.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/10-test-encoder.md"
         },
         {
           "id": 90,
@@ -848,7 +848,7 @@
           "topicIndex": 11,
           "title": "无 Attention Decoder 思路：只靠 final hidden 生成",
           "excerpt": "第 11 节：无 Attention Decoder 思路：只靠 final hidden 生成 笔记编号 11/26 · 对应原视频 P90 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=90 ← 上一节：10 测试 Encoder：先",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/11-plain-decoder-plan.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/11-plain-decoder-plan.md"
         },
         {
           "id": 91,
@@ -857,7 +857,7 @@
           "topicIndex": 12,
           "title": "构建无 Attention GRU Decoder：LogSoftmax 必须配 NLLLoss",
           "excerpt": "第 12 节：构建无 Attention GRU Decoder：LogSoftmax 必须配 NLLLoss 笔记编号 12/26 · 对应原视频 P91 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=91 ← 上一节：11 无 Att",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/12-plain-decoder-code.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/12-plain-decoder-code.md"
         },
         {
           "id": 92,
@@ -866,7 +866,7 @@
           "topicIndex": 13,
           "title": "测试无 Attention Decoder：连接编码器并逐步验形状",
           "excerpt": "第 13 节：测试无 Attention Decoder：连接编码器并逐步验形状 笔记编号 13/26 · 对应原视频 P92 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=92 ← 上一节：12 构建无 Attention GRU De",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/13-test-plain-decoder.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/13-test-plain-decoder.md"
         },
         {
           "id": 93,
@@ -875,7 +875,7 @@
           "topicIndex": 14,
           "title": "课程版 Attention Decoder：拼接查询与隐藏状态计算 10 个权重",
           "excerpt": "第 14 节：课程版 Attention Decoder：拼接查询与隐藏状态计算 10 个权重 笔记编号 14/26 · 对应原视频 P93 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=93 ← 上一节：13 测试无 Attention",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/14-attention-decoder-plan.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/14-attention-decoder-plan.md"
         },
         {
           "id": 94,
@@ -884,7 +884,7 @@
           "topicIndex": 15,
           "title": "有 Attention Decoder 代码（上）：初始化九个成员",
           "excerpt": "第 15 节：有 Attention Decoder 代码（上）：初始化九个成员 笔记编号 15/26 · 对应原视频 P94 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=94 ← 上一节：14 课程版 Attention Decode",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/15-attention-decoder-code-part1.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/15-attention-decoder-code-part1.md"
         },
         {
           "id": 95,
@@ -893,7 +893,7 @@
           "topicIndex": 16,
           "title": "有 Attention Decoder 代码（下）：逐行完成拼接式 Attention",
           "excerpt": "第 16 节：有 Attention Decoder 代码（下）：逐行完成拼接式 Attention 笔记编号 16/26 · 对应原视频 P95 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=95 ← 上一节：15 有 Attentio",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/16-attention-decoder-code-part2.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/16-attention-decoder-code-part2.md"
         },
         {
           "id": 96,
@@ -902,7 +902,7 @@
           "topicIndex": 17,
           "title": "测试 Attention Decoder：补成固定 10 步并逐个喂真实目标词",
           "excerpt": "第 17 节：测试 Attention Decoder：补成固定 10 步并逐个喂真实目标词 笔记编号 17/26 · 对应原视频 P96 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=96 ← 上一节：16 有 Attention De",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/17-test-attention-decoder.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/17-test-attention-decoder.md"
         },
         {
           "id": 97,
@@ -911,7 +911,7 @@
           "topicIndex": 18,
           "title": "模型搭建总结：固定十步 Attention Decoder 的完整接口",
           "excerpt": "第 18 节：模型搭建总结：固定十步 Attention Decoder 的完整接口 笔记编号 18/26 · 对应原视频 P97 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=97 ← 上一节：17 测试 Attention Decod",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/18-model-summary.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/18-model-summary.md"
         },
         {
           "id": 98,
@@ -920,7 +920,7 @@
           "topicIndex": 19,
           "title": "Teacher Forcing：训练时有时喂真值上一词",
           "excerpt": "第 19 节：Teacher Forcing：训练时有时喂真值上一词 笔记编号 19/26 · 对应原视频 P98 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=98 ← 上一节：18 模型搭建总结：固定十步 Attention Deco",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/19-teacher-forcing.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/19-teacher-forcing.md"
         },
         {
           "id": 99,
@@ -929,7 +929,7 @@
           "topicIndex": 20,
           "title": "单样本训练函数：Teacher Forcing 两条分支怎样累计 NLLLoss",
           "excerpt": "第 20 节：单样本训练函数：Teacher Forcing 两条分支怎样累计 NLLLoss 笔记编号 20/26 · 对应原视频 P99 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=99 ← 上一节：19 Teacher Forci",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/20-train-one-batch.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/20-train-one-batch.md"
         },
         {
           "id": 100,
@@ -938,7 +938,7 @@
           "topicIndex": 21,
           "title": "view(1,-1)：把单个 token 标量整理成 Decoder 需要的二维输入",
           "excerpt": "第 21 节：view 1,-1 ：把单个 token 标量整理成 Decoder 需要的二维输入 笔记编号 21/26 · 对应原视频 P100 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=100 ← 上一节：20 单样本训练函数：T",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/21-view-function.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/21-view-function.md"
         },
         {
           "id": 101,
@@ -947,7 +947,7 @@
           "topicIndex": 22,
           "title": "完整训练代码：多轮遍历、分段统计、逐轮保存与损失曲线",
           "excerpt": "第 22 节：完整训练代码：多轮遍历、分段统计、逐轮保存与损失曲线 笔记编号 22/26 · 对应原视频 P101 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=101 ← 上一节：21 view 1,-1 ：把单个 token 标量整理",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/22-full-training.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/22-full-training.md"
         },
         {
           "id": 102,
@@ -956,7 +956,7 @@
           "topicIndex": 23,
           "title": "训练结果与总结：五轮曲线下降，但 3000 条演示不代表充分训练",
           "excerpt": "第 23 节：训练结果与总结：五轮曲线下降，但 3000 条演示不代表充分训练 笔记编号 23/26 · 对应原视频 P102 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=102 ← 上一节：22 完整训练代码：多轮遍历、分段统计、逐轮",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/23-training-summary.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/23-training-summary.md"
         },
         {
           "id": 103,
@@ -965,7 +965,7 @@
           "topicIndex": 24,
           "title": "模型评估函数：关闭梯度后自回归生成并截取有效注意力矩阵",
           "excerpt": "第 24 节：模型评估函数：关闭梯度后自回归生成并截取有效注意力矩阵 笔记编号 24/26 · 对应原视频 P103 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=103 ← 上一节：23 训练结果与总结：五轮曲线下降，但 3000 条演",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/24-prediction-code.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/24-prediction-code.md"
         },
         {
           "id": 104,
@@ -974,7 +974,7 @@
           "topicIndex": 25,
           "title": "模型评估测试：加载两份权重并对照英文、真值法语和预测法语",
           "excerpt": "第 25 节：模型评估测试：加载两份权重并对照英文、真值法语和预测法语 笔记编号 25/26 · 对应原视频 P104 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=104 ← 上一节：24 模型评估函数：关闭梯度后自回归生成并截取有效注",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/25-prediction-test.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/25-prediction-test.md"
         },
         {
           "id": 105,
@@ -983,7 +983,7 @@
           "topicIndex": 26,
           "title": "绘制注意力热力图：横轴英语、纵轴法语，颜色表示依赖程度",
           "excerpt": "第 26 节：绘制注意力热力图：横轴英语、纵轴法语，颜色表示依赖程度 笔记编号 26/26 · 对应原视频 P105 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=105 ← 上一节：25 模型评估测试：加载两份权重并对照英文、真值法语和",
-          "path": "/content/2a934ba8dcff/notes/seq2seq-translation/26-tensorboard-graph.md"
+          "path": "/content/838d8b8dc092/notes/seq2seq-translation/26-tensorboard-graph.md"
         }
       ]
     },
@@ -1000,7 +1000,7 @@
           "topicIndex": 1,
           "title": "Transformer 的由来：为什么不再逐词递归",
           "excerpt": "第 1 节：Transformer 的由来：为什么不再逐词递归 笔记编号 1/38 · 对应原视频 P106 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=106 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 总",
-          "path": "/content/2a934ba8dcff/notes/transformer/01-transformer-origin.md"
+          "path": "/content/838d8b8dc092/notes/transformer/01-transformer-origin.md"
         },
         {
           "id": 107,
@@ -1009,7 +1009,7 @@
           "topicIndex": 2,
           "title": "总体架构文字版：Encoder 理解，Decoder 生成",
           "excerpt": "第 2 节：总体架构文字版：Encoder 理解，Decoder 生成 教材编号 2/38 · 原视频 P107 仅作可选溯源： 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=107 （不看视频也能完成本节） ← 上一节：1 Transfor",
-          "path": "/content/2a934ba8dcff/notes/transformer/02-transformer-architecture-text.md"
+          "path": "/content/838d8b8dc092/notes/transformer/02-transformer-architecture-text.md"
         },
         {
           "id": 108,
@@ -1018,7 +1018,7 @@
           "topicIndex": 3,
           "title": "架构图上半部分：看懂 Encoder 数据流",
           "excerpt": "第 3 节：架构图上半部分：看懂 Encoder 数据流 笔记编号 3/38 · 对应原视频 P108 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=108 ← 上一节：2 总体架构文字版：Encoder 理解，Decoder 生成 ./",
-          "path": "/content/2a934ba8dcff/notes/transformer/03-transformer-diagram-upper.md"
+          "path": "/content/838d8b8dc092/notes/transformer/03-transformer-diagram-upper.md"
         },
         {
           "id": 109,
@@ -1027,7 +1027,7 @@
           "topicIndex": 4,
           "title": "架构图下半部分：Decoder 为什么有两种注意力",
           "excerpt": "第 4 节：架构图下半部分：Decoder 为什么有两种注意力 笔记编号 4/38 · 对应原视频 P109 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=109 ← 上一节：3 架构图上半部分：看懂 Encoder 数据流 ./03-t",
-          "path": "/content/2a934ba8dcff/notes/transformer/04-transformer-diagram-lower.md"
+          "path": "/content/838d8b8dc092/notes/transformer/04-transformer-diagram-lower.md"
         },
         {
           "id": 110,
@@ -1036,7 +1036,7 @@
           "topicIndex": 5,
           "title": "从零实现路线：先零件，再整机",
           "excerpt": "第 5 节：从零实现路线：先零件，再整机 笔记编号 5/38 · 对应原视频 P110 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=110 ← 上一节：4 架构图下半部分：Decoder 为什么有两种注意力 ./04-transform",
-          "path": "/content/2a934ba8dcff/notes/transformer/05-transformer-learning-roadmap.md"
+          "path": "/content/838d8b8dc092/notes/transformer/05-transformer-learning-roadmap.md"
         },
         {
           "id": 111,
@@ -1045,7 +1045,7 @@
           "topicIndex": 6,
           "title": "Token Embedding：把 ID 查成向量",
           "excerpt": "第 6 节：Token Embedding：把 ID 查成向量 笔记编号 6/38 · 对应原视频 P111 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=111 ← 上一节：5 从零实现路线：先零件，再整机 ./05-transform",
-          "path": "/content/2a934ba8dcff/notes/transformer/06-token-embedding-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/06-token-embedding-code.md"
         },
         {
           "id": 112,
@@ -1054,7 +1054,7 @@
           "topicIndex": 7,
           "title": "正弦位置编码原理：让模型知道先后顺序",
           "excerpt": "第 7 节：正弦位置编码原理：让模型知道先后顺序 笔记编号 7/38 · 对应原视频 P112 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=112 ← 上一节：6 Token Embedding：把 ID 查成向量 ./06-token",
-          "path": "/content/2a934ba8dcff/notes/transformer/07-positional-encoding-principle.md"
+          "path": "/content/838d8b8dc092/notes/transformer/07-positional-encoding-principle.md"
         },
         {
           "id": 113,
@@ -1063,7 +1063,7 @@
           "topicIndex": 8,
           "title": "位置编码总结：内容回答“是什么”，位置回答“在哪儿”",
           "excerpt": "第 8 节：位置编码总结：内容回答“是什么”，位置回答“在哪儿” 笔记编号 8/38 · 对应原视频 P113 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=113 ← 上一节：7 正弦位置编码原理：让模型知道先后顺序 ./07-posi",
-          "path": "/content/2a934ba8dcff/notes/transformer/08-positional-encoding-summary.md"
+          "path": "/content/838d8b8dc092/notes/transformer/08-positional-encoding-summary.md"
         },
         {
           "id": 114,
@@ -1072,7 +1072,7 @@
           "topicIndex": 9,
           "title": "PositionalEncoding 代码：预计算并注册 buffer",
           "excerpt": "第 9 节：PositionalEncoding 代码：预计算并注册 buffer 笔记编号 9/38 · 对应原视频 P114 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=114 ← 上一节：8 位置编码总结：内容回答“是什么”，位置",
-          "path": "/content/2a934ba8dcff/notes/transformer/09-positional-encoding-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/09-positional-encoding-code.md"
         },
         {
           "id": 115,
@@ -1081,7 +1081,7 @@
           "topicIndex": 10,
           "title": "位置编码测试：重点检查形状、广播和确定性",
           "excerpt": "第 10 节：位置编码测试：重点检查形状、广播和确定性 笔记编号 10/38 · 对应原视频 P115 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=115 ← 上一节：9 PositionalEncoding 代码：预计算并注册 buf",
-          "path": "/content/2a934ba8dcff/notes/transformer/10-positional-encoding-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/10-positional-encoding-test.md"
         },
         {
           "id": 116,
@@ -1090,7 +1090,7 @@
           "topicIndex": 11,
           "title": "上三角矩阵：标记当前位置之后的未来",
           "excerpt": "第 11 节：上三角矩阵：标记当前位置之后的未来 笔记编号 11/38 · 对应原视频 P116 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=116 ← 上一节：10 位置编码测试：重点检查形状、广播和确定性 ./10-position",
-          "path": "/content/2a934ba8dcff/notes/transformer/11-upper-triangular-matrix.md"
+          "path": "/content/838d8b8dc092/notes/transformer/11-upper-triangular-matrix.md"
         },
         {
           "id": 117,
@@ -1099,7 +1099,7 @@
           "topicIndex": 12,
           "title": "下三角可见区：只看自己和过去",
           "excerpt": "第 12 节：下三角可见区：只看自己和过去 笔记编号 12/38 · 对应原视频 P117 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=117 ← 上一节：11 上三角矩阵：标记当前位置之后的未来 ./11-upper-triangul",
-          "path": "/content/2a934ba8dcff/notes/transformer/12-lower-triangular-matrix.md"
+          "path": "/content/838d8b8dc092/notes/transformer/12-lower-triangular-matrix.md"
         },
         {
           "id": 118,
@@ -1108,7 +1108,7 @@
           "topicIndex": 13,
           "title": "因果 Mask 可视化：学会读横纵轴",
           "excerpt": "第 13 节：因果 Mask 可视化：学会读横纵轴 笔记编号 13/38 · 对应原视频 P118 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=118 ← 上一节：12 下三角可见区：只看自己和过去 ./12-lower-triangu",
-          "path": "/content/2a934ba8dcff/notes/transformer/13-mask-visualization.md"
+          "path": "/content/838d8b8dc092/notes/transformer/13-mask-visualization.md"
         },
         {
           "id": 119,
@@ -1117,7 +1117,7 @@
           "topicIndex": 14,
           "title": "masked_fill：在 Softmax 前把未来分数压到极小",
           "excerpt": "第 14 节：masked fill：在 Softmax 前把未来分数压到极小 笔记编号 14/38 · 对应原视频 P119 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=119 ← 上一节：13 因果 Mask 可视化：学会读横纵轴 ",
-          "path": "/content/2a934ba8dcff/notes/transformer/14-masked-fill.md"
+          "path": "/content/838d8b8dc092/notes/transformer/14-masked-fill.md"
         },
         {
           "id": 120,
@@ -1126,7 +1126,7 @@
           "topicIndex": 15,
           "title": "缩放点积注意力：Q 找谁，V 提供什么",
           "excerpt": "第 15 节：缩放点积注意力：Q 找谁，V 提供什么 笔记编号 15/38 · 对应原视频 P120 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=120 ← 上一节：14 masked fill：在 Softmax 前把未来分数压到极小",
-          "path": "/content/2a934ba8dcff/notes/transformer/15-scaled-dot-product-attention.md"
+          "path": "/content/838d8b8dc092/notes/transformer/15-scaled-dot-product-attention.md"
         },
         {
           "id": 121,
@@ -1135,7 +1135,7 @@
           "topicIndex": 16,
           "title": "多头注意力原理上：把特征空间分给多个头",
           "excerpt": "第 16 节：多头注意力原理上：把特征空间分给多个头 笔记编号 16/38 · 对应原视频 P121 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=121 ← 上一节：15 缩放点积注意力：Q 找谁，V 提供什么 ./15-scaled-",
-          "path": "/content/2a934ba8dcff/notes/transformer/16-multi-head-attention-principle-upper.md"
+          "path": "/content/838d8b8dc092/notes/transformer/16-multi-head-attention-principle-upper.md"
         },
         {
           "id": 122,
@@ -1144,7 +1144,7 @@
           "topicIndex": 17,
           "title": "多头注意力原理下：拆头、计算、再合头",
           "excerpt": "第 17 节：多头注意力原理下：拆头、计算、再合头 笔记编号 17/38 · 对应原视频 P122 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=122 ← 上一节：16 多头注意力原理上：把特征空间分给多个头 ./16-multi-he",
-          "path": "/content/2a934ba8dcff/notes/transformer/17-multi-head-attention-principle-lower.md"
+          "path": "/content/838d8b8dc092/notes/transformer/17-multi-head-attention-principle-lower.md"
         },
         {
           "id": 123,
@@ -1153,7 +1153,7 @@
           "topicIndex": 18,
           "title": "MultiHeadedAttention 代码：四个线性层和形状重排",
           "excerpt": "第 18 节：MultiHeadedAttention 代码：四个线性层和形状重排 笔记编号 18/38 · 对应原视频 P123 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=123 ← 上一节：17 多头注意力原理下：拆头、计算、再合",
-          "path": "/content/2a934ba8dcff/notes/transformer/18-multi-head-attention-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/18-multi-head-attention-code.md"
         },
         {
           "id": 124,
@@ -1162,7 +1162,7 @@
           "topicIndex": 19,
           "title": "多头注意力测试：不能只检查“能运行”",
           "excerpt": "第 19 节：多头注意力测试：不能只检查“能运行” 笔记编号 19/38 · 对应原视频 P124 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=124 ← 上一节：18 MultiHeadedAttention 代码：四个线性层和形状重",
-          "path": "/content/2a934ba8dcff/notes/transformer/19-multi-head-attention-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/19-multi-head-attention-test.md"
         },
         {
           "id": 125,
@@ -1171,7 +1171,7 @@
           "topicIndex": 20,
           "title": "Position-wise FFN：每个位置独立加工特征",
           "excerpt": "第 20 节：Position-wise FFN：每个位置独立加工特征 笔记编号 20/38 · 对应原视频 P125 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=125 ← 上一节：19 多头注意力测试：不能只检查“能运行” ./19",
-          "path": "/content/2a934ba8dcff/notes/transformer/20-positionwise-feed-forward.md"
+          "path": "/content/838d8b8dc092/notes/transformer/20-positionwise-feed-forward.md"
         },
         {
           "id": 126,
@@ -1180,7 +1180,7 @@
           "topicIndex": 21,
           "title": "LayerNorm 代码：在每个 token 内标准化特征",
           "excerpt": "第 21 节：LayerNorm 代码：在每个 token 内标准化特征 笔记编号 21/38 · 对应原视频 P126 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=126 ← 上一节：20 Position-wise FFN：每个位置",
-          "path": "/content/2a934ba8dcff/notes/transformer/21-layer-normalization-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/21-layer-normalization-code.md"
         },
         {
           "id": 127,
@@ -1189,7 +1189,7 @@
           "topicIndex": 22,
           "title": "LayerNorm 测试：均值约 0、方差约 1",
           "excerpt": "第 22 节：LayerNorm 测试：均值约 0、方差约 1 笔记编号 22/38 · 对应原视频 P127 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=127 ← 上一节：21 LayerNorm 代码：在每个 token 内标准化",
-          "path": "/content/2a934ba8dcff/notes/transformer/22-layer-normalization-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/22-layer-normalization-test.md"
         },
         {
           "id": 128,
@@ -1198,7 +1198,7 @@
           "topicIndex": 23,
           "title": "BatchNorm 与 LayerNorm：统计方向不同",
           "excerpt": "第 23 节：BatchNorm 与 LayerNorm：统计方向不同 笔记编号 23/38 · 对应原视频 P128 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=128 ← 上一节：22 LayerNorm 测试：均值约 0、方差约 ",
-          "path": "/content/2a934ba8dcff/notes/transformer/23-batchnorm-vs-layernorm.md"
+          "path": "/content/838d8b8dc092/notes/transformer/23-batchnorm-vs-layernorm.md"
         },
         {
           "id": 129,
@@ -1207,7 +1207,7 @@
           "topicIndex": 24,
           "title": "SublayerConnection：残差、Dropout 与归一化",
           "excerpt": "第 24 节：SublayerConnection：残差、Dropout 与归一化 笔记编号 24/38 · 对应原视频 P129 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=129 ← 上一节：23 BatchNorm 与 Layer",
-          "path": "/content/2a934ba8dcff/notes/transformer/24-sublayer-connection-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/24-sublayer-connection-code.md"
         },
         {
           "id": 130,
@@ -1216,7 +1216,7 @@
           "topicIndex": 25,
           "title": "子层连接测试：用 lambda 注入不同组件",
           "excerpt": "第 25 节：子层连接测试：用 lambda 注入不同组件 笔记编号 25/38 · 对应原视频 P130 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=130 ← 上一节：24 SublayerConnection：残差、Dropout",
-          "path": "/content/2a934ba8dcff/notes/transformer/25-sublayer-connection-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/25-sublayer-connection-test.md"
         },
         {
           "id": 131,
@@ -1225,7 +1225,7 @@
           "topicIndex": 26,
           "title": "EncoderLayer 代码：两个子层串起来",
           "excerpt": "第 26 节：EncoderLayer 代码：两个子层串起来 笔记编号 26/38 · 对应原视频 P131 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=131 ← 上一节：25 子层连接测试：用 lambda 注入不同组件 ./25-",
-          "path": "/content/2a934ba8dcff/notes/transformer/26-encoder-layer-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/26-encoder-layer-code.md"
         },
         {
           "id": 132,
@@ -1234,7 +1234,7 @@
           "topicIndex": 27,
           "title": "EncoderLayer 测试：看模块树，也看 mask",
           "excerpt": "第 27 节：EncoderLayer 测试：看模块树，也看 mask 笔记编号 27/38 · 对应原视频 P132 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=132 ← 上一节：26 EncoderLayer 代码：两个子层串起来",
-          "path": "/content/2a934ba8dcff/notes/transformer/27-encoder-layer-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/27-encoder-layer-test.md"
         },
         {
           "id": 133,
@@ -1243,7 +1243,7 @@
           "topicIndex": 28,
           "title": "Encoder 堆叠：N 层独立参数逐层提炼",
           "excerpt": "第 28 节：Encoder 堆叠：N 层独立参数逐层提炼 笔记编号 28/38 · 对应原视频 P133 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=133 ← 上一节：27 EncoderLayer 测试：看模块树，也看 mask ",
-          "path": "/content/2a934ba8dcff/notes/transformer/28-encoder-code-and-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/28-encoder-code-and-test.md"
         },
         {
           "id": 134,
@@ -1252,7 +1252,7 @@
           "topicIndex": 29,
           "title": "DecoderLayer 代码：三个子层与两种长度",
           "excerpt": "第 29 节：DecoderLayer 代码：三个子层与两种长度 笔记编号 29/38 · 对应原视频 P134 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=134 ← 上一节：28 Encoder 堆叠：N 层独立参数逐层提炼 ./2",
-          "path": "/content/2a934ba8dcff/notes/transformer/29-decoder-layer-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/29-decoder-layer-code.md"
         },
         {
           "id": 135,
@@ -1261,7 +1261,7 @@
           "topicIndex": 30,
           "title": "DecoderLayer 测试：故意让源长和目标长不同",
           "excerpt": "第 30 节：DecoderLayer 测试：故意让源长和目标长不同 笔记编号 30/38 · 对应原视频 P135 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=135 ← 上一节：29 DecoderLayer 代码：三个子层与两种长",
-          "path": "/content/2a934ba8dcff/notes/transformer/30-decoder-layer-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/30-decoder-layer-test.md"
         },
         {
           "id": 136,
@@ -1270,7 +1270,7 @@
           "topicIndex": 31,
           "title": "Decoder 堆叠：每层共享 memory，目标状态逐层变化",
           "excerpt": "第 31 节：Decoder 堆叠：每层共享 memory，目标状态逐层变化 笔记编号 31/38 · 对应原视频 P136 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=136 ← 上一节：30 DecoderLayer 测试：故意让源",
-          "path": "/content/2a934ba8dcff/notes/transformer/31-decoder-code-and-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/31-decoder-code-and-test.md"
         },
         {
           "id": 137,
@@ -1279,7 +1279,7 @@
           "topicIndex": 32,
           "title": "Generator 代码：从隐藏维映射到目标词表",
           "excerpt": "第 32 节：Generator 代码：从隐藏维映射到目标词表 笔记编号 32/38 · 对应原视频 P137 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=137 ← 上一节：31 Decoder 堆叠：每层共享 memory，目标状态",
-          "path": "/content/2a934ba8dcff/notes/transformer/32-generator-code.md"
+          "path": "/content/838d8b8dc092/notes/transformer/32-generator-code.md"
         },
         {
           "id": 138,
@@ -1288,7 +1288,7 @@
           "topicIndex": 33,
           "title": "Generator 测试：指数还原后概率和应为 1",
           "excerpt": "第 33 节：Generator 测试：指数还原后概率和应为 1 笔记编号 33/38 · 对应原视频 P138 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=138 ← 上一节：32 Generator 代码：从隐藏维映射到目标词表 .",
-          "path": "/content/2a934ba8dcff/notes/transformer/33-generator-test.md"
+          "path": "/content/838d8b8dc092/notes/transformer/33-generator-test.md"
         },
         {
           "id": 139,
@@ -1297,7 +1297,7 @@
           "topicIndex": 34,
           "title": "完整模型上：forward 如何组织编码和解码",
           "excerpt": "第 34 节：完整模型上：forward 如何组织编码和解码 笔记编号 34/38 · 对应原视频 P139 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=139 ← 上一节：33 Generator 测试：指数还原后概率和应为 1 ./",
-          "path": "/content/2a934ba8dcff/notes/transformer/34-full-transformer-upper.md"
+          "path": "/content/838d8b8dc092/notes/transformer/34-full-transformer-upper.md"
         },
         {
           "id": 140,
@@ -1306,7 +1306,7 @@
           "topicIndex": 35,
           "title": "完整模型下：encode/decode 接口要分清",
           "excerpt": "第 35 节：完整模型下：encode/decode 接口要分清 笔记编号 35/38 · 对应原视频 P140 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=140 ← 上一节：34 完整模型上：forward 如何组织编码和解码 ./",
-          "path": "/content/2a934ba8dcff/notes/transformer/35-full-transformer-lower.md"
+          "path": "/content/838d8b8dc092/notes/transformer/35-full-transformer-lower.md"
         },
         {
           "id": 141,
@@ -1315,7 +1315,7 @@
           "topicIndex": 36,
           "title": "完整模型组装：make_model 把所有组件接起来",
           "excerpt": "第 36 节：完整模型组装：make model 把所有组件接起来 笔记编号 36/38 · 对应原视频 P141 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=141 ← 上一节：35 完整模型下：encode/decode 接口要分清",
-          "path": "/content/2a934ba8dcff/notes/transformer/36-transformer-test-upper.md"
+          "path": "/content/838d8b8dc092/notes/transformer/36-transformer-test-upper.md"
         },
         {
           "id": 142,
@@ -1324,7 +1324,7 @@
           "topicIndex": 37,
           "title": "组件总复盘：从模型树反向读出数据流",
           "excerpt": "第 37 节：组件总复盘：从模型树反向读出数据流 笔记编号 37/38 · 对应原视频 P142 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=142 ← 上一节：36 完整模型组装：make model 把所有组件接起来 ./36-tr",
-          "path": "/content/2a934ba8dcff/notes/transformer/37-transformer-components-review.md"
+          "path": "/content/838d8b8dc092/notes/transformer/37-transformer-components-review.md"
         },
         {
           "id": 143,
@@ -1333,7 +1333,7 @@
           "topicIndex": 38,
           "title": "完整模型端到端测试：最终输出不等于训练完成",
           "excerpt": "第 38 节：完整模型端到端测试：最终输出不等于训练完成 笔记编号 38/38 · 对应原视频 P143 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=143 ← 上一节：37 组件总复盘：从模型树反向读出数据流 ./37-transfo",
-          "path": "/content/2a934ba8dcff/notes/transformer/38-transformer-test-lower.md"
+          "path": "/content/838d8b8dc092/notes/transformer/38-transformer-test-lower.md"
         }
       ]
     },
@@ -1350,7 +1350,7 @@
           "topicIndex": 1,
           "title": "FastText 简介与环境：为什么一行 API 也值得学原理",
           "excerpt": "第 1 节：FastText 简介与环境：为什么一行 API 也值得学原理 笔记编号 1/11 · 对应原视频 P144 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=144 ← 已是第一节 · 返回总目录 ./README.md · 下",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/01-fasttext-introduction.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/01-fasttext-introduction.md"
         },
         {
           "id": 145,
@@ -1359,7 +1359,7 @@
           "topicIndex": 2,
           "title": "层次 Softmax 与哈夫曼树：从全部类别改成走一条路径",
           "excerpt": "第 2 节：层次 Softmax 与哈夫曼树：从全部类别改成走一条路径 笔记编号 2/11 · 对应原视频 P145 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=145 ← 上一节：1 FastText 简介与环境：为什么一行 API ",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/02-hierarchical-softmax-huffman.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/02-hierarchical-softmax-huffman.md"
         },
         {
           "id": 146,
@@ -1368,7 +1368,7 @@
           "topicIndex": 3,
           "title": "负采样：正样本之外，只挑少量“陪练”负样本",
           "excerpt": "第 3 节：负采样：正样本之外，只挑少量“陪练”负样本 笔记编号 3/11 · 对应原视频 P146 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=146 ← 上一节：2 层次 Softmax 与哈夫曼树：从全部类别改成走一条路径 ./0",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/03-negative-sampling.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/03-negative-sampling.md"
         },
         {
           "id": 147,
@@ -1377,7 +1377,7 @@
           "topicIndex": 4,
           "title": "直接训练：数据格式、预测、测试与第一版基线",
           "excerpt": "第 4 节：直接训练：数据格式、预测、测试与第一版基线 笔记编号 4/11 · 对应原视频 P147 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=147 ← 上一节：3 负采样：正样本之外，只挑少量“陪练”负样本 ./03-negati",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/04-direct-training.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/04-direct-training.md"
         },
         {
           "id": 148,
@@ -1386,7 +1386,7 @@
           "topicIndex": 5,
           "title": "数据预处理：统一大小写、分开标点，并保持训练预测一致",
           "excerpt": "第 5 节：数据预处理：统一大小写、分开标点，并保持训练预测一致 笔记编号 5/11 · 对应原视频 P148 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=148 ← 上一节：4 直接训练：数据格式、预测、测试与第一版基线 ./04-d",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/05-data-preprocessing.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/05-data-preprocessing.md"
         },
         {
           "id": 149,
@@ -1395,7 +1395,7 @@
           "topicIndex": 6,
           "title": "训练轮数与学习率：一个决定看几遍，一个决定每步走多远",
           "excerpt": "第 6 节：训练轮数与学习率：一个决定看几遍，一个决定每步走多远 笔记编号 6/11 · 对应原视频 P149 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=149 ← 上一节：5 数据预处理：统一大小写、分开标点，并保持训练预测一致 .",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/06-epochs-learning-rate.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/06-epochs-learning-rate.md"
         },
         {
           "id": 150,
@@ -1404,7 +1404,7 @@
           "topicIndex": 7,
           "title": "word N-gram 与损失函数：补一点局部词序，再选合适输出方式",
           "excerpt": "第 7 节：word N-gram 与损失函数：补一点局部词序，再选合适输出方式 笔记编号 7/11 · 对应原视频 P150 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=150 ← 上一节：6 训练轮数与学习率：一个决定看几遍，一个决",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/07-ngrams-loss.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/07-ngrams-loss.md"
         },
         {
           "id": 151,
@@ -1413,7 +1413,7 @@
           "topicIndex": 8,
           "title": "自动调参：给验证集和时间预算，让程序寻找更好组合",
           "excerpt": "第 8 节：自动调参：给验证集和时间预算，让程序寻找更好组合 笔记编号 8/11 · 对应原视频 P151 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=151 ← 上一节：7 word N-gram 与损失函数：补一点局部词序，再选合适",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/08-autotune.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/08-autotune.md"
         },
         {
           "id": 152,
@@ -1422,7 +1422,7 @@
           "topicIndex": 9,
           "title": "多分类多标签：OVA、k 与 threshold 的完整含义",
           "excerpt": "第 9 节：多分类多标签：OVA、k 与 threshold 的完整含义 笔记编号 9/11 · 对应原视频 P152 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=152 ← 上一节：8 自动调参：给验证集和时间预算，让程序寻找更好组合",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/09-multilabel-ova.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/09-multilabel-ova.md"
         },
         {
           "id": 153,
@@ -1431,7 +1431,7 @@
           "topicIndex": 10,
           "title": "保存与加载模型：训练一次，部署和复现实验反复使用",
           "excerpt": "第 10 节：保存与加载模型：训练一次，部署和复现实验反复使用 笔记编号 10/11 · 对应原视频 P153 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=153 ← 上一节：9 多分类多标签：OVA、k 与 threshold 的完整",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/10-save-load-model.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/10-save-load-model.md"
         },
         {
           "id": 154,
@@ -1440,7 +1440,7 @@
           "topicIndex": 11,
           "title": "词向量迁移：把别人训练好的语义坐标系拿来起步",
           "excerpt": "第 11 节：词向量迁移：把别人训练好的语义坐标系拿来起步 笔记编号 11/11 · 对应原视频 P154 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=154 ← 上一节：10 保存与加载模型：训练一次，部署和复现实验反复使用 ./10",
-          "path": "/content/2a934ba8dcff/notes/fasttext-classification/11-pretrained-vectors-transfer.md"
+          "path": "/content/838d8b8dc092/notes/fasttext-classification/11-pretrained-vectors-transfer.md"
         }
       ]
     },
@@ -1457,7 +1457,7 @@
           "topicIndex": 1,
           "title": "迁移学习：把别人学会的能力搬到相关任务",
           "excerpt": "第 1 节：迁移学习：把别人学会的能力搬到相关任务 笔记编号 1/29 · 对应原视频 P155 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=155 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 常见预训练 N",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/01-transfer-learning-introduction.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/01-transfer-learning-introduction.md"
         },
         {
           "id": 156,
@@ -1466,7 +1466,7 @@
           "topicIndex": 2,
           "title": "常见预训练 NLP 模型：Encoder、Decoder 与 Encoder-Decoder",
           "excerpt": "第 2 节：常见预训练 NLP 模型：Encoder、Decoder 与 Encoder-Decoder 笔记编号 2/29 · 对应原视频 P156 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=156 ← 上一节：1 迁移学习：把别人",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/02-pretrained-model-families.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/02-pretrained-model-families.md"
         },
         {
           "id": 157,
@@ -1475,7 +1475,7 @@
           "topicIndex": 3,
           "title": "Transformers 库与环境：模型仓库、缓存和三种调用方式",
           "excerpt": "第 3 节：Transformers 库与环境：模型仓库、缓存和三种调用方式 笔记编号 3/29 · 对应原视频 P157 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=157 ← 上一节：2 常见预训练 NLP 模型：Encoder、D",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/03-transformers-library-setup.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/03-transformers-library-setup.md"
         },
         {
           "id": 158,
@@ -1484,7 +1484,7 @@
           "topicIndex": 4,
           "title": "Pipeline 文本分类：三行代码背后的标签与概率",
           "excerpt": "第 4 节：Pipeline 文本分类：三行代码背后的标签与概率 笔记编号 4/29 · 对应原视频 P158 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=158 ← 上一节：3 Transformers 库与环境：模型仓库、缓存和三种",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/04-pipeline-text-classification.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/04-pipeline-text-classification.md"
         },
         {
           "id": 159,
@@ -1493,7 +1493,7 @@
           "topicIndex": 5,
           "title": "Pipeline 特征提取：没有任务头的“半成品”怎样读形状",
           "excerpt": "第 5 节：Pipeline 特征提取：没有任务头的“半成品”怎样读形状 笔记编号 5/29 · 对应原视频 P159 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=159 ← 上一节：4 Pipeline 文本分类：三行代码背后的标签与",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/05-pipeline-feature-extraction.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/05-pipeline-feature-extraction.md"
         },
         {
           "id": 160,
@@ -1502,7 +1502,7 @@
           "topicIndex": 6,
           "title": "Pipeline 完形填空：`[MASK]`、候选概率与多个空位",
           "excerpt": "第 6 节：Pipeline 完形填空： MASK 、候选概率与多个空位 笔记编号 6/29 · 对应原视频 P160 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=160 ← 上一节：5 Pipeline 特征提取：没有任务头的“半成品",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/06-pipeline-fill-mask.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/06-pipeline-fill-mask.md"
         },
         {
           "id": 161,
@@ -1511,7 +1511,7 @@
           "topicIndex": 7,
           "title": "Pipeline 阅读理解：从 context 中预测答案起止位置",
           "excerpt": "第 7 节：Pipeline 阅读理解：从 context 中预测答案起止位置 笔记编号 7/29 · 对应原视频 P161 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=161 ← 上一节：6 Pipeline 完形填空： MASK 、",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/07-pipeline-question-answering.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/07-pipeline-question-answering.md"
         },
         {
           "id": 162,
@@ -1520,7 +1520,7 @@
           "topicIndex": 8,
           "title": "Pipeline 文本摘要：生成长度、截断与事实一致性",
           "excerpt": "第 8 节：Pipeline 文本摘要：生成长度、截断与事实一致性 笔记编号 8/29 · 对应原视频 P162 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=162 ← 上一节：7 Pipeline 阅读理解：从 context 中预测",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/08-pipeline-summarization.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/08-pipeline-summarization.md"
         },
         {
           "id": 163,
@@ -1529,7 +1529,7 @@
           "topicIndex": 9,
           "title": "Pipeline NER：token 标签怎样合并成人名、地点和组织",
           "excerpt": "第 9 节：Pipeline NER：token 标签怎样合并成人名、地点和组织 笔记编号 9/29 · 对应原视频 P163 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=163 ← 上一节：8 Pipeline 文本摘要：生成长度、截",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/09-pipeline-ner.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/09-pipeline-ner.md"
         },
         {
           "id": 164,
@@ -1538,7 +1538,7 @@
           "topicIndex": 10,
           "title": "Auto 模型文本分类：手工完成分词、前向与 argmax",
           "excerpt": "第 10 节：Auto 模型文本分类：手工完成分词、前向与 argmax 笔记编号 10/29 · 对应原视频 P164 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=164 ← 上一节：9 Pipeline NER：token 标签怎样",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/10-auto-text-classification.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/10-auto-text-classification.md"
         },
         {
           "id": 165,
@@ -1547,7 +1547,7 @@
           "topicIndex": 11,
           "title": "Auto 模型特征提取：last_hidden_state 与 masked mean pooling",
           "excerpt": "第 11 节：Auto 模型特征提取：last hidden state 与 masked mean pooling 笔记编号 11/29 · 对应原视频 P165 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=165 ← 上一节：10 ",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/11-auto-feature-extraction.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/11-auto-feature-extraction.md"
         },
         {
           "id": 166,
@@ -1556,7 +1556,7 @@
           "topicIndex": 12,
           "title": "Auto 模型完形填空：定位 mask，再从词表 logits 取 top-k",
           "excerpt": "第 12 节：Auto 模型完形填空：定位 mask，再从词表 logits 取 top-k 笔记编号 12/29 · 对应原视频 P166 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=166 ← 上一节：11 Auto 模型特征提取：",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/12-auto-fill-mask.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/12-auto-fill-mask.md"
         },
         {
           "id": 167,
@@ -1565,7 +1565,7 @@
           "topicIndex": 13,
           "title": "Auto 模型阅读理解：start_logits 与 end_logits 组合答案",
           "excerpt": "第 13 节：Auto 模型阅读理解：start logits 与 end logits 组合答案 笔记编号 13/29 · 对应原视频 P167 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=167 ← 上一节：12 Auto 模型完形",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/13-auto-question-answering.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/13-auto-question-answering.md"
         },
         {
           "id": 168,
@@ -1574,7 +1574,7 @@
           "topicIndex": 14,
           "title": "Auto 模型文本摘要：tokenize、generate 与 decode 分工",
           "excerpt": "第 14 节：Auto 模型文本摘要：tokenize、generate 与 decode 分工 笔记编号 14/29 · 对应原视频 P168 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=168 ← 上一节：13 Auto 模型阅读理",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/14-auto-summarization.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/14-auto-summarization.md"
         },
         {
           "id": 169,
@@ -1583,7 +1583,7 @@
           "topicIndex": 15,
           "title": "Auto 模型 NER：subword 标签对齐与实体聚合",
           "excerpt": "第 15 节：Auto 模型 NER：subword 标签对齐与实体聚合 笔记编号 15/29 · 对应原视频 P169 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=169 ← 上一节：14 Auto 模型文本摘要：tokenize、g",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/15-auto-ner.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/15-auto-ner.md"
         },
         {
           "id": 170,
@@ -1592,7 +1592,7 @@
           "topicIndex": 16,
           "title": "具体模型类做完形填空：显式使用 BertTokenizer 与 BertForMaskedLM",
           "excerpt": "第 16 节：具体模型类做完形填空：显式使用 BertTokenizer 与 BertForMaskedLM 笔记编号 16/29 · 对应原视频 P170 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=170 ← 上一节：15 Auto",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/16-specific-model-fill-mask.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/16-specific-model-fill-mask.md"
         },
         {
           "id": 171,
@@ -1601,7 +1601,7 @@
           "topicIndex": 17,
           "title": "中文分类案例（一）：先把原始数据加载成 text/label 样本",
           "excerpt": "第 17 节：中文分类案例（一）：先把原始数据加载成 text/label 样本 笔记编号 17/29 · 对应原视频 P171 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=171 ← 上一节：16 具体模型类做完形填空：显式使用 Be",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/17-classification-data-loading.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/17-classification-data-loading.md"
         },
         {
           "id": 172,
@@ -1610,7 +1610,7 @@
           "topicIndex": 18,
           "title": "中文分类案例（二）：批量分词、padding、truncation 与 attention_mask",
           "excerpt": "第 18 节：中文分类案例（二）：批量分词、padding、truncation 与 attention mask 笔记编号 18/29 · 对应原视频 P172 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=172 ← 上一节：17 中",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/18-classification-preprocessing.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/18-classification-preprocessing.md"
         },
         {
           "id": 173,
@@ -1619,7 +1619,7 @@
           "topicIndex": 19,
           "title": "中文分类案例（三）：自定义 BERT + Linear(768→2) 网络",
           "excerpt": "第 19 节：中文分类案例（三）：自定义 BERT + Linear 768→2 网络 笔记编号 19/29 · 对应原视频 P173 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=173 ← 上一节：18 中文分类案例（二）：批量分词、",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/19-classification-model.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/19-classification-model.md"
         },
         {
           "id": 174,
@@ -1628,7 +1628,7 @@
           "topicIndex": 20,
           "title": "中文分类案例（四）：训练循环、梯度更新和逐轮保存",
           "excerpt": "第 20 节：中文分类案例（四）：训练循环、梯度更新和逐轮保存 笔记编号 20/29 · 对应原视频 P174 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=174 ← 上一节：19 中文分类案例（三）：自定义 BERT + Linear",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/20-classification-training.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/20-classification-training.md"
         },
         {
           "id": 175,
@@ -1637,7 +1637,7 @@
           "topicIndex": 21,
           "title": "中文分类案例（五）：加载 checkpoint、全量准确率与评估边界",
           "excerpt": "第 21 节：中文分类案例（五）：加载 checkpoint、全量准确率与评估边界 笔记编号 21/29 · 对应原视频 P175 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=175 ← 上一节：20 中文分类案例（四）：训练循环、梯度",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/21-classification-evaluation.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/21-classification-evaluation.md"
         },
         {
           "id": 176,
@@ -1646,7 +1646,7 @@
           "topicIndex": 22,
           "title": "中文填空案例（一）：固定遮罩下标 16 的数据整理",
           "excerpt": "第 22 节：中文填空案例（一）：固定遮罩下标 16 的数据整理 笔记编号 22/29 · 对应原视频 P176 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=176 ← 上一节：21 中文分类案例（五）：加载 checkpoint、全量",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/22-mlm-preprocessing.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/22-mlm-preprocessing.md"
         },
         {
           "id": 177,
@@ -1655,7 +1655,7 @@
           "topicIndex": 23,
           "title": "中文填空案例（二）：自定义 BERT + Linear(768→词表大小)",
           "excerpt": "第 23 节：中文填空案例（二）：自定义 BERT + Linear 768→词表大小 笔记编号 23/29 · 对应原视频 P177 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=177 ← 上一节：22 中文填空案例（一）：固定遮罩下",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/23-mlm-model.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/23-mlm-model.md"
         },
         {
           "id": 178,
@@ -1664,7 +1664,7 @@
           "topicIndex": 24,
           "title": "中文填空案例（三）：过滤长文本并复用分类训练循环",
           "excerpt": "第 24 节：中文填空案例（三）：过滤长文本并复用分类训练循环 笔记编号 24/29 · 对应原视频 P178 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=178 ← 上一节：23 中文填空案例（二）：自定义 BERT + Linear",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/24-mlm-training.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/24-mlm-training.md"
         },
         {
           "id": 179,
@@ -1673,7 +1673,7 @@
           "topicIndex": 25,
           "title": "中文填空案例（四）：加载 FillMask 模型并计算固定位置准确率",
           "excerpt": "第 25 节：中文填空案例（四）：加载 FillMask 模型并计算固定位置准确率 笔记编号 25/29 · 对应原视频 P179 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=179 ← 上一节：24 中文填空案例（三）：过滤长文本并复",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/25-mlm-evaluation.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/25-mlm-evaluation.md"
         },
         {
           "id": 180,
@@ -1682,7 +1682,7 @@
           "topicIndex": 26,
           "title": "NSP 案例（一）：自定义句对数据，构造真下一句与随机下一句",
           "excerpt": "第 26 节：NSP 案例（一）：自定义句对数据，构造真下一句与随机下一句 笔记编号 26/29 · 对应原视频 P180 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=180 ← 上一节：25 中文填空案例（四）：加载 FillMask",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/26-nsp-custom-dataset.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/26-nsp-custom-dataset.md"
         },
         {
           "id": 181,
@@ -1691,7 +1691,7 @@
           "topicIndex": 27,
           "title": "NSP 案例（二）：句对编码、token_type_ids 与特殊 token",
           "excerpt": "第 27 节：NSP 案例（二）：句对编码、token type ids 与特殊 token 笔记编号 27/29 · 对应原视频 P181 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=181 ← 上一节：26 NSP 案例（一）：自定",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/27-nsp-preprocessing.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/27-nsp-preprocessing.md"
         },
         {
           "id": 182,
@@ -1700,7 +1700,7 @@
           "topicIndex": 28,
           "title": "NSP 案例（三）：复用自定义 BERT + Linear(768→2)",
           "excerpt": "第 28 节：NSP 案例（三）：复用自定义 BERT + Linear 768→2 笔记编号 28/29 · 对应原视频 P182 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=182 ← 上一节：27 NSP 案例（二）：句对编码、t",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/28-nsp-model.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/28-nsp-model.md"
         },
         {
           "id": 183,
@@ -1709,7 +1709,7 @@
           "topicIndex": 29,
           "title": "NSP 案例（四）：训练、评估与数据捷径检查",
           "excerpt": "第 29 节：NSP 案例（四）：训练、评估与数据捷径检查 笔记编号 29/29 · 对应原视频 P183 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=183 ← 上一节：28 NSP 案例（三）：复用自定义 BERT + Linear",
-          "path": "/content/2a934ba8dcff/notes/transfer-learning/29-nsp-training-evaluation.md"
+          "path": "/content/838d8b8dc092/notes/transfer-learning/29-nsp-training-evaluation.md"
         }
       ]
     },
@@ -1726,7 +1726,7 @@
           "topicIndex": 1,
           "title": "BERT 介绍：为什么它能成为通用的文本理解底座",
           "excerpt": "第 1 节：BERT 介绍：为什么它能成为通用的文本理解底座 笔记编号 1/6 · 对应原视频 P184 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=184 ← 已是第一节 · 返回总目录 ./README.md · 下一节：2 BER",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/01-bert-introduction.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/01-bert-introduction.md"
         },
         {
           "id": 185,
@@ -1735,7 +1735,7 @@
           "topicIndex": 2,
           "title": "BERT 架构：三种 Embedding、Encoder 堆叠与关键形状",
           "excerpt": "第 2 节：BERT 架构：三种 Embedding、Encoder 堆叠与关键形状 笔记编号 2/6 · 对应原视频 P185 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=185 ← 上一节：1 BERT 介绍：为什么它能成为通用的文",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/02-bert-architecture.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/02-bert-architecture.md"
         },
         {
           "id": 186,
@@ -1744,7 +1744,7 @@
           "topicIndex": 3,
           "title": "BERT 预训练任务：MLM 与 NSP 怎样共同制造监督",
           "excerpt": "第 3 节：BERT 预训练任务：MLM 与 NSP 怎样共同制造监督 笔记编号 3/6 · 对应原视频 P186 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=186 ← 上一节：2 BERT 架构：三种 Embedding、Encod",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/03-bert-mlm-nsp.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/03-bert-mlm-nsp.md"
         },
         {
           "id": 187,
@@ -1753,7 +1753,7 @@
           "topicIndex": 4,
           "title": "BERT 总结：MLM/NSP 复盘，以及 GLUE 与 CLUE 公共评测",
           "excerpt": "第 4 节：BERT 总结：MLM/NSP 复盘，以及 GLUE 与 CLUE 公共评测 笔记编号 4/6 · 对应原视频 P187 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=187 ← 上一节：3 BERT 预训练任务：MLM 与 ",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/04-bert-summary.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/04-bert-summary.md"
         },
         {
           "id": 188,
@@ -1762,7 +1762,7 @@
           "topicIndex": 5,
           "title": "ELMo：在 Transformer 之前，双向语言模型怎样生成动态词向量",
           "excerpt": "第 5 节：ELMo：在 Transformer 之前，双向语言模型怎样生成动态词向量 笔记编号 5/6 · 对应原视频 P188 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=188 ← 上一节：4 BERT 总结：MLM/NSP 复盘",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/05-elmo-introduction.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/05-elmo-introduction.md"
         },
         {
           "id": 189,
@@ -1771,7 +1771,7 @@
           "topicIndex": 6,
           "title": "GPT：因果注意力怎样把“预测下一个 token”扩展成文本生成",
           "excerpt": "第 6 节：GPT：因果注意力怎样把“预测下一个 token”扩展成文本生成 笔记编号 6/6 · 对应原视频 P189 · 打开这一集 https://www.bilibili.com/video/BV14mdfBDE4Q?p=189 ← 上一节：5 ELMo：在 Transformer 之前，双",
-          "path": "/content/2a934ba8dcff/notes/foundation-models/06-gpt-introduction.md"
+          "path": "/content/838d8b8dc092/notes/foundation-models/06-gpt-introduction.md"
         }
       ]
     }
