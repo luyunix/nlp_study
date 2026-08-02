@@ -71,7 +71,7 @@ def main() -> int:
             fail(f"站点公开副本未同步：{note.relative_to(ROOT)}", failures)
 
     targeted = {
-        ROOT / "notes/attention/03-attention-steps.md": (5, "eat 作查询"),
+        ROOT / "notes/attention/03-attention-steps.md": (8, "21 个词就有 21 组 K/V"),
         ROOT / "notes/seq2seq-translation/06-preprocessing.md": (5, "这里还没有实现 PAD 或 UNK"),
         ROOT / "notes/seq2seq-translation/13-test-plain-decoder.md": (5, "不能被表述成完整推理算法"),
         ROOT / "notes/rnn/08-lstm-diagram-part2.md": (4, "手算两个记忆维度"),
@@ -110,6 +110,40 @@ def main() -> int:
             fail(f"阅读器章节导学缺少字段或入口：{marker}", failures)
 
     accuracy_contracts = {
+        "notes/attention/02-qkv-introduction.md": {
+            "required": (
+                "assets/p067-qkv-task-examples-teacher-slide.png",
+                "把老师图中的两种任务逐句读懂",
+                "用一组确定数字亲手算完一次",
+                "[B,Lq,Lk]",
+                "Q=XW_Q",
+                "K 本身不保证省计算",
+                "课件中的问答与文本生成两套场景",
+                "0.8/0.1/0.1",
+            ),
+            "forbidden": (
+                "注意力只取最高分对应的一条 V",
+                "加入 K 一定会减少标准注意力的计算量",
+            ),
+        },
+        "notes/attention/03-attention-steps.md": {
+            "required": (
+                "把老师的 `it` 例子完整算成 Attention",
+                "约有 21 个 token",
+                "不要把 score 和 weight 当成同一个东西",
+                "[B,Lq,Lk]",
+                "普通 Q 升级成更强大的 Q",
+                "软注意力、硬注意力、自注意力不是同一条分类轴",
+                "聊天模型“每若干轮压缩一次对话”",
+                "三道课堂检查题",
+                "0.3/0.5/0.2",
+            ),
+            "forbidden": (
+                "Attention 的输出就是原始 Q",
+                "自注意力与软注意力互斥",
+                "课件未展示的小权重不会参与计算",
+            ),
+        },
         "notes/transformer/02-transformer-architecture-text.md": {
             "required": (
                 "## 不看视频也能学懂",
